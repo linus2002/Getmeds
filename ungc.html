@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UN Global Compact - GetMEDS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0D99FF',
+                        dark: '#1A202C',
+                        footer: '#1A1D2B',
+                        unblue: '#00ADEF'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-shadow-up {
+            box-shadow: 0 -40px 60px -20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 10;
+        }
+
+        .sdg-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            font-size: 13px;
+            font-weight: 500;
+            color: #4b5563;
+            transition: all 0.3s ease;
+        }
+
+        .sdg-pill:hover {
+            border-color: #0D99FF;
+            color: #0D99FF;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(13, 153, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- Navbar Component -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- UNGC Hero Section -->
+    <section class="w-full mx-auto px-3 sm:px-4 md:px-6 mt-3 md:mt-4 mb-16 max-w-[1600px]">
+        <div
+            class="relative rounded-[1.5rem] border border-gray-100/20 overflow-hidden min-h-[450px] md:min-h-[500px] flex items-end">
+            <!-- Background Image -->
+            <img src="assets/ungchero.jpg" alt="UN Global Compact" class="absolute inset-0 w-full h-full object-cover">
+            <!-- Overlay for readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent w-[100%] md:w-[70%]">
+            </div>
+
+            <div class="relative z-10 w-full px-8 md:px-14 pb-12 md:pb-16 pt-20 max-w-4xl">
+                <h1 class="text-[28px] md:text-[38px] leading-tight font-bold mb-3 tracking-tight">
+                    <span class="text-white">United Nations Global</span><br>
+                    <span
+                        class="bg-gradient-to-r from-[#61A644] to-[#1D9FDA] bg-clip-text text-transparent leading-tight tracking-tight">
+                        COMPACT (UNGC)
+                    </span>
+                </h1>
+                <p class="text-white/90 text-[13px] md:text-[14px] max-w-[650px] mb-5 leading-normal font-normal">
+                    We don't just distribute medicine; we facilitate healing. Through NGO partnerships and digital
+                    health advocacy, we ensure no patient navigates their journey alone.
+                </p>
+                <button
+                    class="bg-gradient-to-r from-[#61A644] to-[#1D9FDA] hover:from-[#1D9FDA] hover:to-[#61A644] text-white font-semibold py-2 px-6 rounded-full text-[13px] inline-block transition shadow-md">
+                    Read More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is UNGC Section -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text Area -->
+                <div class="flex-1">
+                    <span
+                        class="bg-primary text-white text-[10px] font-bold px-4 py-1.5 rounded-full mb-6 inline-block tracking-widest">
+                        United Nations Global Compact (UNGC)
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6 tracking-tight">What is <span
+                            class="text-primary bg-gradient-to-r from-[#61A644] to-[#1D9FDA] bg-clip-text text-transparent">UNGC</span>?
+                    </h2>
+                    <p class="text-gray-500 text-[15px] leading-[1.8] mb-6">
+                        The United Nations Global Compact (UNGC) is the world's largest corporate sustainability
+                        initiative. It encourages companies to adopt responsible, ethical, and sustainable business
+                        practices that create positive impact for people, communities, and the planet. By aligning
+                        strategies with ten universally accepted principles, it provides a powerful framework for
+                        businesses to drive progress toward the Sustainable Development Goals. This collaborative
+                        movement empowers organizations to transform global challenges into opportunities for shared
+                        value and long-term resilience.
+                    </p>
+                </div>
+                <!-- Logo Area -->
+                <div class="w-full lg:w-[450px] flex justify-center">
+                    <img src="assets/UNGClogo.png" alt="UNGC Logo"
+                        class="max-w-full h-auto grayscale opacity-90 drop-shadow-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seamless Grid Image Section -->
+    <section class="pb-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row overflow-hidden rounded-xl shadow-sm border border-gray-100">
+
+                <!-- Left: CEO Addresses -->
+                <div class="relative group w-full md:w-1/3 h-[500px] cursor-pointer overflow-hidden"
+                    onclick="openLightbox('assets/left.jpg')">
+                    <img src="assets/left.jpg"
+                        class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <!-- Blue Overlay on Hover -->
+                    <div
+                        class="absolute inset-0 bg-[#1D9FDA]/0 group-hover:bg-[#1D9FDA]/40 transition-all duration-500 z-10">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 p-8 flex flex-col justify-between z-20">
+                        <div class="flex justify-between items-start">
+                            <span class="text-white/90 text-[15px] font-bold"><i
+                                    class="fa-regular fa-calendar-days mr-2"></i> 24 Sept 2025</span>
+                            <i
+                                class="fa-solid fa-arrow-up-right-from-square text-white/70 text-sm opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                        </div>
+                        <h4 class="text-white text-xl font-bold leading-tight">GETMEDS CEO ADDRESSES THE UNGC ASSEMBLY
+                            IN NEW YORK</h4>
+                    </div>
+                </div>
+
+                <!-- Middle: Sustainable & Networking -->
+                <div class="flex flex-col w-full md:w-1/3">
+                    <div class="relative group h-[250px] border-l border-b border-gray-100/10 cursor-pointer overflow-hidden"
+                        onclick="openLightbox('assets/topmid.jpg')">
+                        <img src="assets/topmid.jpg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <!-- Blue Overlay on Hover -->
+                        <div
+                            class="absolute inset-0 bg-[#1D9FDA]/0 group-hover:bg-[#1D9FDA]/40 transition-all duration-500 z-10">
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 p-8 flex flex-col justify-between z-20">
+                            <div class="flex justify-between items-start">
+                                <span class="text-white/90 text-[15px] font-bold"><i
+                                        class="fa-regular fa-calendar-days mr-2"></i> 24 Sept 2025</span>
+                                <i
+                                    class="fa-solid fa-arrow-up-right-from-square text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                            <h4 class="text-white text-xl font-bold leading-tight uppercase">Panel Discussion on
+                                Sustainable Supply Chains</h4>
+                        </div>
+                    </div>
+                    <div class="relative group h-[250px] border-l border-gray-100/10 cursor-pointer overflow-hidden"
+                        onclick="openLightbox('assets/bottommid.jpg')">
+                        <img src="assets/bottommid.jpg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <!-- Blue Overlay on Hover -->
+                        <div
+                            class="absolute inset-0 bg-[#1D9FDA]/0 group-hover:bg-[#1D9FDA]/40 transition-all duration-500 z-10">
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 p-8 flex flex-col justify-between z-20">
+                            <div class="flex justify-between items-start">
+                                <span class="text-white/90 text-[15px] font-bold"><i
+                                        class="fa-regular fa-calendar-days mr-2"></i> 24 Sept 2025</span>
+                                <i
+                                    class="fa-solid fa-arrow-up-right-from-square text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                            <h4 class="text-white text-xl font-bold leading-tight uppercase">Networking with Global
+                                Healthcare Leaders</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Ethical & General Assembly -->
+                <div class="flex flex-col w-full md:w-1/3">
+                    <div class="relative group h-[250px] border-l border-b border-gray-100/10 cursor-pointer overflow-hidden"
+                        onclick="openLightbox('assets/topright.jpeg')">
+                        <img src="assets/topright.jpeg"
+                            class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <!-- Blue Overlay on Hover -->
+                        <div
+                            class="absolute inset-0 bg-[#1D9FDA]/0 group-hover:bg-[#1D9FDA]/40 transition-all duration-500 z-10">
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 p-8 flex flex-col justify-between z-20">
+                            <div class="flex justify-between items-start">
+                                <span class="text-white/90 text-[15px] font-bold"><i
+                                        class="fa-regular fa-calendar-days mr-2"></i> 10 Feb 2026</span>
+                                <i
+                                    class="fa-solid fa-arrow-up-right-from-square text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                            <h4 class="text-white text-xl font-bold leading-tight uppercase">Commitment to Ethical
+                                Business Practices</h4>
+                        </div>
+                    </div>
+                    <div class="relative group h-[250px] border-l border-gray-100/10 cursor-pointer overflow-hidden"
+                        onclick="openLightbox('assets/bottomright.jpeg')">
+                        <img src="assets/bottomright.jpeg"
+                            class=" w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <!-- Blue Overlay on Hover -->
+                        <div
+                            class="absolute inset-0 bg-[#1D9FDA]/0 group-hover:bg-[#1D9FDA]/40 transition-all duration-500 z-10">
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 p-8 flex flex-col justify-between z-20">
+                            <div class="flex justify-between items-start">
+                                <span class="text-white/90 text-[15px] font-bold"><i
+                                        class="fa-regular fa-calendar-days mr-2"></i> 10 Feb 2026</span>
+                                <i
+                                    class="fa-solid fa-arrow-up-right-from-square text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </div>
+                            <h4 class="text-white text-xl font-bold leading-tight uppercase">Pledging for a Healthier
+                                Future for All</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- The Ten Principles -->
+    <section class="py-24 bg-white border-t border-gray-50">
+        <div class="max-w-7xl mx-auto px-4 text-center mb-16">
+            <h2 class=" text-4xl font-bold text-dark">The Ten Principles</h2>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+                <div class="space-y-8">
+                    <!-- Human Rights -->
+                    <div
+                        class="bg-white rounded-2xl border border-gray-100 p-10 shadow-sm transition-all hover:shadow-md">
+                        <h4 class="text-xl font-bold text-dark mb-2">Human Rights</h4>
+                        <div class="h-px bg-dark/80 mb-8"></div>
+                        <div class="space-y-6">
+                            <div class="flex gap-4 items-start">
+                                <i class="fa-solid fa-circle-check text-[#1D9FDA] mt-1 text-lg"></i>
+                                <p class="text-[15px] text-gray-400 leading-relaxed font-medium">Principle 1: Businesses
+                                    should
+                                    support
+                                    and respect the protection of internationally proclaimed human rights.</p>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <i class="fa-solid fa-circle-check text-[#1D9FDA] mt-1 text-lg"></i>
+                                <p class="text-[15px] text-gray-400 leading-relaxed font-medium">Principle 2: Make sure
+                                    that they
+                                    are
+                                    not complicit in human rights abuses.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Environment -->
+                    <div
+                        class="bg-white rounded-2xl border border-gray-100 p-10 shadow-sm transition-all hover:shadow-md">
+                        <h4 class="text-xl font-bold text-dark mb-2">Environment</h4>
+                        <div class="h-px bg-dark/80 mb-8"></div>
+                        <div class="space-y-6">
+                            <div class="flex gap-4 items-start">
+                                <i class="fa-solid fa-circle-check text-[#1D9FDA] mt-1 text-lg"></i>
+                                <p class="text-[15px] text-gray-400 leading-relaxed font-medium">Principle 7: Businesses
+                                    should
+                                    support
+                                    a precautionary approach to environmental challenges.</p>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <i class="fa-solid fa-circle-check text-[#1D9FDA] mt-1 text-lg"></i>
+                                <p class="text-[15px] text-gray-400 leading-relaxed font-medium">Principle 8: Undertake
+                                    initiatives
+                                    to
+                                    promote greater environmental responsibility.</p>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <i class="fa-solid fa-circle-check text-[#1D9FDA] mt-1 text-lg"></i>
+                                <p class="text-[15px] text-gray-400 leading-relaxed font-medium">Principle 9: Encourage
+                                    the
+                                    development
+                                    and diffusion of environmentally friendly technologies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Labor -->
+                    <div
+                        class="bg-white rounded-2xl border border-gray-100 p-10 shadow-sm transition-all hover:shadow-md">
+                        <h4 class="text-xl font-bold text-dark mb-2">Labor</h4>
+                        <div class="h-px bg-dark/80 mb-8"></div>
+                        <div class="space-y-6">
+                            <div class="flex gap-4 items-start">
+                                <i class="fa-solid fa-circle-check text-[#1D9FDA] mt-1 text-lg"></i>
+                                <p class="text-[15px] text-gray-400 leading-relaxed font-medium">Principle 3: Businesses
+                                    should
+                                    uphold
+                                    the freedom of association and the effective recognition of the right to collective
+                                    bargaining.</p>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <i class="fa-solid fa-circle-check text-[#1D9FDA] mt-1 text-lg"></i>
+                                <p class="text-[15px] text-gray-400 leading-relaxed font-medium">Principle 4: The
+                                    elimination of all
+                                    forms of forced and compulsory labor.</p>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <i class="fa-solid fa-circle-check text-[#1D9FDA] mt-1 text-lg"></i>
+                                <p class="text-[15px] text-gray-400 leading-relaxed font-medium">Principle 5: The
+                                    effective
+                                    abolition of
+                                    child labor.</p>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <i class="fa-solid fa-circle-check text-[#1D9FDA] mt-1 text-lg"></i>
+                                <p class="text-[15px] text-gray-400 leading-relaxed font-medium">Principle 6: The
+                                    elimination of
+                                    discrimination in respect of employment and occupation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Anti-Corruption -->
+                    <div
+                        class="bg-white rounded-2xl border border-gray-100 p-10 shadow-sm transition-all hover:shadow-md">
+                        <h4 class="text-xl font-bold text-dark mb-2">Anti-Corruption</h4>
+                        <div class="h-px bg-dark/80 mb-8"></div>
+                        <div class="space-y-6">
+                            <div class="flex gap-4 items-start">
+                                <i class="fa-solid fa-circle-check text-[#1D9FDA] mt-1 text-lg"></i>
+                                <p class="text-[15px] text-gray-400 leading-relaxed font-medium">Principle 10:
+                                    Businesses should
+                                    work
+                                    against corruption in all its forms, including extortion and bribery.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How UNGC Supports the 17 SDG -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center mb-6">
+            <h2 class="text-3xl font-bold text-dark mb-4">How UNGC Supports the 17 Sustainable Development Goals (SDGs)
+            </h2>
+            <p class="text-gray-500 text-[18px] max-w-3xl mx-auto leading-relaxed px-4">The UNGC principles also
+                contribute to the United Nations Sustainable Development Goals (SDGs) — a global call to end poverty,
+                protect the planet, and ensure prosperity for all.</p>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 py-12 flex flex-wrap justify-center gap-3">
+            <div class="sdg-pill"><i class="fa-solid fa-hand-holding-dollar mr-2 text-yellow-500"></i> No Poverty</div>
+            <div class="sdg-pill"><i class="fa-solid fa-bowl-food mr-2 text-orange-500"></i> Zero Hunger</div>
+            <div class="sdg-pill"><i class="fa-solid fa-heart-pulse mr-2 text-green-500"></i> Good Health and Well-Being
+            </div>
+            <div class="sdg-pill"><i class="fa-solid fa-book mr-2 text-red-500"></i> Quality Education</div>
+            <div class="sdg-pill"><i class="fa-solid fa-venus-mars mr-2 text-primary"></i> Gender Equality</div>
+            <div class="sdg-pill"><i class="fa-solid fa-faucet-drip mr-2 text-blue-300"></i> Clean Water and Sanitation
+            </div>
+            <div class="sdg-pill"><i class="fa-solid fa-solar-panel mr-2 text-yellow-500"></i> Affordable and Clean
+                Energy</div>
+            <div class="sdg-pill"><i class="fa-solid fa-briefcase mr-2 text-red-800"></i> Decent Work and Economic
+                Growth</div>
+            <div class="sdg-pill"><i class="fa-solid fa-industry mr-2 text-orange-600"></i> Industry, Innovation, and
+                Infrastructure</div>
+            <div class="sdg-pill"><i class="fa-solid fa-users mr-2 text-pink-500"></i> Reduced Inequality</div>
+            <div class="sdg-pill"><i class="fa-solid fa-city mr-2 text-orange-400"></i> Sustainable Cities and
+                Communities</div>
+            <div class="sdg-pill"><i class="fa-solid fa-arrows-rotate mr-2 text-yellow-600"></i> Responsible Consumption
+                and Production</div>
+            <div class="sdg-pill"><i class="fa-solid fa-cloud-sun mr-2 text-green-700"></i> Climate Action</div>
+            <div class="sdg-pill"><i class="fa-solid fa-fish mr-2 text-blue-600"></i> Life Below Water</div>
+            <div class="sdg-pill"><i class="fa-solid fa-tree mr-2 text-green-600"></i> Life on Land</div>
+            <div class="sdg-pill"><i class="fa-solid fa-dove mr-2 text-blue-800"></i> Peace, Justice, and Strong
+                Institutions</div>
+            <div class="sdg-pill"><i class="fa-solid fa-handshake-angle mr-2 text-blue-900"></i> Partnerships for the
+                Goals</div>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <p class="text-gray-400 text-[15px] leading-[1.8] italic">By aligning with UNGC, Getmeds Philippines, only
+                the
+                second pharmaceutical company of its kind in the Philippines to join, integrates these principles and
+                goals into our operations. This milestone highlights our commitment to ethical business practices,
+                sustainable growth, and social responsibility. Through this partnership, we aim to set new standards in
+                the healthcare industry, improve access to quality medicines, and create a positive, lasting impact on
+                communities nationwide. Joining UNGC also reflects our dedication to the United Nations Sustainable
+                Development Goals (SDGs), ensuring that every step we take in business aligns with global efforts for a
+                healthier, fairer, and more sustainable world.</p>
+        </div>
+    </section>
+
+    <!-- Large Banner Image -->
+    <section class="max-w-7xl mx-auto px-4 mb-24 overflow-hidden">
+        <div class="relative rounded-[1.5rem] overflow-hidden h-[200px] flex items-center justify-start px-12 md:px-28">
+            <img src="assets/ungcassembly.jpg" alt="UN Global Compact" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="relative z-10 text-left">
+                <h2
+                    class="text-xl md:text-2xl font-bold text-white mb-4 leading-none [text-shadow:0_4px_4px_rgba(0,0,0,1)]">
+                    Learn more about UNGC and its global impact</h2>
+                <button
+                    class="bg-primary hover:bg-blue-600 text-white font-bold py-1.5 px-4 rounded-lg text-[15px] transition tracking-wide">Learn
+                    More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[1000] hidden flex-col items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/95 backdrop-blur-sm" onclick="closeLightbox()"></div>
+        <button onclick="closeLightbox()"
+            class="absolute top-8 right-8 text-white/70 hover:text-white transition text-3xl z-[1001]">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Gallary Preview"
+            class="relative z-[1001] max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain">
+        <p id="lightbox-caption" class="relative z-[1001] text-white/80 mt-6 font-medium text-sm"></p>
+    </div>
+
+    <script>
+        function openLightbox(imgSrc) {
+            const modal = document.getElementById('lightbox-modal');
+            const modalImg = document.getElementById('lightbox-img');
+            modalImg.src = imgSrc;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Stop scroll
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto'; // Enable scroll
+        }
+
+        // Close on Esc key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+    <script src="components/components.js"></script>
+</body>
+
+</html>
