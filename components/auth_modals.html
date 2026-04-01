@@ -1,260 +1,167 @@
 <!-- Auth Modals -->
-<div id="auth-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000] hidden items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
-    
+<div id="auth-overlay"
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1000] hidden items-center justify-center p-4 transition-all duration-300 opacity-0 pointer-events-none">
+
     <!-- Modal Container -->
-    <div id="auth-modal" class="bg-white rounded-[15px] shadow-2xl w-full max-w-[820px] overflow-hidden flex flex-col md:flex-row transform scale-95 transition-transform duration-300" style="min-height: 500px;">
-        
-        <!-- LEFT PANE: Blue gradient + 3D Illustration -->
-        <div class="md:w-[45%] relative overflow-hidden flex flex-col justify-center p-7 text-white" style="background: linear-gradient(135deg, #61A644 0%, #1D9FDA 50%, #0D99FF 100%);">
-            <!-- Soft glow blobs -->
-            <div class="absolute -top-16 -left-16 w-64 h-64 bg-white/10 blur-[80px] rounded-full pointer-events-none"></div>
-            <div class="absolute -bottom-16 -right-16 w-72 h-72 bg-white/10 blur-[90px] rounded-full pointer-events-none"></div>
+    <div id="auth-modal"
+        class="bg-white rounded-[15px] shadow-2xl w-full max-w-[820px] overflow-hidden flex flex-col md:flex-row transform scale-95 transition-transform duration-300"
+        style="min-height: 500px;">
 
-
-
-            <!-- Center SVG Illustration -->
-            <div class="relative z-10 flex-1 flex items-center justify-center py-4" style="animation: floatY 4s ease-in-out infinite;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" class="w-full max-w-[280px] select-none pointer-events-none" fill="none">
-
-                  <!-- Floating sparkles -->
-                  <circle cx="30" cy="60" r="5" fill="white" opacity="0.5"/>
-                  <circle cx="290" cy="80" r="4" fill="white" opacity="0.4"/>
-                  <circle cx="270" cy="230" r="6" fill="white" opacity="0.3"/>
-                  <circle cx="50" cy="240" r="4" fill="white" opacity="0.45"/>
-                  <circle cx="160" cy="20" r="3" fill="white" opacity="0.35"/>
-
-                  <!-- Star sparkle top-right -->
-                  <g transform="translate(285,50)" opacity="0.8">
-                    <line x1="0" y1="-8" x2="0" y2="8" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="-8" y1="0" x2="8" y2="0" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="-5.5" y1="-5.5" x2="5.5" y2="5.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                    <line x1="5.5" y1="-5.5" x2="-5.5" y2="5.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                  </g>
-
-                  <!-- Star sparkle bottom-left -->
-                  <g transform="translate(38,190)" opacity="0.6">
-                    <line x1="0" y1="-6" x2="0" y2="6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                    <line x1="-6" y1="0" x2="6" y2="0" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                  </g>
-
-                  <!-- Floating pill - top left -->
-                  <g transform="translate(52,85) rotate(-35)">
-                    <rect x="-22" y="-10" width="44" height="20" rx="10" fill="white" opacity="0.9"/>
-                    <rect x="0" y="-10" width="22" height="20" rx="0" fill="#61A644" opacity="0.85"/>
-                    <rect x="10" y="-10" width="12" height="20" rx="10" fill="#61A644" opacity="0.85"/>
-                    <line x1="0" y1="-10" x2="0" y2="10" stroke="white" stroke-width="1.5" opacity="0.5"/>
-                  </g>
-
-                  <!-- Floating heart - top right -->
-                  <g transform="translate(268,105)" opacity="0.9">
-                    <path d="M0,-8 C-2,-14 -14,-14 -14,-4 C-14,4 0,14 0,14 C0,14 14,4 14,-4 C14,-14 2,-14 0,-8 Z" fill="white" opacity="0.85"/>
-                  </g>
-
-                  <!-- Floating stethoscope blob - bottom left -->
-                  <g transform="translate(62,215)" opacity="0.85">
-                    <circle cx="0" cy="0" r="18" fill="white" opacity="0.15"/>
-                    <path d="M-8,-10 Q-12,0 -8,8 Q-4,14 2,14 Q10,14 12,6 Q14,-2 10,-8" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                    <circle cx="10" cy="-8" r="4" stroke="white" stroke-width="2" fill="none"/>
-                    <circle cx="-8" cy="-12" r="2.5" fill="white"/>
-                  </g>
-
-                  <!-- Main phone card -->
-                  <g transform="translate(160,152)">
-                    <!-- Card shadow -->
-                    <rect x="-68" y="-98" width="136" height="196" rx="22" fill="black" opacity="0.18" transform="translate(4,6)"/>
-                    <!-- Card body -->
-                    <rect x="-68" y="-98" width="136" height="196" rx="22" fill="white" opacity="0.97"/>
-
-                    <!-- Status bar dots -->
-                    <circle cx="-40" cy="-82" r="3" fill="#e0e0e0"/>
-                    <circle cx="-30" cy="-82" r="3" fill="#e0e0e0"/>
-                    <circle cx="-20" cy="-82" r="3" fill="#e0e0e0"/>
-
-                    <!-- Shield icon center -->
-                    <g transform="translate(0,-28)">
-                      <!-- Shield bg glow -->
-                      <circle cx="0" cy="0" r="38" fill="#1D9FDA" opacity="0.12"/>
-                      <!-- Shield shape -->
-                      <path d="M0,-34 L28,-20 L28,4 Q28,28 0,38 Q-28,28 -28,4 L-28,-20 Z" fill="url(#shieldGrad)" opacity="0.95"/>
-                      <!-- Lock icon on shield -->
-                      <rect x="-10" y="-4" width="20" height="16" rx="4" fill="white" opacity="0.95"/>
-                      <path d="M-6,-4 Q-6,-16 0,-16 Q6,-16 6,-4" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                      <circle cx="0" cy="4" r="3" fill="#1D9FDA"/>
-                    </g>
-
-                    <!-- Welcome text bars -->
-                    <rect x="-42" y="22" width="84" height="8" rx="4" fill="#e8f4fb" opacity="0.9"/>
-                    <rect x="-28" y="36" width="56" height="6" rx="3" fill="#e8f4fb" opacity="0.7"/>
-
-                    <!-- Sign in button on card -->
-                    <rect x="-40" y="52" width="80" height="22" rx="11" fill="#1D9FDA" opacity="0.9"/>
-                    <rect x="-14" y="58" width="28" height="5" rx="2.5" fill="white" opacity="0.8"/>
-                    <rect x="-8" y="67" width="16" height="4" rx="2" fill="white" opacity="0.5"/>
-                  </g>
-
-                  <!-- Floating badge - right -->
-                  <g transform="translate(268,175)">
-                    <rect x="-22" y="-14" width="44" height="28" rx="10" fill="white" opacity="0.9"/>
-                    <text x="0" y="3" text-anchor="middle" font-size="14" fill="#61A644">✓</text>
-                  </g>
-
-                  <!-- Floating molecule dots - bottom right -->
-                  <g transform="translate(268,240)" opacity="0.7">
-                    <circle cx="0" cy="0" r="7" fill="white" opacity="0.5"/>
-                    <circle cx="18" cy="-8" r="5" fill="white" opacity="0.4"/>
-                    <circle cx="10" cy="12" r="4" fill="white" opacity="0.35"/>
-                    <line x1="0" y1="0" x2="18" y2="-8" stroke="white" stroke-width="1" opacity="0.4"/>
-                    <line x1="0" y1="0" x2="10" y2="12" stroke="white" stroke-width="1" opacity="0.4"/>
-                  </g>
-
-                  <defs>
-                    <linearGradient id="shieldGrad" x1="0" y1="-34" x2="0" y2="38" gradientUnits="userSpaceOnUse">
-                      <stop offset="0%" stop-color="#1D9FDA"/>
-                      <stop offset="100%" stop-color="#0D99FF"/>
-                    </linearGradient>
-                  </defs>
-                </svg>
+        <!-- LEFT PANE: Full-Cover Illustration Image -->
+        <div class="md:w-[45%] relative overflow-hidden bg-[#1D9FDA] p-10">
+            <img src="assets/loginimage.png" alt="GetMEDS Authentication"
+                class="w-full h-full object-cover absolute inset-0">
+            <div class="relative z-10">
+                <h3 class="text-2xl font-bold text-white mb-2 leading-tight drop-shadow-lg">Complete Health<br>Solutions</h3>
+                <p class="text-white/90 text-[13px] font-medium drop-shadow-md">Early protection for family health</p>
             </div>
-
-
         </div>
 
         <!-- RIGHT PANE: Forms -->
-        <div class="md:w-[55%] bg-white p-8 flex flex-col relative justify-center">
+        <div class="md:w-[55%] bg-white px-12 py-10 flex flex-col relative justify-center">
             <!-- Close button -->
-            <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gray-600 transition z-10">
+            <button onclick="closeAuthModal()"
+                class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition z-10">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
 
-            <!-- Login Form -->
-            <div id="login-form" class="flex flex-col">
-                <h2 class="text-xl font-bold text-gray-900 mb-0.5">Sign In</h2>
-                <p class="text-gray-400 text-xs mb-4">Welcome back! Please enter your details.</p>
+            <div class="w-full max-w-[380px] mx-auto">
+                <!-- Login Form -->
+                <div id="login-form" class="flex flex-col">
+                    <h2 class="text-xl font-bold text-gray-900 mb-0.5">Sign In</h2>
+                    <p class="text-gray-400 text-xs mb-6">Welcome back! Please enter your details.</p>
 
-                <div class="space-y-3">
-                    <div class="space-y-1.5">
-                        <label class="text-[11px] font-semibold text-gray-600">Email address</label>
-                        <input type="email" placeholder="example@email.com"
-                            class="w-full px-3.5 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 transition outline-none text-[12px]">
-                    </div>
-                    <div class="space-y-1.5">
-                        <div class="flex justify-between items-center">
-                            <label class="text-[11px] font-semibold text-gray-600">Password</label>
-                            <a href="#" class="text-[11px] font-semibold text-primary hover:underline">Forgot password?</a>
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <label class="text-[13px] font-bold text-gray-800 ml-1">Email address</label>
+                            <input type="email" placeholder="example@email.com"
+                                class="w-full bg-gray-50 border-none rounded-[15px] px-6 py-3 text-[13px] text-gray-700 outline-none focus:ring-2 focus:ring-primary/20 transition placeholder-gray-300">
                         </div>
-                        <div class="relative">
-                            <input type="password" placeholder="••••••••••"
-                                class="w-full px-3.5 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 transition outline-none text-[12px]">
-                            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition p-1">
-                                <i class="fa-solid fa-eye text-xs"></i>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center ml-1">
+                                <label class="text-[13px] font-bold text-gray-800">Password</label>
+                                <a href="#" class="text-[11px] font-semibold text-primary hover:underline">Forgot
+                                    password?</a>
+                            </div>
+                            <div class="relative">
+                                <input type="password" placeholder="••••••••••"
+                                    class="w-full bg-gray-50 border-none rounded-[15px] px-6 py-3 text-[13px] text-gray-700 outline-none focus:ring-2 focus:ring-primary/20 transition placeholder-gray-300">
+                                <button
+                                    class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition p-1">
+                                    <i class="fa-solid fa-eye text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-primary hover:bg-blue-600 text-[14px] text-white font-bold py-3 rounded-[15px] shadow-lg shadow-blue-100 transition-all transform active:scale-[0.98]">
+                            Sign In
+                        </button>
+
+                        <div class="relative flex items-center justify-center gap-3">
+                            <div class="flex-1 border-t border-gray-100"></div>
+                            <span class="text-[11px] font-bold text-gray-300 uppercase tracking-widest">or</span>
+                            <div class="flex-1 border-t border-gray-100"></div>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button
+                                class="flex-1 flex items-center justify-center gap-2 py-3 border border-gray-200 rounded-[15px] hover:bg-gray-50 transition text-[12px] font-semibold text-gray-600">
+                                <i class="fa-brands fa-google text-sm"></i> Google
                             </button>
-                        </div>
-                    </div>
-                    <button class="w-full bg-primary hover:bg-blue-600 text-[13px] text-white font-bold py-2.5 rounded-lg shadow-md shadow-blue-100 transition-all transform active:scale-[0.98]">
-                        Sign In
-                    </button>
-
-                    <div class="relative flex items-center justify-center gap-3">
-                        <div class="flex-1 border-t border-gray-100"></div>
-                        <span class="text-[11px] font-bold text-gray-300 uppercase tracking-widest">or</span>
-                        <div class="flex-1 border-t border-gray-100"></div>
-                    </div>
-
-                    <div class="flex gap-2">
-                        <button class="flex-1 flex items-center justify-center gap-2 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition text-[12px] font-semibold text-gray-600">
-                            <i class="fa-brands fa-google text-sm"></i> Continue with Google
-                        </button>
-                        <button class="w-10 flex items-center justify-center border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                            <i class="fa-brands fa-facebook text-blue-600 text-sm"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <p class="text-[11px] text-gray-400 text-center mt-3">
-                    Don't have an account?
-                    <a href="#" onclick="toggleAuth('signup')" class="text-primary font-semibold hover:underline ml-1">Sign up</a>
-                </p>
-            </div>
-
-            <!-- Signup Form -->
-            <div id="signup-form" class="hidden flex flex-col">
-                <h2 class="text-xl font-bold text-gray-900 mb-0.5">Sign Up</h2>
-                <p class="text-gray-400 text-xs mb-4">Access your medicines and health records anytime.</p>
-
-                <div class="space-y-3">
-                    <div class="space-y-1.5">
-                        <label class="text-[11px] font-semibold text-gray-600">Full Name</label>
-                        <input type="text" placeholder="John Doe"
-                            class="w-full px-3.5 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 transition outline-none text-[12px]">
-                    </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[11px] font-semibold text-gray-600">Email address</label>
-                        <input type="email" placeholder="example@email.com"
-                            class="w-full px-3.5 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 transition outline-none text-[12px]">
-                    </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[11px] font-semibold text-gray-600">Set password</label>
-                        <div class="relative">
-                            <input type="password" placeholder="••••••••••"
-                                class="w-full px-3.5 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10 transition outline-none text-[12px]">
-                            <button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1">
-                                <i class="fa-solid fa-eye text-xs"></i>
+                            <button
+                                class="w-12 h-11 flex items-center justify-center border border-gray-200 rounded-[15px] hover:bg-gray-50 transition">
+                                <i class="fa-brands fa-facebook text-blue-600 text-sm"></i>
                             </button>
                         </div>
                     </div>
 
-                    <p class="text-[11px] text-gray-400 leading-relaxed">
-                        By creating an account, you agree to the
-                        <a href="#" class="text-primary hover:underline">Terms of Service</a> and
-                        <a href="#" class="text-primary hover:underline">Privacy Policy</a>.
+                    <p class="text-[11px] text-gray-400 text-center mt-5">
+                        Don't have an account?
+                        <a href="#" onclick="toggleAuth('signup')"
+                            class="text-primary font-semibold hover:underline ml-1">Sign up</a>
                     </p>
-
-                    <button class="w-full bg-primary hover:bg-blue-600 text-[13px] text-white font-bold py-2.5 rounded-lg shadow-md shadow-blue-100 transition-all transform active:scale-[0.98]">
-                        Create Account
-                    </button>
-
-                    <div class="relative flex items-center justify-center gap-3">
-                        <div class="flex-1 border-t border-gray-100"></div>
-                        <span class="text-[11px] font-bold text-gray-300 uppercase tracking-widest">or</span>
-                        <div class="flex-1 border-t border-gray-100"></div>
-                    </div>
-
-                    <div class="flex gap-2">
-                        <button class="flex-1 flex items-center justify-center gap-2 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 transition text-[12px] font-semibold text-gray-600">
-                            <i class="fa-brands fa-google text-sm"></i> Continue with Google
-                        </button>
-                        <button class="w-10 flex items-center justify-center border border-gray-200 rounded-lg hover:bg-gray-50 transition">
-                            <i class="fa-brands fa-facebook text-blue-600 text-sm"></i>
-                        </button>
-                    </div>
                 </div>
 
-                <p class="text-[11px] text-gray-400 text-center mt-3">
-                    Already have an account?
-                    <a href="#" onclick="toggleAuth('login')" class="text-primary font-semibold hover:underline ml-1">Sign in</a>
-                </p>
+                <!-- Signup Form -->
+                <div id="signup-form" class="hidden flex flex-col">
+                    <h2 class="text-xl font-bold text-gray-900 mb-0.5">Sign Up</h2>
+                    <p class="text-gray-400 text-xs mb-6">Access your medicines and health records anytime.</p>
+
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <label class="text-[13px] font-bold text-gray-800 ml-1">Full Name</label>
+                            <input type="text" placeholder="John Doe"
+                                class="w-full bg-gray-50 border-none rounded-[15px] px-6 py-3 text-[13px] text-gray-700 outline-none focus:ring-2 focus:ring-primary/20 transition placeholder-gray-300">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[13px] font-bold text-gray-800 ml-1">Email address</label>
+                            <input type="email" placeholder="example@email.com"
+                                class="w-full bg-gray-50 border-none rounded-[15px] px-6 py-3 text-[13px] text-gray-700 outline-none focus:ring-2 focus:ring-primary/20 transition placeholder-gray-300">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[13px] font-bold text-gray-800 ml-1">Set password</label>
+                            <div class="relative">
+                                <input type="password" placeholder="••••••••••"
+                                    class="w-full bg-gray-50 border-none rounded-[15px] px-6 py-3 text-[13px] text-gray-700 outline-none focus:ring-2 focus:ring-primary/20 transition placeholder-gray-300">
+                                <button
+                                    class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 p-1">
+                                    <i class="fa-solid fa-eye text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <p class="text-[11px] text-gray-400 leading-relaxed ml-1">
+                            By creating an account, you agree to the
+                            <a href="#" class="text-primary font-semibold hover:underline">Terms of Service</a> and
+                            <a href="#" class="text-primary hover:underline">Privacy Policy</a>.
+                        </p>
+
+                        <button
+                            class="w-full bg-primary hover:bg-blue-600 text-[14px] text-white font-bold py-3 rounded-[15px] shadow-lg shadow-blue-100 transition-all transform active:scale-[0.98]">
+                            Create Account
+                        </button>
+
+                        <div class="relative flex items-center justify-center gap-3">
+                            <div class="flex-1 border-t border-gray-100"></div>
+                            <span class="text-[11px] font-bold text-gray-300 uppercase tracking-widest">or</span>
+                            <div class="flex-1 border-t border-gray-100"></div>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <button
+                                class="flex-1 flex items-center justify-center gap-2 py-3 border border-gray-200 rounded-[15px] hover:bg-gray-50 transition text-[12px] font-semibold text-gray-600">
+                                <i class="fa-brands fa-google text-sm"></i> Google
+                            </button>
+                            <button
+                                class="w-12 h-11 flex items-center justify-center border border-gray-200 rounded-[15px] hover:bg-gray-50 transition">
+                                <i class="fa-brands fa-facebook text-blue-600 text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <p class="text-[11px] text-gray-400 text-center mt-5">
+                        Already have an account?
+                        <a href="#" onclick="toggleAuth('login')"
+                            class="text-primary font-semibold hover:underline ml-1">Sign in</a>
+                    </p>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
 
-<style>
-    @keyframes floatY {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-12px); }
-    }
-</style>
 
 <script>
-    window.openAuthModal = function(type = 'login') {
+    window.openAuthModal = function (type = 'login') {
         const overlay = document.getElementById('auth-overlay');
         const modal = document.getElementById('auth-modal');
-        
+
         toggleAuth(type);
-        
+
         overlay.classList.remove('hidden');
         overlay.style.display = 'flex';
-        
+
         setTimeout(() => {
             overlay.classList.remove('opacity-0', 'pointer-events-none');
             overlay.classList.add('opacity-100');
@@ -267,22 +174,22 @@
         };
     };
 
-    window.closeAuthModal = function() {
+    window.closeAuthModal = function () {
         const overlay = document.getElementById('auth-overlay');
         const modal = document.getElementById('auth-modal');
-        
+
         overlay.classList.remove('opacity-100');
         overlay.classList.add('opacity-0', 'pointer-events-none');
         modal.classList.remove('scale-100');
         modal.classList.add('scale-95');
-        
+
         setTimeout(() => {
             overlay.style.display = 'none';
             overlay.classList.add('hidden');
         }, 300);
     };
 
-    window.toggleAuth = function(type) {
+    window.toggleAuth = function (type) {
         const loginForm = document.getElementById('login-form');
         const signupForm = document.getElementById('signup-form');
 

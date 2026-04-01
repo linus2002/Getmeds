@@ -5,7 +5,7 @@
             <!-- Logo (Left) -->
             <div class="w-[140px] lg:w-[200px] flex-shrink-0 flex items-center">
                 <a href="index.html" class="flex items-center">
-                    <img src="assets/logo.png" alt="GetMEDS Logo" class="h-10 w-auto object-contain">
+                    <img src="assets/getmedslogo.png" alt="GetMEDS Logo" class="h-10 w-auto object-contain">
                 </a>
             </div>
 
@@ -13,7 +13,7 @@
             <div
                 class="hidden lg:flex absolute left-1/2 -translate-x-1/2 justify-center items-center space-x-8 text-sm font-semibold text-gray-500">
                 <a href="index.html" class="hover:text-primary transition">Home</a>
-                <a href="under-development.html" class="hover:text-primary transition whitespace-nowrap">Order
+                <a href="order-medicines.html" class="hover:text-primary transition whitespace-nowrap">Order
                     Medicines</a>
                 <a href="under-development.html" class="hover:text-primary transition whitespace-nowrap">Product
                     Range</a>
@@ -37,7 +37,8 @@
                         <a href="careers.html"
                             class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 border-b border-gray-50 transition">Careers</a>
                         <a href="contact-us.html"
-                            class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 border-b border-gray-50 transition">Contact Us</a>
+                            class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 border-b border-gray-50 transition">Contact
+                            Us</a>
                         <a href="ungc.html"
                             class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition rounded-b-lg">United
                             Nations Global Compact</a>
@@ -56,37 +57,58 @@
                 </a>
 
                 <div class="hidden lg:flex items-center space-x-3 border-l border-gray-200 pl-6 h-8 ml-2">
-                    <button onclick="openAuthModal('login')" class="text-sm font-bold text-gray-500 hover:text-primary transition duration-300">Login</button>
-                    <button onclick="openAuthModal('signup')" class="bg-gradient-to-r from-[#61A644] to-[#1D9FDA] hover:from-[#1D9FDA] hover:to-[#61A644] text-white text-[12px] font-bold px-5 py-2 rounded-full shadow-md transition-all duration-300 whitespace-nowrap">Sign Up</button>
+                    <button onclick="openAuthModal('login')"
+                        class="text-sm font-bold text-gray-500 hover:text-primary transition duration-300">Login</button>
+                    <button onclick="openAuthModal('signup')"
+                        class="bg-gradient-to-r from-[#61A644] to-[#1D9FDA] hover:from-[#1D9FDA] hover:to-[#61A644] text-white text-[12px] font-bold px-5 py-2 rounded-full shadow-md transition-all duration-300 whitespace-nowrap">Sign
+                        Up</button>
                 </div>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden flex items-center text-gray-500 hover:text-primary transition ml-2">
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()"
+                class="lg:hidden flex items-center text-gray-500 hover:text-primary transition ml-2">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
     </div>
 
     <!-- Mobile Sidebar Menu -->
-    <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 z-50">
+    <div id="mobile-menu"
+        class="hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 z-50">
         <div class="flex flex-col px-4 py-4 space-y-2 max-h-[75vh] overflow-y-auto">
-            <a href="index.html" class="block px-3 py-3 text-base font-semibold text-gray-700 border-b border-gray-50 hover:text-primary">Home</a>
-            <a href="under-development.html" class="block px-3 py-3 text-base font-semibold text-gray-700 border-b border-gray-50 hover:text-primary">Order Medicines</a>
-            <a href="under-development.html" class="block px-3 py-3 text-base font-semibold text-gray-700 border-b border-gray-50 hover:text-primary">Product Range</a>
-            <a href="under-development.html" class="block px-3 py-3 text-base font-semibold text-gray-700 border-b border-gray-50 hover:text-primary">About Us</a>
-            
+            <a href="index.html"
+                class="block px-3 py-3 text-base font-semibold text-gray-700 border-b border-gray-50 hover:text-primary">Home</a>
+            <a href="order-medicines.html"
+                class="block px-3 py-3 text-base font-semibold text-gray-700 border-b border-gray-50 hover:text-primary">Order
+                Medicines</a>
+            <a href="under-development.html"
+                class="block px-3 py-3 text-base font-semibold text-gray-700 border-b border-gray-50 hover:text-primary">Product
+                Range</a>
+            <a href="under-development.html"
+                class="block px-3 py-3 text-base font-semibold text-gray-700 border-b border-gray-50 hover:text-primary">About
+                Us</a>
+
             <div class="px-3 pt-3 pb-1 text-xs font-black uppercase text-gray-400 tracking-wider">Company</div>
-            <a href="under-development.html" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">Our Services</a>
-            <a href="global-presence.html" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">Global Presence</a>
+            <a href="under-development.html"
+                class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">Our Services</a>
+            <a href="global-presence.html"
+                class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">Global Presence</a>
             <a href="csr.html" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">CSR</a>
-            <a href="careers.html" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">Careers</a>
-            <a href="contact-us.html" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">Contact Us</a>
-            <a href="ungc.html" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary border-b border-gray-50 pb-4">United Nations Global Compact</a>
-            
+            <a href="careers.html"
+                class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">Careers</a>
+            <a href="contact-us.html"
+                class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">Contact Us</a>
+            <a href="ungc.html"
+                class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary border-b border-gray-50 pb-4">United
+                Nations Global Compact</a>
+
             <div class="flex flex-col space-y-3 pt-4 px-2 pb-4">
-                <button onclick="openAuthModal('login'); toggleMobileMenu(false);" class="w-full text-center text-sm font-bold text-gray-500 hover:text-primary border border-gray-300 py-3 rounded-lg">Login</button>
-                <button onclick="openAuthModal('signup'); toggleMobileMenu(false);" class="w-full text-center bg-gradient-to-r from-[#61A644] to-[#1D9FDA] text-white text-sm font-bold py-3 rounded-lg shadow-md hover:opacity-90 transition">Sign Up</button>
+                <button onclick="openAuthModal('login'); toggleMobileMenu(false);"
+                    class="w-full text-center text-sm font-bold text-gray-500 hover:text-primary border border-gray-300 py-3 rounded-lg">Login</button>
+                <button onclick="openAuthModal('signup'); toggleMobileMenu(false);"
+                    class="w-full text-center bg-gradient-to-r from-[#61A644] to-[#1D9FDA] text-white text-sm font-bold py-3 rounded-lg shadow-md hover:opacity-90 transition">Sign
+                    Up</button>
             </div>
         </div>
     </div>
@@ -144,7 +166,7 @@
     window.toggleMobileMenu = function (forceClose = false) {
         const menu = document.getElementById('mobile-menu');
         const searchBar = document.getElementById('search-bar-container');
-        
+
         // Hide search if opening menu
         if (!forceClose && menu.classList.contains('hidden') && !searchBar.classList.contains('hidden')) {
             toggleSearchBar();
