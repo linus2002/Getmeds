@@ -1,6 +1,6 @@
 (function () {
     console.log('[GetMEDS] Global Component Loader v3 active');
-    
+
     function loadComponent(placeholderId, componentPath) {
         const placeholder = document.getElementById(placeholderId);
         if (!placeholder) {
@@ -33,7 +33,7 @@
 
         try {
             console.log('[GetMEDS] Initializing UI components (Hardened)...');
-            
+
             // Set Favicon dynamically
             injectFavicon();
 
@@ -148,12 +148,12 @@
         };
 
         window.addEventListener('scroll', toggleVisible);
-        toggleVisible(); 
+        toggleVisible();
 
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        
+
         console.log('[GetMEDS] Scroll-to-top button injected and secured');
     }
 
@@ -163,7 +163,7 @@
     } else {
         init();
     }
-    
+
     // Safety fallback
     window.addEventListener('load', init);
 

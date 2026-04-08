@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - GetMEDS</title>
+    <meta name="description" content="Learn more about GetMEDS, your trusted companion in health and wellness. Discover our mission, vision, and the team behind our platform.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0D99FF',
+                        dark: '#1A202C',
+                        footer: '#1A1D2B',
+                        success: '#5ab04c',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .reveal {
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- Navbar Component -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="w-full mx-auto px-3 sm:px-4 md:px-6 mt-3 md:mt-4 mb-16 max-w-[1600px]">
+        <div class="relative rounded-[1.5rem] border border-gray-100/20 overflow-hidden min-h-[400px] md:min-h-[450px] flex items-center justify-center">
+            <!-- Background Image -->
+            <img src="assets/slideone.jpg" alt="About GetMEDS" class="absolute inset-0 w-full h-full object-cover object-center">
+
+            <!-- Overlay for readability -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-900/40"></div>
+
+            <div class="relative z-10 w-full px-8 md:px-14 text-center reveal">
+                <span class="text-blue-200 text-sm font-bold uppercase tracking-widest mb-3 block">Welcome to GetMEDS</span>
+                <h1 class="text-[32px] md:text-[48px] leading-tight font-extrabold mb-4 tracking-tight text-white max-w-3xl mx-auto">
+                    Your Compassionate<br>
+                    <span class="bg-gradient-to-r from-[#50DDB0] to-[#55BAEE] bg-clip-text text-transparent">Health Ally</span>
+                </h1>
+                <p class="text-blue-50 text-[15px] md:text-[16px] max-w-2xl mx-auto mb-8 leading-relaxed font-medium">
+                    We are dedicated to providing accessible, high-quality healthcare services to everyone. Our platform bridges the gap between patients and reliable medical care.
+                </p>
+                <a href="#our-story" class="bg-white text-primary font-bold py-3 px-8 rounded-full text-[14px] inline-block hover:bg-gray-50 transition shadow-lg hover:-translate-y-1">
+                    Discover Our Story
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section id="our-story" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <!-- Image side -->
+                <div class="lg:w-1/2 relative reveal">
+                    <div class="absolute -inset-4 bg-gradient-to-br from-blue-50 to-green-50 rounded-[2rem] transform -rotate-3 z-0"></div>
+                    <img src="assets/model.png" alt="GetMEDS Healthcare" class="w-full rounded-[1.5rem] shadow-xl relative z-10 object-cover min-h-[400px]">
+                    
+                    <!-- Floating stat badge -->
+                    <div class="absolute -bottom-6 -right-6 bg-white p-5 rounded-2xl shadow-xl z-20 border border-gray-100 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-primary text-xl">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div>
+                            <p class="text-[24px] font-bold text-dark leading-none">50K+</p>
+                            <p class="text-gray-500 text-[12px] font-medium">Happy Patients</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text side -->
+                <div class="lg:w-1/2 lg:pl-10 mt-10 lg:mt-0 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark mb-6 tracking-tight">Who We Are</h2>
+                    <p class="text-gray-600 text-[15px] leading-[1.8] mb-6">
+                        GetMEDS began with a simple yet powerful conviction: that world-class healthcare should be easily accessible to everyone. We've built an online platform that seamlessly connects customers with professional healthcare services, offering a secure, user-friendly interface to manage your health needs.
+                    </p>
+                    <p class="text-gray-600 text-[15px] leading-[1.8] mb-8">
+                        Whether you need a quick prescription refill, a lab test at your convenience, or a consultation with top-tier specialists, our network is designed to put you, the patient, at the center of the experience. We're more than just a digital pharmacy; we are your health partner.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4">
+                            <div class="text-[#5ab04c] mt-1"><i class="fa-solid fa-circle-check text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-dark text-[15px] mb-1">Trusted Medicine</h4>
+                                <p class="text-gray-500 text-sm leading-snug">100% genuine products sourced directly from manufacturers.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="text-[#5ab04c] mt-1"><i class="fa-solid fa-circle-check text-xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-dark text-[15px] mb-1">Expert Doctors</h4>
+                                <p class="text-gray-500 text-sm leading-snug">Connect with verified specialists anytime, anywhere.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-gray-50 relative overflow-hidden">
+        <!-- Decorative blobs -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 transform -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 transform translate-x-1/2 translate-y-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Mission Card -->
+                <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-xl transition-shadow duration-300 reveal border border-gray-100/50">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white mb-6 shadow-md shadow-blue-500/30">
+                        <i class="fa-solid fa-bullseye text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Our Mission</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        To simplify the healthcare experience through technology by providing convenient, affordable, and safe access to medicines, diagnostics, and medical consultations for individuals and families across the nation.
+                    </p>
+                </div>
+                
+                <!-- Vision Card -->
+                <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-xl transition-shadow duration-300 reveal border border-gray-100/50" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-400 to-[#5ab04c] flex items-center justify-center text-white mb-6 shadow-md shadow-green-500/30">
+                        <i class="fa-solid fa-eye text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark mb-4">Our Vision</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        To be the leading and most trusted digital healthcare ecosystem, fostering a healthier, happier world where distance and cost are no longer barriers to receiving the best possible medical care.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <span class="text-primary font-bold text-sm uppercase tracking-wider mb-2 block">Our Advantages</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Why Choose GetMEDS?</h2>
+                <p class="text-gray-500 text-[15px]">We go above and beyond to ensure our services exceed your expectations when it comes to your health and convenience.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- Features Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 reveal">
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:-translate-y-1 transition duration-300">
+                        <i class="fa-solid fa-truck-fast text-3xl text-primary mb-4"></i>
+                        <h4 class="text-lg font-bold text-dark mb-2">Fast Delivery</h4>
+                        <p class="text-sm text-gray-500">Speedy medication delivery straight to your door step.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:-translate-y-1 transition duration-300">
+                        <i class="fa-solid fa-shield-halved text-3xl text-success mb-4"></i>
+                        <h4 class="text-lg font-bold text-dark mb-2">Secure Platform</h4>
+                        <p class="text-sm text-gray-500">Your health data is safe with our advanced security.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:-translate-y-1 transition duration-300">
+                        <i class="fa-solid fa-headset text-3xl text-[#5533FF] mb-4"></i>
+                        <h4 class="text-lg font-bold text-dark mb-2">24/7 Support</h4>
+                        <p class="text-sm text-gray-500">Our customer care and medical experts are always ready.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:-translate-y-1 transition duration-300">
+                        <i class="fa-solid fa-tags text-3xl text-[#FFB020] mb-4"></i>
+                        <h4 class="text-lg font-bold text-dark mb-2">Best Prices</h4>
+                        <p class="text-sm text-gray-500">Affordable medicine and discounted lab tests for you.</p>
+                    </div>
+                </div>
+
+                <!-- Right Image -->
+                <div class="reveal relative flex justify-center">
+                    <img src="assets/whychooseus.png" alt="Why Choose Us" class="w-full max-w-sm drop-shadow-2xl hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 mb-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-blue-600 to-blue-400 rounded-3xl p-10 md:p-14 text-center text-white shadow-2xl relative overflow-hidden reveal">
+                <!-- Decor -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
+                
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 relative z-10">Ready to take control of your health?</h2>
+                <p class="text-blue-50 text-lg mb-8 max-w-2xl mx-auto relative z-10">Join thousands of satisfied patients and experience the future of healthcare today.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
+                    <a href="order-medicines.html" class="bg-white text-blue-600 font-bold px-8 py-3.5 rounded-full shadow-lg hover:bg-gray-50 transition transform hover:-translate-y-1">
+                        Order Medicines
+                    </a>
+                    <a href="contact-us.html" class="bg-transparent border-2 border-white text-white font-bold px-8 py-3.5 rounded-full hover:bg-white/10 transition transform hover:-translate-y-1">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scroll Reveal Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const revealOptions = {
+                root: null,
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, revealOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
+    <script src="components/components.js?v=2"></script>
+</body>
+
+</html>
