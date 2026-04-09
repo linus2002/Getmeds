@@ -45,7 +45,7 @@
 
         /* Top background soft pattern simulation */
         .cart-header-bg {
-            background-color: #f8f9fa;
+            background-color: #ffffff;
             position: relative;
         }
         
@@ -60,12 +60,6 @@
     <!-- Navbar Component -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Header Section -->
-    <section class="cart-header-bg py-16 text-center border-b border-gray-100">
-        <h1 class="text-4xl font-bold text-dark mb-2">Shopping Cart</h1>
-        <p class="text-sm font-medium text-gray-500">Home / <span class="text-gray-400">Shopping Cart</span></p>
-    </section>
-
     <!-- Cart Layout -->
     <section class="py-12 bg-white flex-1">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +69,7 @@
                 <div class="w-full lg:w-[65%]">
                     
                     <!-- Desktop Table Header -->
-                    <div class="hidden md:grid grid-cols-12 gap-4 bg-cartyellow text-dark font-bold text-sm px-6 py-4 rounded-md mb-6">
+                    <div class="hidden md:grid grid-cols-12 gap-4 bg-gray-50 border border-gray-100 text-gray-500 font-semibold text-[13px] px-6 py-4 rounded-xl mb-6">
                         <div class="col-span-6">Product</div>
                         <div class="col-span-2 text-center">Price</div>
                         <div class="col-span-2 text-center">Quantity</div>
@@ -90,20 +84,20 @@
                     <!-- Coupon & Clear Cart -->
                     <div class="flex flex-col sm:flex-row justify-between items-center mt-10 pt-8 border-t border-gray-100">
                         <div class="flex items-center space-x-3 w-full sm:w-auto mb-4 sm:mb-0">
-                            <input type="text" placeholder="Coupon Code" class="border border-gray-200 rounded-full px-5 py-2.5 text-sm w-full sm:w-48 outline-none focus:border-cartgreen transition">
-                            <button class="bg-cartgreen hover:bg-green-700 text-white font-semibold text-sm px-6 py-2.5 rounded-full transition whitespace-nowrap shadow-sm">
+                            <input type="text" placeholder="Coupon Code" class="border border-gray-200 rounded-xl px-5 py-2.5 text-sm w-full sm:w-48 outline-none focus:border-primary transition shadow-sm">
+                            <button class="bg-gray-900 hover:bg-gray-800 text-white font-bold text-sm px-6 py-2.5 rounded-xl transition whitespace-nowrap shadow-sm active:scale-95">
                                 Apply Coupon
                             </button>
                         </div>
-                        <button onclick="clearCart()" class="text-cartgreen font-semibold text-sm hover:underline">
-                            Clear Shopping Cart
+                        <button onclick="clearCart()" class="text-red-500 font-bold text-sm hover:text-red-600 transition flex items-center gap-2">
+                            <i class="fa-solid fa-trash"></i> Clear Shopping Cart
                         </button>
                     </div>
 
                     <!-- Features Badges -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 bg-gray-50 border border-gray-100 rounded-xl p-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
                         <div class="flex items-start space-x-4">
-                            <div class="h-10 w-10 shrink-0 text-white bg-cartyellow flex items-center justify-center rounded text-xl shadow-sm">
+                            <div class="h-10 w-10 shrink-0 text-primary bg-blue-50 flex items-center justify-center rounded-xl text-xl shadow-sm border border-blue-100">
                                 <i class="fa-solid fa-box-open"></i>
                             </div>
                             <div>
@@ -112,7 +106,7 @@
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
-                            <div class="h-10 w-10 shrink-0 text-white bg-cartyellow flex items-center justify-center rounded text-xl shadow-sm">
+                            <div class="h-10 w-10 shrink-0 text-primary bg-blue-50 flex items-center justify-center rounded-xl text-xl shadow-sm border border-blue-100">
                                 <i class="fa-solid fa-wallet"></i>
                             </div>
                             <div>
@@ -121,7 +115,7 @@
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
-                            <div class="h-10 w-10 shrink-0 text-white bg-cartyellow flex items-center justify-center rounded text-xl shadow-sm">
+                            <div class="h-10 w-10 shrink-0 text-primary bg-blue-50 flex items-center justify-center rounded-xl text-xl shadow-sm border border-blue-100">
                                 <i class="fa-solid fa-headset"></i>
                             </div>
                             <div>
@@ -154,7 +148,7 @@
                                 <span class="text-gray-500">Taxes</span>
                                 <span class="font-bold text-dark" id="summary-taxes">₱ 0.00</span>
                             </div>
-                            <div class="flex justify-between text-cartgreen">
+                            <div class="flex justify-between text-success">
                                 <span>Coupon Discount</span>
                                 <span class="font-bold" id="summary-discount">- ₱ 0.00</span>
                             </div>
@@ -165,7 +159,7 @@
                             <span class="font-black text-dark" id="summary-total">₱ 0.00</span>
                         </div>
                         
-                        <button class="w-full bg-cartgreen hover:bg-green-700 text-white font-bold py-3.5 rounded-md transition shadow-md">
+                        <button onclick="window.location.href='under-development.html'" class="w-full text-white bg-gradient-to-r from-[#61A644] to-[#1D9FDA] hover:from-[#1D9FDA] hover:to-[#61A644] font-bold py-3.5 rounded-xl transition shadow-md hover:shadow-lg active:scale-95">
                             Proceed to Checkout
                         </button>
                     </div>
@@ -200,7 +194,7 @@
     <!-- Footer Component -->
     <div id="footer-placeholder"></div>
 
-    <script src="components/components.js"></script>
+    <script src="components/components.js?v=1775704983"></script>
     <script>
         function loadCart() {
             const cartItems = JSON.parse(localStorage.getItem('getmeds_cart') || '[]');
@@ -235,8 +229,8 @@
                     <!-- Product Info -->
                     <div class="col-span-1 md:col-span-6 flex items-center space-x-4">
                         <button onclick="removeItem(${index})" class="h-6 w-6 text-gray-400 hover:text-red-500 font-bold transition flex-shrink-0"><i class="fa-solid fa-times"></i></button>
-                        <div class="h-16 w-16 bg-gray-50 border border-gray-100 rounded p-1 flex items-center justify-center flex-shrink-0">
-                            <img src="${item.img || 'placeholder.png'}" alt="${item.name}" class="h-full w-full object-contain mix-blend-multiply">
+                        <div class="h-16 w-16 bg-white border border-gray-100 rounded p-1 flex items-center justify-center flex-shrink-0">
+                            <img src="${item.img || 'placeholder.png'}" alt="${item.name}" class="h-full w-full object-contain">
                         </div>
                         <div class="min-w-0">
                             <h4 class="font-bold text-dark text-sm truncate">${item.name}</h4>
@@ -253,10 +247,10 @@
                     <!-- Quantity -->
                     <div class="col-span-1 md:col-span-2 flex justify-start md:justify-center">
                         <span class="md:hidden text-xs text-gray-400 font-normal mr-3 self-center">Qty: </span>
-                        <div class="quantity-btn">
+                        <div class="quantity-btn shadow-sm">
                             <button onclick="changeCartQty(${index}, -1)" class="text-gray-400 hover:text-red-500 font-bold text-lg leading-none cursor-pointer">-</button>
                             <span class="text-sm font-bold text-dark w-6 text-center">${item.qty}</span>
-                            <button onclick="changeCartQty(${index}, 1)" class="text-cartgreen hover:text-green-600 font-bold text-base leading-none cursor-pointer">+</button>
+                            <button onclick="changeCartQty(${index}, 1)" class="text-success hover:text-green-600 font-bold text-base leading-none cursor-pointer">+</button>
                         </div>
                     </div>
                     

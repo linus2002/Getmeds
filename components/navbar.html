@@ -48,7 +48,7 @@
 
             <!-- Right side (Icons/Avatar) -->
             <div class="flex-1 flex items-center justify-end space-x-4 lg:space-x-6 text-gray-500">
-                <a onclick="toggleSearchBar()" class="hover:text-primary transition cursor-pointer text-lg"><i
+                <a id="navbar-search-toggle" onclick="toggleSearchBar()" class="hover:text-primary transition cursor-pointer text-lg"><i
                         class="fa-solid fa-magnifying-glass"></i></a>
                 <a href="cart.html" class="hover:text-primary transition cursor-pointer text-lg relative">
                     <i class="fa-solid fa-bag-shopping"></i>
@@ -56,13 +56,18 @@
                         class="absolute -top-[5px] -right-[7px] bg-red-500 text-white text-[9px] font-bold h-3.5 w-3.5 flex items-center justify-center rounded-full">0</span>
                 </a>
 
-                <div class="hidden lg:flex items-center space-x-3 border-l border-gray-200 pl-6 h-8 ml-2">
+                <div id="auth-buttons" class="hidden lg:flex items-center space-x-3 border-l border-gray-200 pl-6 h-8 ml-2">
                     <button onclick="openAuthModal('login')"
                         class="text-sm font-bold text-gray-500 hover:text-primary transition duration-300">Login</button>
                     <button onclick="openAuthModal('signup')"
                         class="bg-gradient-to-r from-[#61A644] to-[#1D9FDA] hover:from-[#1D9FDA] hover:to-[#61A644] text-white text-[12px] font-bold px-5 py-2 rounded-full shadow-md transition-all duration-300 whitespace-nowrap">Sign
                         Up</button>
                 </div>
+
+                <a href="profile.html" id="user-profile" class="hidden relative items-center space-x-2 border-l border-gray-200 pl-6 h-8 ml-2 group cursor-pointer hover:opacity-80 transition">
+                    <span id="user-name-display" class="text-sm font-bold text-gray-700 group-hover:text-primary transition mr-1">User</span>
+                    <div class="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm shadow-md" id="user-avatar-text">U</div>
+                </a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -103,37 +108,62 @@
                 class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary border-b border-gray-50 pb-4">United
                 Nations Global Compact</a>
 
-            <div class="flex flex-col space-y-3 pt-4 px-2 pb-4">
+            <div id="mobile-auth-buttons" class="flex flex-col space-y-3 pt-4 px-2 pb-4">
                 <button onclick="openAuthModal('login'); toggleMobileMenu(false);"
                     class="w-full text-center text-sm font-bold text-gray-500 hover:text-primary border border-gray-300 py-3 rounded-lg">Login</button>
                 <button onclick="openAuthModal('signup'); toggleMobileMenu(false);"
                     class="w-full text-center bg-gradient-to-r from-[#61A644] to-[#1D9FDA] text-white text-sm font-bold py-3 rounded-lg shadow-md hover:opacity-90 transition">Sign
                     Up</button>
             </div>
+
+            <div id="mobile-user-profile" class="hidden flex-col space-y-2 pt-4 px-2 pb-4 border-t border-gray-50">
+                <a href="profile.html" class="flex items-center gap-3 px-2 mb-2 hover:bg-gray-50 rounded-lg py-2 transition">
+                    <div class="h-10 w-10 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg shadow-md" id="mobile-user-avatar-text">U</div>
+                    <div class="overflow-hidden">
+                        <div id="mobile-user-name-display" class="font-bold text-gray-800 text-sm truncate">User</div>
+                        <div id="mobile-user-email-display" class="text-xs text-gray-500 truncate">user@example.com</div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right ml-auto text-gray-400 text-sm"></i>
+                </a>
+            </div>
         </div>
     </div>
 
     <!-- Search Bar Dropdown -->
     <div id="search-bar-container"
-        class="hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 z-40 transition-all duration-300 opacity-0 -translate-y-2">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            <div
-                class="relative flex-grow flex items-center border border-gray-200 rounded-full bg-gray-50 focus-within:bg-white focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition overflow-hidden">
-                <i class="fa-solid fa-magnifying-glass text-gray-400 ml-5"></i>
-                <input type="text" placeholder="Search for medicines, health products, or articles..."
-                    class="w-full px-4 py-3 outline-none text-sm text-gray-700 bg-transparent">
-                <button
-                    class="bg-primary text-white px-8 py-3 text-sm font-bold hover:bg-blue-600 transition h-full">Search</button>
+        class="hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 z-40 transition-all duration-300 opacity-0 -translate-y-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between">
+                <div
+                    class="relative flex-grow flex items-center border border-gray-200 rounded-full bg-gray-50 focus-within:bg-white focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition overflow-visible">
+                    <i class="fa-solid fa-magnifying-glass text-gray-400 ml-5"></i>
+                    <input type="text" id="navbar-search-input" 
+                        placeholder="Search for medicines, health products, or articles..."
+                        class="w-full px-4 py-3 outline-none text-sm text-gray-700 bg-transparent" 
+                        onkeydown="if(event.key === 'Enter') executeSearch()"
+                        oninput="handleSearchInput(this.value)"
+                        autocomplete="off">
+                    <button onclick="executeSearch()"
+                        class="bg-primary text-white px-8 py-3 text-sm font-bold hover:bg-blue-600 transition h-full rounded-r-full">Search</button>
+                    
+                    <!-- Suggestion Dropdown -->
+                    <div id="search-suggestions" class="hidden absolute top-[calc(100%+8px)] left-0 w-full bg-white border border-gray-100 shadow-2xl rounded-2xl overflow-hidden z-50">
+                        <div id="suggestions-list" class="flex flex-col py-2">
+                            <!-- Suggestions will be injected here -->
+                        </div>
+                    </div>
+                </div>
+                <button onclick="toggleSearchBar()"
+                    class="ml-4 h-12 w-12 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition flex items-center justify-center cursor-pointer">
+                    <i class="fa-solid fa-xmark text-xl pointer-events-none"></i>
+                </button>
             </div>
-            <button onclick="toggleSearchBar()"
-                class="ml-4 h-12 w-12 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-full transition flex items-center justify-center cursor-pointer">
-                <i class="fa-solid fa-xmark text-xl pointer-events-none"></i>
-            </button>
         </div>
     </div>
 </nav>
 
 <script>
+    console.log('[GetMEDS] Navbar Script initializing...');
     // Mark active nav link based on current page
     (function () {
         const page = window.location.pathname.split('/').pop() || 'index.html';
@@ -178,4 +208,66 @@
             menu.classList.remove('hidden');
         }
     };
+
+    window.executeSearch = function () {
+        const query = document.getElementById('navbar-search-input').value.trim();
+        if (query) {
+            window.location.href = `product-range.html?search=${encodeURIComponent(query)}`;
+        }
+    };
+
+    // --- Search Suggestion Logic ---
+    const searchData = [
+        "Cytarabine 100 MG", "Palonosetron Hydrochloride", "Temozolomide Injection",
+        "Paracetamol 500mg", "Ibuprofen 400mg", "Vitamin C + Zinc",
+        "Oncology Drugs", "Diagnostic Kits", "Personal Care", "Surgical Supplies",
+        "Amoxicillin Capsules", "Metformin 500mg", "Atorvastatin 20mg",
+        "Face Masks (KN95)", "Digital Thermometer", "Hand Sanitizer"
+    ];
+
+    window.handleSearchInput = function (val) {
+        const suggestionsBox = document.getElementById('search-suggestions');
+        const list = document.getElementById('suggestions-list');
+        const query = val.toLowerCase().trim();
+
+        if (query.length < 2) {
+            suggestionsBox.classList.add('hidden');
+            return;
+        }
+
+        const filtered = searchData.filter(item => item.toLowerCase().includes(query)).slice(0, 6);
+
+        if (filtered.length > 0) {
+            list.innerHTML = filtered.map(item => `
+                <div onclick="selectSuggestion('${item}')" class="px-5 py-3 hover:bg-blue-50 cursor-pointer flex items-center group transition">
+                    <i class="fa-solid fa-clock-rotate-left text-gray-300 mr-4 group-hover:text-primary transition"></i>
+                    <span class="text-sm text-gray-700 group-hover:text-dark font-medium">${highlightMatch(item, query)}</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square ml-auto text-gray-200 text-xs group-hover:text-primary"></i>
+                </div>
+            `).join('');
+            suggestionsBox.classList.remove('hidden');
+        } else {
+            suggestionsBox.classList.add('hidden');
+        }
+    };
+
+    function highlightMatch(text, query) {
+        const regex = new RegExp(`(${query})`, 'gi');
+        return text.replace(regex, '<span class="text-primary font-bold">$1</span>');
+    }
+
+    window.selectSuggestion = function (val) {
+        document.getElementById('navbar-search-input').value = val;
+        document.getElementById('search-suggestions').classList.add('hidden');
+        executeSearch();
+    };
+
+    // Close suggestions when clicking outside
+    document.addEventListener('click', function (e) {
+        const container = document.getElementById('search-suggestions');
+        const input = document.getElementById('navbar-search-input');
+        if (container && !container.contains(e.target) && e.target !== input) {
+            container.classList.add('hidden');
+        }
+    });
 </script>

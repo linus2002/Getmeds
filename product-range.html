@@ -32,6 +32,13 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        .gradient-text {
+            background: linear-gradient(135deg, #61A644 0%, #1D9FDA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
         .gradient-bg {
             background: linear-gradient(135deg, #61A644 0%, #1D9FDA 100%);
         }
@@ -253,29 +260,39 @@
                     </div>
 
                     <div class="py-2">
+                        <!-- All Products -->
+                        <div class="category-group">
+                            <a href="product-range.html"
+                                class="w-full flex items-center justify-between px-6 py-4 text-[14px] font-bold text-primary bg-blue-50/50 transition category-item active">
+                                <span class="flex items-center gap-3">
+                                    <i class="fa-solid fa-border-all"></i>
+                                    All Products
+                                </span>
+                            </a>
+                        </div>
                         <!-- Oncology (Dropdown) -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
-                                class="w-full flex items-center justify-between px-6 py-4 text-[14px] font-semibold text-gray-600 hover:bg-gray-50 transition category-item">
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
                                     <i class="fa-solid fa-pills text-primary"></i>
                                     Oncology
                                 </span>
-                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300"></i>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:text-primary"></i>
                             </button>
                             <div class="sub-menu">
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Lung
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Lung
                                     Cancer</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Breast
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Breast
                                     Cancer</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Leukemia</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Leukemia</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Lymphoma</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Lymphoma</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Liver
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Liver
                                     Cancer</a>
                             </div>
                         </div>
@@ -284,7 +301,7 @@
                         <!-- Cardiology -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
-                                class="w-full flex items-center justify-between px-6 py-4 text-[14px] font-semibold text-gray-600 hover:bg-gray-50 transition category-item">
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
                                     <i class="fa-solid fa-heart-pulse"></i>
                                     Cardiology
@@ -294,14 +311,14 @@
                             </button>
                             <div class="sub-menu bg-gray-50/30">
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Hypertension</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Hypertension</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Heart
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Heart
                                     Failure</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Arrhythmia</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Arrhythmia</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Chest
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Chest
                                     Pain</a>
                             </div>
                         </div>
@@ -309,7 +326,7 @@
                         <!-- Neurology -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
-                                class="w-full flex items-center justify-between px-6 py-4 text-[14px] font-semibold text-gray-600 hover:bg-gray-50 transition category-item">
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
                                     <i class="fa-solid fa-brain"></i>
                                     Neurology
@@ -319,13 +336,13 @@
                             </button>
                             <div class="sub-menu bg-gray-50/30">
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Epilepsy</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Epilepsy</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Alzheimer's</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Alzheimer's</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Parkinson's</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Parkinson's</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Multiple
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Multiple
                                     Sclerosis</a>
                             </div>
                         </div>
@@ -333,7 +350,7 @@
                         <!-- Dermatology -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
-                                class="w-full flex items-center justify-between px-6 py-4 text-[14px] font-semibold text-gray-600 hover:bg-gray-50 transition category-item">
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
                                     <i class="fa-solid fa-syringe"></i>
                                     Dermatology
@@ -343,20 +360,20 @@
                             </button>
                             <div class="sub-menu bg-gray-50/30">
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Acne</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Acne</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Eczema</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Eczema</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Psoriasis</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Psoriasis</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Rosacea</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Rosacea</a>
                             </div>
                         </div>
 
                         <!-- Pediatrics -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
-                                class="w-full flex items-center justify-between px-6 py-4 text-[14px] font-semibold text-gray-600 hover:bg-gray-50 transition category-item">
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
                                     <i class="fa-solid fa-baby-carriage"></i>
                                     Pediatrics
@@ -366,21 +383,21 @@
                             </button>
                             <div class="sub-menu bg-gray-50/30">
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Fever
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Fever
                                     & Cold</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Vaccinations</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Vaccinations</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Vitamins</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Vitamins</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Immunity</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Immunity</a>
                             </div>
                         </div>
 
                         <!-- Ophthalmology -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
-                                class="w-full flex items-center justify-between px-6 py-4 text-[14px] font-semibold text-gray-600 hover:bg-gray-50 transition category-item">
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
                                     <i class="fa-solid fa-eye"></i>
                                     Ophthalmology
@@ -390,21 +407,21 @@
                             </button>
                             <div class="sub-menu bg-gray-50/30">
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Cataracts</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Cataracts</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Glaucoma</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Glaucoma</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Dry
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Dry
                                     Eye</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Infection</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Infection</a>
                             </div>
                         </div>
 
                         <!-- Anti Bacterial -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
-                                class="w-full flex items-center justify-between px-6 py-4 text-[14px] font-semibold text-gray-600 hover:bg-gray-50 transition category-item">
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
                                     <i class="fa-solid fa-shield-virus"></i>
                                     Anti Bacterial
@@ -414,13 +431,13 @@
                             </button>
                             <div class="sub-menu bg-gray-50/30">
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Amoxicillin</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Amoxicillin</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Azithromycin</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Azithromycin</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Penicillin</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Penicillin</a>
                                 <a href="#"
-                                    class="block px-14 py-2.5 text-[13px] text-gray-500 hover:text-primary transition">Ciprofloxacin</a>
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Ciprofloxacin</a>
                             </div>
                         </div>
                     </div>
@@ -470,17 +487,22 @@
             <!-- RIGHT COLUMN: Products Grid -->
             <div class="lg:w-3/4">
                 <div class="flex items-center justify-between mb-8">
-                    <h2 class="text-[22px] font-bold text-gray-900">Oncology Products <span
+                    <h2 class="text-xl font-bold text-gray-900">All Products <span
                             class="text-gray-400 font-normal text-sm ml-2">(12 Items)</span></h2>
                     <div class="flex items-center gap-3">
                         <span class="text-[14px] text-gray-500 font-medium">Sort by:</span>
-                        <select
-                            class="bg-gray-50 border-none rounded-full px-4 py-2 text-[13px] font-bold text-gray-700 outline-none focus:ring-1 focus:ring-primary/20">
-                            <option>Popularity</option>
-                            <option>Price: Low to High</option>
-                            <option>Price: High to Low</option>
-                            <option>Newest</option>
-                        </select>
+                        <div class="relative">
+                            <select
+                                class="appearance-none bg-white border border-blue-200 hover:border-primary rounded-full pl-5 pr-10 py-2.5 text-[14px] font-bold text-gray-700 outline-none focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer shadow-sm">
+                                <option>Popularity</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Newest</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-gray-600">
+                                <i class="fa-solid fa-chevron-down text-[11px]"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -490,13 +512,13 @@
                     <!-- Product 1 -->
                     <div
                         class="bg-white border border-gray-100 rounded-[20px] p-5 hover:shadow-2xl transition duration-300 relative group flex flex-col h-full hover:-translate-y-1">
-                        <div class="h-44 flex justify-center items-center mb-5 overflow-hidden rounded-xl bg-gray-50">
+                        <div class="h-44 flex justify-center items-center mb-5 overflow-hidden rounded-xl bg-gray-50 cursor-pointer" onclick="window.location.href='product-details.html'">
                             <img src="assets/cytarabine.png" alt="Cytarabine"
                                 class="w-full h-full object-cover mix-blend-multiply transition-transform group-hover:scale-105">
                         </div>
                         <div class="mb-2">
-                            <h4
-                                class="text-primary font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
+                            <h4 onclick="window.location.href='product-details.html'"
+                                class="gradient-text font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
                                 Cytarabine 100 MG / 16.7 ML INJECTION
                             </h4>
                             <p class="text-gray-500 text-[11px] mt-1 font-medium">Availability: <span
@@ -532,7 +554,7 @@
                         </div>
                         <div class="mb-2">
                             <h4
-                                class="text-primary font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
+                                class="gradient-text font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
                                 Docetaxel 50 MG
                             </h4>
                             <p class="text-gray-500 text-[11px] mt-1 font-medium">Availability: <span
@@ -566,7 +588,7 @@
                         </div>
                         <div class="mb-2">
                             <h4
-                                class="text-primary font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
+                                class="gradient-text font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
                                 Capecitabine 300 MCG / 1 ML INJECTION
                             </h4>
                             <p class="text-gray-500 text-[11px] mt-1 font-medium">Availability: <span
@@ -600,7 +622,7 @@
                         </div>
                         <div class="mb-2">
                             <h4
-                                class="text-primary font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
+                                class="gradient-text font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
                                 Letrozole 250 MG / 5 ML PF SYRINGE
                             </h4>
                             <p class="text-gray-500 text-[11px] mt-1 font-medium">Availability: <span
@@ -634,7 +656,7 @@
                         </div>
                         <div class="mb-2">
                             <h4
-                                class="text-primary font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
+                                class="gradient-text font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
                                 Temozolomide 100 MG Caps
                             </h4>
                             <p class="text-gray-500 text-[11px] mt-1 font-medium">Availability: <span
@@ -732,23 +754,38 @@
 
         // Add to Cart Logic
         function addToCart(name, price, btn) {
+            const card = btn.closest('.group') || btn.closest('.bg-white');
+            const qtyElem = card.querySelector('.flex.items-center.space-x-2 span') || btn.parentElement.querySelector('span');
+            const qty = parseInt(qtyElem.innerText);
+            
             const icon = btn.querySelector('i');
             const originalIcon = icon.className;
 
             // Visual feedback
+            const originalBtnClass = btn.className;
             btn.classList.remove('bg-success');
             btn.classList.add('bg-blue-600');
-            icon.className = 'fa-solid fa-check';
+            icon.className = 'fa-solid fa-check border-none';
 
             // Logic (simplified cart)
             let cart = JSON.parse(localStorage.getItem('getmeds_cart') || '[]');
-            const qty = parseInt(btn.parentElement.querySelector('span').innerText);
-
             const existing = cart.find(i => i.name === name);
+            
             if (existing) {
                 existing.qty += qty;
             } else {
-                cart.push({ name, price, qty });
+                const img = card.querySelector('img').src;
+                // Get volume if available, or default to "1 Box"
+                const volElem = card.querySelector('p.text-gray-500');
+                const vol = volElem ? volElem.innerText.split(':')[1]?.trim() || '1 Box' : '1 Box';
+                
+                cart.push({ 
+                    name, 
+                    price, 
+                    qty, 
+                    img, 
+                    vol 
+                });
             }
 
             localStorage.setItem('getmeds_cart', JSON.stringify(cart));
@@ -756,6 +793,7 @@
             setTimeout(() => {
                 btn.classList.replace('bg-blue-600', 'bg-success');
                 icon.className = originalIcon;
+                qtyElem.innerText = '1';
                 // Dispatch event to update badge in navbar
                 window.dispatchEvent(new Event('cartUpdated'));
             }, 1000);
@@ -766,22 +804,32 @@
         const searchSuggestions = document.getElementById('search-suggestions');
         const searchWrapper = document.getElementById('search-wrapper');
 
+        function filterProducts(term) {
+            term = term.toLowerCase().trim();
+            // Filter auto-suggest dropdown
+            const items = document.querySelectorAll('#suggested-products-list > div');
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                item.style.display = text.includes(term) ? 'flex' : 'none';
+            });
+            
+            // Filter actual product cards in the grid
+            const productTitles = document.querySelectorAll('h4.gradient-text');
+            productTitles.forEach(h4 => {
+                const card = h4.closest('div.group');
+                if(!card) return;
+                const titleText = h4.innerText.toLowerCase();
+                card.style.display = titleText.includes(term) ? 'flex' : 'none';
+            });
+        }
+
         if (searchInput) {
             searchInput.addEventListener('focus', () => {
                 searchSuggestions.classList.remove('hidden');
             });
 
             searchInput.addEventListener('input', (e) => {
-                const term = e.target.value.toLowerCase();
-                const items = document.querySelectorAll('#suggested-products-list > div');
-                items.forEach(item => {
-                    const text = item.innerText.toLowerCase();
-                    if (text.includes(term)) {
-                        item.style.display = 'flex';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+                filterProducts(e.target.value);
             });
 
             document.addEventListener('click', (e) => {
@@ -789,6 +837,17 @@
                     searchSuggestions.classList.add('hidden');
                 }
             });
+            
+            // Check for URL query parameters from navbar search
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('search');
+            if (query) {
+                searchInput.value = query;
+                filterProducts(query);
+                
+                // Hide suggestions dropdown if coming from a direct URL search
+                setTimeout(() => searchSuggestions.classList.add('hidden'), 50);
+            }
         }
 
         window.clearSearchHistory = function () {
@@ -803,6 +862,7 @@
             }
         }
     </script>
+    <script src="components/components.js?v=1775704983"></script>
 </body>
 
 </html>

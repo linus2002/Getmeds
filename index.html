@@ -47,7 +47,7 @@
     <div id="navbar-placeholder"></div>
 
     <!-- Hero Section (CSR Style) -->
-    <section class="w-full mx-auto px-3 sm:px-4 md:px-6 mt-3 md:mt-4 mb-16 max-w-[1600px]">
+    <section class="w-full mx-auto px-3 sm:px-4 md:px-6 mt-3 md:mt-4 mb-6 max-w-[1600px]">
         <div
             class="relative rounded-[1.5rem] border border-gray-100/20 overflow-hidden min-h-[450px] md:min-h-[500px] flex items-end group shadow-xl">
 
@@ -160,14 +160,14 @@
     </script>
 
     <!-- Categories -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <style>
             .cat-no-scrollbar::-webkit-scrollbar {
                 display: none;
             }
         </style>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center mb-10">
+            <div class="flex justify-between items-center mb-3">
                 <h2 class="text-[28px] font-bold text-[#1A202C]">Categories</h2>
                 <div class="flex space-x-2">
                     <button id="cat-prev"
@@ -182,100 +182,128 @@
             </div>
 
             <div id="cat-slider"
-                class="flex flex-nowrap gap-6 sm:gap-8 md:gap-14 overflow-x-auto scroll-smooth cat-no-scrollbar pb-6 px-1"
+                class="flex flex-nowrap gap-4 md:gap-6 overflow-x-auto scroll-smooth cat-no-scrollbar pb-6 px-1"
                 style="scrollbar-width: none; -ms-overflow-style: none;">
 
-                <a href="product-range.html" class="flex flex-col items-center w-[90px] sm:w-[100px] flex-shrink-0 group">
-                    <div
-                        class="w-20 h-20 sm:w-[85px] sm:h-[85px] rounded-full bg-[#F2F8FF] flex items-center justify-center mb-4 text-[#0D99FF] text-2xl group-hover:bg-[#0D99FF] group-hover:text-white transition duration-300 cursor-pointer shadow-sm">
-                        <i class="fa-solid fa-pills"></i>
+                <!-- Oncology -->
+                <a href="product-range.html" class="relative flex-shrink-0 w-[150px] md:w-[220px] h-[68px] md:h-[75px] rounded-[15px] p-4 text-left overflow-hidden transition-all transform active:scale-95 shadow-sm snap-start bg-[#1D9FDA] group">
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-1000"></div>
                     </div>
-                    <span
-                        class="text-[13px] font-semibold text-[#4A5568] group-hover:text-[#0D99FF] transition cursor-pointer">Oncology</span>
+                    <div class="relative z-10">
+                        <h3 class="text-[14px] font-bold text-white leading-tight">Oncology</h3>
+                        <p class="text-[10px] text-white/80 mt-0.5 font-medium">Cancer Care</p>
+                    </div>
+                    <div class="absolute bottom-1.5 right-1.5 text-white/30 text-2xl group-hover:scale-110 group-hover:text-white/50 transition-all duration-300">
+                        <i class="fa-solid fa-capsules"></i>
+                    </div>
                 </a>
 
-
-                <a href="product-range.html" class="flex flex-col items-center w-[90px] sm:w-[100px] flex-shrink-0 group">
-                    <div
-                        class="w-20 h-20 sm:w-[85px] sm:h-[85px] rounded-full bg-[#F2F8FF] flex items-center justify-center mb-4 text-[#0D99FF] text-2xl group-hover:bg-[#0D99FF] group-hover:text-white transition duration-300 cursor-pointer shadow-sm">
-                        <i class="fa-solid fa-syringe"></i>
+                <!-- Dermatology -->
+                <a href="product-range.html" class="relative flex-shrink-0 w-[150px] md:w-[220px] h-[68px] md:h-[75px] rounded-[15px] p-4 text-left overflow-hidden transition-all transform active:scale-95 shadow-sm snap-start bg-[#1D9FDA] group">
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-1000"></div>
                     </div>
-                    <span
-                        class="text-[13px] font-semibold text-[#4A5568] group-hover:text-[#0D99FF] transition cursor-pointer">Dermatology</span>
+                    <div class="relative z-10">
+                        <h3 class="text-[14px] font-bold text-white leading-tight">Dermatology</h3>
+                        <p class="text-[10px] text-white/80 mt-0.5 font-medium">Skin Health</p>
+                    </div>
+                    <div class="absolute bottom-1.5 right-1.5 text-white/30 text-2xl group-hover:scale-110 group-hover:text-white/50 transition-all duration-300">
+                        <i class="fa-regular fa-id-badge"></i>
+                    </div>
                 </a>
 
-
-                <a href="product-range.html" class="flex flex-col items-center w-[90px] sm:w-[100px] flex-shrink-0 group">
-                    <div
-                        class="w-20 h-20 sm:w-[85px] sm:h-[85px] rounded-full bg-[#F2F8FF] flex items-center justify-center mb-4 text-[#0D99FF] text-2xl group-hover:bg-[#0D99FF] group-hover:text-white transition duration-300 cursor-pointer shadow-sm">
+                <!-- Pediatrics -->
+                <a href="product-range.html" class="relative flex-shrink-0 w-[150px] md:w-[220px] h-[68px] md:h-[75px] rounded-[15px] p-4 text-left overflow-hidden transition-all transform active:scale-95 shadow-sm snap-start bg-[#1D9FDA] group">
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-1000"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-[14px] font-bold text-white leading-tight">Pediatrics</h3>
+                        <p class="text-[10px] text-white/80 mt-0.5 font-medium">Kids Health</p>
+                    </div>
+                    <div class="absolute bottom-1.5 right-1.5 text-white/30 text-2xl group-hover:scale-110 group-hover:text-white/50 transition-all duration-300">
                         <i class="fa-solid fa-baby-carriage"></i>
                     </div>
-                    <span
-                        class="text-[13px] font-semibold text-[#4A5568] group-hover:text-[#0D99FF] transition cursor-pointer">Pediatrics</span>
                 </a>
 
-
-                <a href="product-range.html" class="flex flex-col items-center w-[90px] sm:w-[100px] flex-shrink-0 group">
-                    <div
-                        class="w-20 h-20 sm:w-[85px] sm:h-[85px] rounded-full bg-[#F2F8FF] flex items-center justify-center mb-4 text-[#0D99FF] text-2xl group-hover:bg-[#0D99FF] group-hover:text-white transition duration-300 cursor-pointer shadow-sm">
+                <!-- Neurology -->
+                <a href="product-range.html" class="relative flex-shrink-0 w-[150px] md:w-[220px] h-[68px] md:h-[75px] rounded-[15px] p-4 text-left overflow-hidden transition-all transform active:scale-95 shadow-sm snap-start bg-[#1D9FDA] group">
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-1000"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-[14px] font-bold text-white leading-tight">Neurology</h3>
+                        <p class="text-[10px] text-white/80 mt-0.5 font-medium">Brain Science</p>
+                    </div>
+                    <div class="absolute bottom-1.5 right-1.5 text-white/30 text-2xl group-hover:scale-110 group-hover:text-white/50 transition-all duration-300">
                         <i class="fa-solid fa-brain"></i>
                     </div>
-                    <span
-                        class="text-[13px] font-semibold text-[#4A5568] group-hover:text-[#0D99FF] transition cursor-pointer">Neurology</span>
                 </a>
 
-
-                <a href="product-range.html" class="flex flex-col items-center w-[90px] sm:w-[100px] flex-shrink-0 group">
-                    <div
-                        class="w-20 h-20 sm:w-[85px] sm:h-[85px] rounded-full bg-[#F2F8FF] flex items-center justify-center mb-4 text-[#0D99FF] text-2xl group-hover:bg-[#0D99FF] group-hover:text-white transition duration-300 cursor-pointer shadow-sm">
+                <!-- Ophthalmology -->
+                <a href="product-range.html" class="relative flex-shrink-0 w-[150px] md:w-[220px] h-[68px] md:h-[75px] rounded-[15px] p-4 text-left overflow-hidden transition-all transform active:scale-95 shadow-sm snap-start bg-[#1D9FDA] group">
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-1000"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-[14px] font-bold text-white leading-tight">Ophthalmology</h3>
+                        <p class="text-[10px] text-white/80 mt-0.5 font-medium">Eye Care</p>
+                    </div>
+                    <div class="absolute bottom-1.5 right-1.5 text-white/30 text-2xl group-hover:scale-110 group-hover:text-white/50 transition-all duration-300">
                         <i class="fa-solid fa-eye"></i>
                     </div>
-                    <span
-                        class="text-[13px] font-semibold text-[#4A5568] group-hover:text-[#0D99FF] transition cursor-pointer">Ophthalmology</span>
                 </a>
 
-
-                <a href="product-range.html" class="flex flex-col items-center w-[90px] sm:w-[100px] flex-shrink-0 group">
-                    <div
-                        class="w-20 h-20 sm:w-[85px] sm:h-[85px] rounded-full bg-[#F2F8FF] flex items-center justify-center mb-4 text-[#0D99FF] text-2xl group-hover:bg-[#0D99FF] group-hover:text-white transition duration-300 cursor-pointer shadow-sm">
+                <!-- Orthopedics -->
+                <a href="product-range.html" class="relative flex-shrink-0 w-[150px] md:w-[220px] h-[68px] md:h-[75px] rounded-[15px] p-4 text-left overflow-hidden transition-all transform active:scale-95 shadow-sm snap-start bg-[#1D9FDA] group">
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-1000"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-[14px] font-bold text-white leading-tight">Orthopedics</h3>
+                        <p class="text-[10px] text-white/80 mt-0.5 font-medium">Bone & Joints</p>
+                    </div>
+                    <div class="absolute bottom-1.5 right-1.5 text-white/30 text-2xl group-hover:scale-110 group-hover:text-white/50 transition-all duration-300">
                         <i class="fa-solid fa-bone"></i>
                     </div>
-                    <span
-                        class="text-[13px] font-semibold text-[#4A5568] group-hover:text-[#0D99FF] transition cursor-pointer">Orthopedics</span>
                 </a>
 
-
-                <a href="product-range.html" class="flex flex-col items-center w-[90px] sm:w-[100px] flex-shrink-0 group">
-                    <div
-                        class="w-20 h-20 sm:w-[85px] sm:h-[85px] rounded-full bg-[#F2F8FF] flex items-center justify-center mb-4 text-[#0D99FF] text-2xl group-hover:bg-[#0D99FF] group-hover:text-white transition duration-300 cursor-pointer shadow-sm">
-                        <i class="fa-solid fa-shield-virus"></i>
+                <!-- Radiology -->
+                <a href="product-range.html" class="relative flex-shrink-0 w-[150px] md:w-[220px] h-[68px] md:h-[75px] rounded-[15px] p-4 text-left overflow-hidden transition-all transform active:scale-95 shadow-sm snap-start bg-[#1D9FDA] group">
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-1000"></div>
                     </div>
-                    <span
-                        class="text-[13px] font-semibold text-[#4A5568] break-words text-center group-hover:text-[#0D99FF] transition cursor-pointer leading-tight">Anti
-                        Bacterial</span>
-                </a>
-
-
-                <a href="product-range.html" class="flex flex-col items-center w-[90px] sm:w-[100px] flex-shrink-0 group">
-                    <div
-                        class="w-20 h-20 sm:w-[85px] sm:h-[85px] rounded-full bg-[#F2F8FF] flex items-center justify-center mb-4 text-[#0D99FF] text-2xl group-hover:bg-[#0D99FF] group-hover:text-white transition duration-300 cursor-pointer shadow-sm">
+                    <div class="relative z-10">
+                        <h3 class="text-[14px] font-bold text-white leading-tight">Radiology</h3>
+                        <p class="text-[10px] text-white/80 mt-0.5 font-medium">Imaging</p>
+                    </div>
+                    <div class="absolute bottom-1.5 right-1.5 text-white/30 text-2xl group-hover:scale-110 group-hover:text-white/50 transition-all duration-300">
                         <i class="fa-solid fa-x-ray"></i>
                     </div>
-                    <span
-                        class="text-[13px] font-semibold text-[#4A5568] group-hover:text-[#0D99FF] transition cursor-pointer">Radiology</span>
                 </a>
 
-
-                <a href="product-range.html" class="flex flex-col items-center w-[90px] sm:w-[100px] flex-shrink-0 group">
-                    <div
-                        class="w-20 h-20 sm:w-[85px] sm:h-[85px] rounded-full bg-[#F2F8FF] flex items-center justify-center mb-4 text-[#0D99FF] text-2xl group-hover:bg-[#0D99FF] group-hover:text-white transition duration-300 cursor-pointer shadow-sm">
+                <!-- Cardiology -->
+                <a href="product-range.html" class="relative flex-shrink-0 w-[150px] md:w-[220px] h-[68px] md:h-[75px] rounded-[15px] p-4 text-left overflow-hidden transition-all transform active:scale-95 shadow-sm snap-start bg-[#1D9FDA] group">
+                    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div class="absolute -right-4 -bottom-4 w-24 h-24 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/10 group-hover:scale-110 transition-transform duration-1000"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-[14px] font-bold text-white leading-tight">Cardiology</h3>
+                        <p class="text-[10px] text-white/80 mt-0.5 font-medium">Heart Health</p>
+                    </div>
+                    <div class="absolute bottom-1.5 right-1.5 text-white/30 text-2xl group-hover:scale-110 group-hover:text-white/50 transition-all duration-300">
                         <i class="fa-solid fa-heart-pulse"></i>
                     </div>
-                    <span
-                        class="text-[13px] font-semibold text-[#4A5568] group-hover:text-[#0D99FF] transition cursor-pointer">Cardiology</span>
                 </a>
-
-
             </div>
 
             <script>
@@ -1077,7 +1105,7 @@
             };
         });
     </script>
-    <script src="components/components.js?v=1775011421619"></script>
+    <script src="components/components.js?v=1775704983"></script>
 </body>
 
 </html>

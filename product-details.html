@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - GetMEDS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0D99FF',
+                        success: '#61A644',
+                        dark: '#1A202C',
+                        footer: '#1A1D2B',
+                        cardbg: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #61A644 0%, #1D9FDA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tab-btn.active {
+            color: #0D99FF;
+            border-bottom: 2px solid #0D99FF;
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 antialiased">
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <main class="max-w-[1500px] mx-auto px-2 sm:px-4 lg:px-6 pt-6 pb-8 mb-24">
+        
+        <!-- Breadcrumbs -->
+        <nav class="flex text-[13px] text-gray-500 mb-6 font-medium" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="index.html" class="hover:text-primary transition-colors flex items-center">
+                        <i class="fa-solid fa-house mr-2 text-[11px]"></i> Home
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-chevron-right text-[10px] mx-1 text-gray-400"></i>
+                        <a href="product-range.html" class="hover:text-primary transition-colors ml-1 md:ml-2">Products</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <i class="fa-solid fa-chevron-right text-[10px] mx-1 text-gray-400"></i>
+                        <span class="text-primary ml-1 md:ml-2 font-semibold">Cytarabine 100 MG</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+        <div class="bg-white rounded-[15px] shadow-[0_15px_40px_-15px_rgba(0,0,0,0.05)] border border-gray-100 overflow-hidden">
+            <div class="flex flex-col lg:flex-row">
+                
+                <!-- Left: Image Gallery -->
+                <div class="lg:w-1/2 p-6 lg:p-8 border-b lg:border-b-0 lg:border-r border-gray-100 bg-gradient-to-br from-white to-gray-50/50">
+                    <div class="relative w-full h-[350px] md:h-[450px] flex items-center justify-center bg-white rounded-[15px] shadow-sm border border-gray-100/50 p-6 mb-6 overflow-hidden group">
+                        <div class="absolute top-4 right-4 z-10 flex flex-col gap-2">
+                            <button class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-gray-400 hover:text-red-500 hover:bg-gray-50 transition duration-300">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-gray-400 hover:text-primary hover:bg-gray-50 transition duration-300">
+                                <i class="fa-solid fa-share-nodes"></i>
+                            </button>
+                        </div>
+                        <img id="main-product-img" src="assets/cytarabine.png" alt="Cytarabine Injection" class="max-w-full max-h-full object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-110">
+                    </div>
+
+                    <!-- Thumbnails -->
+                    <div class="flex gap-4 pb-2 justify-center overflow-x-auto no-scrollbar">
+                        <button class="w-20 h-20 rounded-2xl bg-white border-2 border-primary shadow-sm p-2 flex-shrink-0 transition hover:scale-105" onclick="changeImage('assets/cytarabine.png', this)">
+                            <img src="assets/cytarabine.png" class="w-full h-full object-contain mix-blend-multiply" alt="Thumb 1">
+                        </button>
+                        <button class="w-20 h-20 rounded-2xl bg-white border-2 border-transparent shadow-sm p-2 flex-shrink-0 transition hover:scale-105 hover:border-blue-200" onclick="changeImage('assets/cytarabine.png', this)">
+                            <div class="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-xs">Side</div>
+                        </button>
+                        <button class="w-20 h-20 rounded-2xl bg-white border-2 border-transparent shadow-sm p-2 flex-shrink-0 transition hover:scale-105 hover:border-blue-200" onclick="changeImage('assets/cytarabine.png', this)">
+                            <div class="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center text-gray-400 text-xs">Back</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: Product Details -->
+                <div class="lg:w-1/2 p-6 lg:p-8 flex flex-col relative">
+                    <!-- Badges -->
+                    <div class="flex flex-wrap items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold uppercase tracking-wider rounded border border-green-200">
+                            <i class="fa-solid fa-check-circle mr-1"></i> In Stock
+                        </span>
+                        <span class="px-2.5 py-0.5 bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-wider rounded border border-blue-100">
+                            Oncology
+                        </span>
+                        <span class="px-2.5 py-0.5 bg-purple-50 text-purple-600 text-[10px] font-bold uppercase tracking-wider rounded border border-purple-100">
+                            Prescription Required
+                        </span>
+                    </div>
+
+                    <h1 class="text-xl md:text-2xl font-bold gradient-text mb-2 leading-tight">
+                        Cytarabine 100 MG / 16.7 ML INJECTION
+                    </h1>
+
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="flex text-yellow-400 text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <span class="text-xs text-gray-500 font-medium">4.8 (124 Reviews)</span>
+                        <span class="text-gray-300">|</span>
+                        <span class="text-xs text-gray-500">SKU: <span class="font-mono text-gray-700">CYT-100-INJ</span></span>
+                    </div>
+
+                    <div class="flex items-baseline gap-2 mb-6">
+                        <span class="text-2xl font-bold text-gray-800">₱ 1,840.00</span>
+                        <span class="text-sm text-gray-400 line-through font-medium">₱ 2,100.00</span>
+                        <span class="text-[10px] font-bold text-red-500 bg-red-50 px-1.5 py-0.5 rounded ml-2">-12% OFF</span>
+                    </div>
+
+                    <p class="text-gray-600 text-[15px] leading-relaxed mb-8">
+                        Cytarabine is an antimetabolite chemotherapy drug used principally in the treatment of cancers of white blood cells such as acute myeloid leukemia (AML) and non-Hodgkin lymphoma. It interferes with the synthesis of DNA, effectively halting the growth of cancer cells.
+                    </p>
+
+                    <div class="bg-blue-50/50 rounded-2xl p-5 mb-8 border border-blue-100 flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary flex-shrink-0 mt-1">
+                            <i class="fa-solid fa-truck-fast text-[16px]"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 text-sm mb-1">Free & Fast Delivery Available</h4>
+                            <p class="text-[13px] text-gray-600">Order within <span class="text-primary font-bold">2 hours</span> for same-day delivery in Metro Manila.</p>
+                        </div>
+                    </div>
+
+                    <hr class="border-gray-100 mb-8">
+
+                    <!-- Actions -->
+                    <div class="flex flex-col sm:flex-row gap-3 mb-4 mt-auto">
+                        <!-- Qty -->
+                        <div class="flex items-center justify-between border border-gray-200 rounded-[12px] px-3 py-2 sm:w-1/4 bg-white hover:border-gray-300 transition-colors">
+                            <button class="text-gray-400 hover:text-red-500 font-bold transition p-1" onclick="updateQty(this, -1)">
+                                <i class="fa-solid fa-minus text-xs"></i>
+                            </button>
+                            <span class="text-[14px] font-extrabold text-gray-800 w-6 text-center" id="detail-qty">1</span>
+                            <button class="text-primary hover:text-blue-700 font-bold transition p-1" onclick="updateQty(this, 1)">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                            </button>
+                        </div>
+
+                        <!-- Add to Cart -->
+                        <button onclick="addToCartDetail('Cytarabine 100 MG / 16.7 ML INJECTION', 1840.00)" class="flex-1 bg-gray-900 text-white font-bold text-[14px] rounded-[12px] py-2.5 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-shopping mb-[1px]"></i> Add to Cart
+                        </button>
+                        
+                        <!-- Buy Now -->
+                        <button class="flex-1 bg-primary text-white font-bold text-[14px] rounded-[12px] py-2.5 shadow-md shadow-blue-500/30 hover:shadow-lg hover:shadow-blue-500/40 hover:-translate-y-0.5 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-bolt mb-[1px]"></i> Buy Now
+                        </button>
+                    </div>
+
+                    <div class="mt-4 flex items-center justify-center gap-6 text-gray-400 text-xs font-medium">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-gray-300"></i> Secure Payments
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-box-open text-gray-300"></i> 7-Day Returns
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Information Tabs -->
+        <div class="mt-8 bg-white rounded-[15px] shadow-[0_5px_20px_-10px_rgba(0,0,0,0.05)] border border-gray-100 p-6 lg:p-8 mb-12">
+            <div class="flex overflow-x-auto no-scrollbar border-b border-gray-100 mb-8 gap-8">
+                <button class="tab-btn active pb-4 text-[15px] text-gray-500 font-medium whitespace-nowrap transition-colors" data-target="tab-description">
+                    Description
+                </button>
+                <button class="tab-btn pb-4 text-[15px] text-gray-500 font-medium whitespace-nowrap hover:text-gray-800 transition-colors" data-target="tab-usage">
+                    Direction For Use
+                </button>
+                <button class="tab-btn pb-4 text-[15px] text-gray-500 font-medium whitespace-nowrap hover:text-gray-800 transition-colors" data-target="tab-precautions">
+                    Warnings & Precautions
+                </button>
+                <button class="tab-btn pb-4 text-[15px] text-gray-500 font-medium whitespace-nowrap hover:text-gray-800 transition-colors" data-target="tab-side-effects">
+                    Side Effects
+                </button>
+                <button class="tab-btn pb-4 text-[15px] text-gray-500 font-medium whitespace-nowrap hover:text-gray-800 transition-colors" data-target="tab-reviews">
+                    Reviews (124)
+                </button>
+            </div>
+
+            <div class="text-[15px] text-gray-600 leading-relaxed md:w-3/4">
+                <!-- Description Tab -->
+                <div id="tab-description" class="tab-content active">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">About Cytarabine Injection</h3>
+                    <p class="mb-4">
+                        Cytarabine belongs to a general group of medicines known as antimetabolites. It is used to treat some types of cancer of the blood (leukemia). Cytarabine works by interfering with the growth of cancer cells, which are eventually destroyed by the body. 
+                    </p>
+                    <p class="mb-4">
+                        Since the growth of normal body cells may also be affected by cytarabine, other unwanted effects will also occur. Some of these may be serious and must be reported to your doctor. Before you begin treatment with cytarabine, you and your doctor should talk about the benefits this medicine will do as well as the risks of using it.
+                    </p>
+                    <h4 class="font-bold text-gray-800 mt-6 mb-2">Key Benefits:</h4>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Effective in acutely inducing remission in leukemia patients.</li>
+                        <li>High concentration formulation specifically designed for institutional use.</li>
+                        <li>Can be delivered intravenously, subcutaneously, or intrathecally depending on the exact indication.</li>
+                    </ul>
+                </div>
+
+                <!-- Usage Tab -->
+                <div id="tab-usage" class="tab-content">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Directions for Use</h3>
+                    <p class="mb-4">
+                        This drug is administered by a healthcare professional in a clinical or hospital setting. The dosage and schedule will be determined by your doctor based on your specific condition, body weight, and response to treatment.
+                    </p>
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mt-4 w-full md:w-fit pr-8">
+                        <div class="flex gap-3">
+                            <i class="fa-solid fa-triangle-exclamation text-yellow-600 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-yellow-800 text-[14px]">Important Note</h4>
+                                <p class="text-[13px] text-yellow-700 mt-1">Never attempt to self-administer unless explicitly instructed <br> and trained by your healthcare provider.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Precautions Tab -->
+                <div id="tab-precautions" class="tab-content">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Warnings & Precautions</h3>
+                    <ul class="list-disc pl-5 space-y-3">
+                        <li>Tell your doctor if you have ever had an unusual or allergic reaction to cytarabine or any other medicines.</li>
+                        <li>Inform your doctor if you have liver or kidney disease.</li>
+                        <li>Do not receive any kind of immunization or vaccination while you are receiving cytarabine without your doctor's approval.</li>
+                        <li>Cytarabine can lower the number of white blood cells in your blood, increasing the chance of getting an infection.</li>
+                        <li>This medicine may cause birth defects if either the male or female is using it at the time of conception. Use an effective form of birth control.</li>
+                    </ul>
+                </div>
+
+                <!-- Side Effects Tab -->
+                <div id="tab-side-effects" class="tab-content">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">Possible Side Effects</h3>
+                    <p class="mb-4">Check with your doctor immediately if any of the following side effects occur:</p>
+                    <ul class="list-disc pl-5 space-y-2 mb-6">
+                        <li>Bleeding gums</li>
+                        <li>Blood in urine or stools</li>
+                        <li>Pinpoint red spots on the skin</li>
+                        <li>Unusual bleeding or bruising</li>
+                        <li>Fever, chills, or sore throat</li>
+                    </ul>
+                    <p class="text-sm text-gray-500 italic">This is not a complete list of possible side effects. If you notice other effects not listed above, contact your doctor or pharmacist.</p>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div id="tab-reviews" class="tab-content">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-lg font-bold text-gray-900">Customer Reviews</h3>
+                        <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold shadow hover:bg-blue-600 transition">Write a Review</button>
+                    </div>
+
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="text-4xl font-extrabold text-gray-900">4.8</div>
+                        <div>
+                            <div class="flex text-yellow-400 text-sm mb-1">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                            <p class="text-xs text-gray-500 font-medium">Based on 124 reviews</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Review 1 -->
+                        <div class="bg-gray-50/50 border border-gray-100 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary font-bold">JD</div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-gray-900">John Doe</h4>
+                                        <div class="flex text-yellow-400 text-[10px]">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-xs text-gray-400">2 days ago</span>
+                            </div>
+                            <p class="text-sm text-gray-600">This medication was prescribed for my relative. The delivery was incredibly fast and the packaging was secure and well-maintained. Highly recommend GetMEDS.</p>
+                        </div>
+
+                        <!-- Review 2 -->
+                        <div class="bg-gray-50/50 border border-gray-100 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-success font-bold">AS</div>
+                                    <div>
+                                        <h4 class="text-sm font-bold text-gray-900">Anna Smith</h4>
+                                        <div class="flex text-yellow-400 text-[10px]">
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="text-xs text-gray-400">1 week ago</span>
+                            </div>
+                            <p class="text-sm text-gray-600">Great service, though it took a bit of time to get my prescription verified. The product is working as expected. Good pricing compared to local pharmacies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="components/components.js?v=1775704983"></script>
+    <script>
+        function changeImage(src, btn) {
+            document.getElementById('main-product-img').src = src;
+            const thumbs = btn.parentElement.querySelectorAll('button');
+            thumbs.forEach(t => t.classList.replace('border-primary', 'border-transparent'));
+            btn.classList.replace('border-transparent', 'border-primary');
+        }
+
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active', 'text-gray-800'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+                button.classList.add('active');
+                const target = button.getAttribute('data-target');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+
+        function updateQty(btn, change) {
+            const span = document.getElementById('detail-qty');
+            let current = parseInt(span.innerText);
+            let newVal = current + change;
+            if(newVal < 1) newVal = 1;
+            span.innerText = newVal;
+        }
+
+        function addToCartDetail(name, price) {
+            const btn = event.currentTarget;
+            const originalHTML = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Added to Cart';
+            btn.classList.replace('bg-gray-900', 'bg-success');
+            
+            let cart = JSON.parse(localStorage.getItem('getmeds_cart') || '[]');
+            const qty = parseInt(document.getElementById('detail-qty').innerText);
+            
+            const existing = cart.find(i => i.name === name);
+            if (existing) {
+                existing.qty += qty;
+            } else {
+                cart.push({ name, price, qty });
+            }
+            
+            localStorage.setItem('getmeds_cart', JSON.stringify(cart));
+            window.dispatchEvent(new Event('cartUpdated'));
+
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.classList.replace('bg-success', 'bg-gray-900');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
