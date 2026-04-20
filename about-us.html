@@ -126,34 +126,52 @@
         </div>
     </section>
 
-    <!-- Mission & Vision -->
-    <section class="py-20 bg-gray-50 relative overflow-hidden">
-        <!-- Decorative blobs -->
-        <div class="absolute top-0 left-0 w-64 h-64 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 transform -translate-x-1/2 -translate-y-1/2"></div>
-        <div class="absolute bottom-0 right-0 w-64 h-64 bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-50 transform translate-x-1/2 translate-y-1/2"></div>
-        
+    <!-- Enhanced Mission & Vision -->
+    <section class="py-24 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Mission Card -->
-                <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-xl transition-shadow duration-300 reveal border border-gray-100/50">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white mb-6 shadow-md shadow-blue-500/30">
-                        <i class="fa-solid fa-bullseye text-2xl"></i>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-[3rem] overflow-hidden shadow-2xl reveal">
+                
+                <!-- Mission Pillar -->
+                <div class="relative bg-dark group p-12 md:p-20 overflow-hidden flex flex-col justify-center min-h-[450px]">
+                    <!-- Background texture -->
+                    <img src="mission_vision_abstract_1776321179236.png" 
+                         class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity scale-110 group-hover:scale-100 transition-transform duration-[5s]" 
+                         style="object-position: left center;">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-900/60 to-transparent"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="text-white/10 text-8xl font-black absolute -top-10 -left-6 select-none">01</div>
+                        <div class="w-16 h-16 rounded-2xl bg-primary/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-primary mb-8">
+                            <i class="fa-solid fa-bullseye text-2xl"></i>
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-white mb-6 tracking-tight">Our Mission</h3>
+                        <p class="text-white/70 text-lg leading-relaxed max-w-md">
+                            To simplify the healthcare experience through technology by providing <span class="text-white font-bold italic">convenient, affordable, and safe</span> access to medicines, diagnostics, and medical consultations for families across the nation.
+                        </p>
                     </div>
-                    <h3 class="text-2xl font-bold text-dark mb-4">Our Mission</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        To simplify the healthcare experience through technology by providing convenient, affordable, and safe access to medicines, diagnostics, and medical consultations for individuals and families across the nation.
-                    </p>
                 </div>
                 
-                <!-- Vision Card -->
-                <div class="bg-white rounded-3xl p-10 shadow-lg hover:shadow-xl transition-shadow duration-300 reveal border border-gray-100/50" style="transition-delay: 100ms;">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-400 to-[#5ab04c] flex items-center justify-center text-white mb-6 shadow-md shadow-green-500/30">
-                        <i class="fa-solid fa-eye text-2xl"></i>
+                <!-- Vision Pillar -->
+                <div class="relative bg-slate-50 group p-12 md:p-20 overflow-hidden flex flex-col justify-center min-h-[450px]">
+                    <!-- Background texture -->
+                    <img src="mission_vision_abstract_1776321179236.png" 
+                         class="absolute inset-0 w-full h-full object-cover opacity-20 transform -scale-x-100 scale-110 group-hover:scale-100 transition-transform duration-[5s]" 
+                         style="object-position: right center;">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-accent/10 to-transparent"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="text-dark/5 text-8xl font-black absolute -top-10 -left-6 select-none">02</div>
+                        <div class="w-16 h-16 rounded-2xl bg-accent/10 backdrop-blur-md border border-accent/20 flex items-center justify-center text-accent mb-8">
+                            <i class="fa-solid fa-eye text-2xl"></i>
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-dark mb-6 tracking-tight">Our Vision</h3>
+                        <p class="text-gray-500 text-lg leading-relaxed max-w-md">
+                            To be the leading and <span class="text-dark font-bold underline decoration-accent underline-offset-4">most trusted</span> digital healthcare ecosystem, fostering a healthier, happier world where distance and cost are no longer barriers to receiving care.
+                        </p>
                     </div>
-                    <h3 class="text-2xl font-bold text-dark mb-4">Our Vision</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        To be the leading and most trusted digital healthcare ecosystem, fostering a healthier, happier world where distance and cost are no longer barriers to receiving the best possible medical care.
-                    </p>
+                    
+                    <!-- Bottom accent line -->
+                    <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-accent to-primary opacity-50"></div>
                 </div>
             </div>
         </div>
@@ -199,6 +217,113 @@
                 <!-- Right Image -->
                 <div class="reveal relative flex justify-center">
                     <img src="assets/whychooseus.png" alt="Why Choose Us" class="w-full max-w-sm drop-shadow-2xl hover:scale-105 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Leaders -->
+    <section class="py-24 bg-gray-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-20 reveal">
+                <span class="text-primary font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Executive Team</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-dark mb-6 tracking-tight">The Minds Behind <span class="text-primary">GetMEDS</span></h2>
+                <p class="text-gray-500 text-lg">Our leadership team brings decades of experience in healthcare, technology, and logistics to revolutionize patient care.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Leader 1 -->
+                <div class="group reveal">
+                    <div class="relative mb-6 overflow-hidden rounded-[2rem] shadow-xl aspect-[4/5]">
+                        <img src="assets/CEO.jpg" alt="CEO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                            <div class="flex gap-4">
+                                <a href="#" class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#" class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i class="fa-brands fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-dark mb-1">Engr. Caron G. Melendrez</h4>
+                    <p class="text-primary font-bold text-sm uppercase tracking-widest">Chief Executive Officer</p>
+                </div>
+
+                <!-- Leader 2 -->
+                <div class="group reveal" style="transition-delay: 150ms;">
+                    <div class="relative mb-6 overflow-hidden rounded-[2rem] shadow-xl aspect-[4/5]">
+                        <img src="leadership_coo_1776316848099.png" alt="COO" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                            <div class="flex gap-4">
+                                <a href="#" class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#" class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i class="fa-brands fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-dark mb-1">Dr. Elena Rodriguez</h4>
+                    <p class="text-primary font-bold text-sm uppercase tracking-widest">Chief Operations Officer</p>
+                </div>
+
+                <!-- Leader 3 -->
+                <div class="group reveal" style="transition-delay: 300ms;">
+                    <div class="relative mb-6 overflow-hidden rounded-[2rem] shadow-xl aspect-[4/5]">
+                        <img src="leadership_md_1776316868294.png" alt="Medical Director" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                            <div class="flex gap-4">
+                                <a href="#" class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#" class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i class="fa-brands fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-dark mb-1">Dr. Michael Chen</h4>
+                    <p class="text-primary font-bold text-sm uppercase tracking-widest">Medical Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Partners -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <span class="text-primary font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Trust Network</span>
+                <h2 class="text-3xl font-bold text-dark mb-4">Strategic Partners & Affiliates</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center reveal">
+                <div class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                    <div class="flex items-center gap-2 opacity-60">
+                        <i class="fa-solid fa-hospital-user text-3xl"></i>
+                        <span class="font-bold text-xl tracking-tighter">PHARMA<span class="text-primary">LINK</span></span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                    <div class="flex items-center gap-2 opacity-60">
+                        <i class="fa-solid fa-flask-vial text-3xl"></i>
+                        <span class="font-bold text-xl tracking-tighter">LAB<span class="text-accent text-[#61A644]">TECH</span></span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                    <div class="flex items-center gap-2 opacity-60">
+                        <i class="fa-solid fa-heart-pulse text-3xl"></i>
+                        <span class="font-bold text-xl tracking-tighter">VITALI<span class="text-blue-400">CARE</span></span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                    <div class="flex items-center gap-2 opacity-60">
+                        <i class="fa-solid fa-lock text-3xl"></i>
+                        <span class="font-bold text-xl tracking-tighter">SECURE<span class="text-gray-400">HEALTH</span></span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                    <div class="flex items-center gap-2 opacity-60">
+                        <i class="fa-solid fa-truck-ramp-box text-3xl"></i>
+                        <span class="font-bold text-xl tracking-tighter">SWIFT<span class="text-primary">LOG</span></span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                    <div class="flex items-center gap-2 opacity-60">
+                        <img src="assets/UNGClogo.png" class="h-10 object-contain">
+                    </div>
                 </div>
             </div>
         </div>

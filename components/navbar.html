@@ -15,8 +15,36 @@
                 <a href="index.html" class="hover:text-primary transition">Home</a>
                 <a href="order-medicines.html" class="hover:text-primary transition whitespace-nowrap">Order
                     Medicines</a>
-                <a href="product-range.html" class="hover:text-primary transition whitespace-nowrap">Product
-                    Range</a>
+                <!-- Product Range Dropdown -->
+                <div class="relative group h-20 flex items-center">
+                    <button class="flex items-center hover:text-primary transition focus:outline-none">
+                        Product Range <i class="fa-solid fa-chevron-down ml-1.5 text-[10px]"></i>
+                    </button>
+                    <div
+                        class="absolute top-[75px] left-0 w-64 bg-white border border-gray-100 shadow-xl rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100] max-h-[80vh] overflow-y-auto">
+                        <a href="product-range.html?category=oncology" class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 border-b border-gray-50 transition">
+                            Oncology
+                        </a>
+                        <a href="product-range.html?category=cardiology" class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 border-b border-gray-50 transition">
+                            Cardiology
+                        </a>
+                        <a href="product-range.html?category=neurology" class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 border-b border-gray-50 transition">
+                            Neurology
+                        </a>
+                        <a href="product-range.html?category=dermatology" class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 border-b border-gray-50 transition">
+                            Dermatology
+                        </a>
+                        <a href="product-range.html?category=pediatrics" class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 border-b border-gray-50 transition">
+                            Pediatrics
+                        </a>
+                        <a href="product-range.html?category=ophthalmology" class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 border-b border-gray-50 transition">
+                            Ophthalmology
+                        </a>
+                        <a href="product-range.html?category=antibacterial" class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition rounded-b-lg">
+                            Anti Bacterial
+                        </a>
+                    </div>
+                </div>
                 <a href="about-us.html" class="hover:text-primary transition whitespace-nowrap">About Us</a>
 
                 <!-- Dropdown -->
@@ -26,9 +54,13 @@
                     </button>
                     <div
                         class="absolute top-[75px] left-0 w-64 bg-white border border-gray-100 shadow-xl rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
-                        <a href="under-development.html"
+                        <a href="services.html"
                             class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 border-b border-gray-50 transition">Our
                             Services</a>
+                        <a href="pap.html"
+                            class="block px-5 py-1 text-sm text-gray-600 hover:bg-gray-50 border-b border-gray-50 transition">
+                            <img src="assets/PAPlogo.png" alt="Patient Assistance Program" class="h-14 w-auto object-contain">
+                        </a>
                         <a href="global-presence.html"
                             class="block px-5 py-3 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 border-b border-gray-50 transition">Global
                             Presence</a>
@@ -90,13 +122,26 @@
             <a href="product-range.html"
                 class="block px-3 py-3 text-base font-semibold text-gray-700 border-b border-gray-50 hover:text-primary">Product
                 Range</a>
+            <div class="px-3 py-2 space-y-1 bg-gray-50/50">
+                <a href="product-range.html?category=oncology" class="block pl-6 py-2 text-sm text-gray-500 hover:text-primary transition">Oncology</a>
+                <a href="product-range.html?category=cardiology" class="block pl-6 py-2 text-sm text-gray-500 hover:text-primary transition">Cardiology</a>
+                <a href="product-range.html?category=neurology" class="block pl-6 py-2 text-sm text-gray-500 hover:text-primary transition">Neurology</a>
+                <a href="product-range.html?category=dermatology" class="block pl-6 py-2 text-sm text-gray-500 hover:text-primary transition">Dermatology</a>
+                <a href="product-range.html?category=pediatrics" class="block pl-6 py-2 text-sm text-gray-500 hover:text-primary transition">Pediatrics</a>
+                <a href="product-range.html?category=ophthalmology" class="block pl-6 py-2 text-sm text-gray-500 hover:text-primary transition">Ophthalmology</a>
+                <a href="product-range.html?category=antibacterial" class="block pl-6 py-2 text-sm text-gray-500 hover:text-primary transition">Anti Bacterial</a>
+            </div>
             <a href="about-us.html"
                 class="block px-3 py-3 text-base font-semibold text-gray-700 border-b border-gray-50 hover:text-primary">About
                 Us</a>
 
             <div class="px-3 pt-3 pb-1 text-xs font-black uppercase text-gray-400 tracking-wider">Company</div>
-            <a href="under-development.html"
+            <a href="services.html"
                 class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">Our Services</a>
+            <a href="pap.html"
+                class="block pl-6 pr-3 py-1 text-sm font-medium text-gray-600 hover:bg-gray-50 border-b border-gray-50">
+                <img src="assets/PAPlogo.png" alt="Patient Assistance Program" class="h-14 w-auto object-contain">
+            </a>
             <a href="global-presence.html"
                 class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">Global Presence</a>
             <a href="csr.html" class="block pl-6 pr-3 py-2 text-sm font-medium text-gray-600 hover:text-primary">CSR</a>

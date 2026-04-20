@@ -128,13 +128,10 @@
             <div class="flex flex-col md:flex-row gap-12 items-start mb-24">
                 <!-- Left: Video Embed -->
                 <div class="md:w-1/2 reveal overflow-hidden rounded-3xl shadow-xl h-[300px] md:h-auto">
-                    <iframe class="w-full h-full aspect-video" 
-                        src="https://www.youtube.com/embed/aIKzCDi2NGA" 
-                        title="DORIE SHARES HER BREAST CANCER JOURNEY AND ADVICE | CARE AT GETMEDS" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
+                    <iframe class="w-full h-full aspect-video" src="https://www.youtube.com/embed/aIKzCDi2NGA"
+                        title="DORIE SHARES HER BREAST CANCER JOURNEY AND ADVICE | CARE AT GETMEDS" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                     </iframe>
                 </div>
                 <!-- Right: Description and Links -->
@@ -738,17 +735,14 @@
                         card.setAttribute("data-pos", pinkPositions[i]);
                     });
                 };
-
                 pinkNext.addEventListener("click", () => {
                     pinkPositions.push(pinkPositions.shift());
                     updatePinkCards();
                 });
-
                 pinkPrev.addEventListener("click", () => {
                     pinkPositions.unshift(pinkPositions.pop());
                     updatePinkCards();
                 });
-
                 // Auto rotate
                 setInterval(() => {
                     pinkPositions.push(pinkPositions.shift());
@@ -757,7 +751,6 @@
             });
         </script>
     </section>
-
     <!-- Footer Component -->
     <div id="footer-placeholder"></div>
 

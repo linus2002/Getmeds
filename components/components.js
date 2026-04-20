@@ -316,76 +316,84 @@
 
         async function handleResponse(query) {
             const typing = showTyping();
-            
-            // Site Navigation Logic
-            let response = "I'm still learning! You can ask me to help you find products, check your cart, manage your profile, or learn about our company.";
             const q = query.toLowerCase();
+            let response = "I'm GetAssist, your AI wellness partner. I can guide you through our platform! You can ask about our <b>Services</b>, <b>Leadership</b>, <b>CSR Advocacy</b>, or <b>Product Range</b>.";
             
-            // Shopping & Products
-            if (q.includes('cart') || q.includes('checkout') || q.includes('bag')) {
-                response = 'You can view your items and checkout by visiting your <a href="cart.html" class="font-bold underline text-blue-200 hover:text-blue-100">Shopping Cart</a>.';
-            } else if (q.includes('search') || q.includes('product') || q.includes('medicine') || q.includes('shop') || q.includes('buy')) {
-                response = `We have a wide variety of medicines. Some of our top products include:<br>
+            // Company Leaders & Team
+            if (q.includes('leader') || q.includes('ceo') || q.includes('who runs') || q.includes('management') || q.includes('president') || q.includes('owner')) {
+                response = `GetMEDS is led by a team of visionary experts:<br>
                 <ul class="list-disc pl-5 mt-2 mb-2 space-y-1">
-                    <li><b>Cytarabine 100 MG / 16.7 ML</b></li>
-                    <li><b>Pemetrexed 100 MG / 500 MG</b></li>
-                    <li><b>Everolimus 10 MG</b></li>
-                    <li><b>Bicalutamide 50 MG</b></li>
+                    <li><b>Engr. Caron G. Melendrez</b> - Chief Executive Officer</li>
+                    <li><b>Dr. Elena Rodriguez</b> - Chief Operations Officer</li>
+                    <li><b>Dr. Michael Chen</b> - Medical Director</li>
                 </ul>
-                View our complete catalog on the <a href="product-range.html" class="font-bold underline text-blue-200 hover:text-blue-100">Product Range</a> page.`;
-            } else if (q.includes('order medicine') || q.includes('prescription')) {
-                response = 'If you need to fulfill a prescription or order specific medicines, head over to the <a href="order-medicines.html" class="font-bold underline text-blue-200 hover:text-blue-100">Order Medicines</a> section.';
-            } else if (q.includes('home') || q.includes('start')) {
-                response = 'You can always return to the main dashboard by going <a href="index.html" class="font-bold underline text-blue-200 hover:text-blue-100">Home</a>.';
+                Learn more about our team on the <a href="about-us.html" class="font-bold underline text-blue-200 hover:text-blue-100">About Us</a> page.`;
             }
-            
-            // User Profile & Account
+            // Detailed Services
+            else if (q.includes('service') || q.includes('do you do') || q.includes('offerings')) {
+                response = `We provide a comprehensive healthcare ecosystem:
+                <ul class="list-disc pl-5 mt-2 mb-2 space-y-1">
+                    <li><b>Swift Medicine Delivery</b> (Nationwide)</li>
+                    <li><b>24/7 Telemedicine</b> with Board-certified Specialists</li>
+                    <li><b>At-Home Lab Tests</b> & Diagnostics</li>
+                    <li><b>Chronic Care Support</b> (Oncology & Hematology focus)</li>
+                    <li><b>Global Medical Concierge</b> for international care</li>
+                </ul>
+                Explore all our <a href="services.html" class="font-bold underline text-blue-200 hover:text-blue-100">Premium Services</a> here.`;
+            }
+            // CSR & Advocacy
+            else if (q.includes('csr') || q.includes('charity') || q.includes('help') || q.includes('cancer') || q.includes('program') || q.includes('free')) {
+                response = `Our advocacy focuses on patient accessibility through initiatives like:
+                <ul class="list-disc pl-5 mt-2 mb-2 space-y-1">
+                    <li><b>Free Cancer Medicines Program</b> for challenged patients</li>
+                    <li><b>Patient Assistance Program</b> with EPCALM Foundation</li>
+                    <li><b>Pink Run</b> Supporting Breast Cancer Awareness</li>
+                    <li>Partnering with <b>The Beautiful One Dhe Warriors</b></li>
+                </ul>
+                Read about our impact on the <a href="csr.html" class="font-bold underline text-blue-200 hover:text-blue-100">CSR</a> page.`;
+            }
+            // Partners
+            else if (q.includes('partner') || q.includes('affiliate') || q.includes('trust')) {
+                response = `We are trusted by industry leaders including <b>PharmaLink</b>, <b>LabTech</b>, <b>VitaliCare</b>, and we strictly follow <b>UN Global Compact</b> (UNGC) standards.`;
+            }
+            // Shopping & Products
+            else if (q.includes('cart') || q.includes('checkout') || q.includes('bag')) {
+                response = 'You can view your items and checkout by visiting your <a href="cart.html" class="font-bold underline text-blue-200 hover:text-blue-100">Shopping Cart</a>.';
+            } else if (q.includes('search') || q.includes('product') || q.includes('medicine') || q.includes('shop') || q.includes('buy') || q.includes('catalog')) {
+                response = `We specialize in life-saving medicines for Oncology, Rheumatology, and more. Top products include:<br>
+                <ul class="list-disc pl-5 mt-2 mb-2 space-y-1">
+                    <li><b>Cytarabine</b> (Oncology)</li>
+                    <li><b>Pemetrexed</b> (Lung Cancer treatment)</li>
+                    <li><b>Everolimus</b> (Targeted therapy)</li>
+                </ul>
+                View full catalog on the <a href="product-range.html" class="font-bold underline text-blue-200 hover:text-blue-100">Product Range</a> page.`;
+            } else if (q.includes('prescription') || q.includes('upload')) {
+                response = 'Upload and fulfill your prescriptions at the <a href="order-medicines.html" class="font-bold underline text-blue-200 hover:text-blue-100">Order Medicines</a> section.';
+            }
+            // Navigation & Account
             else if (q.includes('profile') || q.includes('account') || q.includes('edit')) {
-                response = 'Manage your personal details and account settings in your <a href="edit-profile.html" class="font-bold underline text-blue-200 hover:text-blue-100">Profile Settings</a>.';
-            } else if (q.includes('order') || q.includes('purchase') || q.includes('track') || q.includes('history')) {
-                response = 'You can track all your past and current orders in the <a href="profile.html" class="font-bold underline text-blue-200 hover:text-blue-100">My Purchases</a> section of your profile.';
+                response = 'Manage your account in your <a href="edit-profile.html" class="font-bold underline text-blue-200 hover:text-blue-100">Profile Settings</a>.';
+            } else if (q.includes('track') || q.includes('history')) {
+                response = 'Track orders in <a href="profile.html" class="font-bold underline text-blue-200 hover:text-blue-100">My Purchases</a>.';
             } else if (q.includes('notification') || q.includes('update')) {
-                response = 'Check your latest updates and alerts under <a href="profile.html" class="font-bold underline text-blue-200 hover:text-blue-100">Notifications</a>.';
-            } else if (q.includes('voucher') || q.includes('discount') || q.includes('coupon')) {
-                response = 'View your available discounts in the <a href="profile.html" class="font-bold underline text-blue-200 hover:text-blue-100">My Vouchers</a> tab.';
-            } else if (q.includes('coin') || q.includes('reward') || q.includes('point')) {
-                response = 'Check your reward balance in the <a href="profile.html" class="font-bold underline text-blue-200 hover:text-blue-100">My Coins</a> section.';
-            }
-            
-            // Company Info & Support
-            else if (q.includes('about') || q.includes('company') || q.includes('who are we')) {
-                response = 'Learn more about our mission and vision on the <a href="about-us.html" class="font-bold underline text-blue-200 hover:text-blue-100">About Us</a> page.';
-            } else if (q.includes('contact') || q.includes('support') || q.includes('help') || q.includes('message')) {
-                response = 'Need help? Reach out to our support team via the <a href="contact-us.html" class="font-bold underline text-blue-200 hover:text-blue-100">Contact Us</a> page. We are available 24/7!';
-            } else if (q.includes('career') || q.includes('job') || q.includes('hiring')) {
-                response = 'Looking to join our team? Check out open positions on our <a href="careers.html" class="font-bold underline text-blue-200 hover:text-blue-100">Careers</a> page.';
-            } else if (q.includes('csr') || q.includes('charity') || q.includes('advocacy')) {
-                response = 'Discover our community initiatives on the <a href="csr.html" class="font-bold underline text-blue-200 hover:text-blue-100">Corporate Social Responsibility</a> page.';
-            } else if (q.includes('global') || q.includes('presence') || q.includes('international')) {
+                response = 'Check alerts under <a href="profile.html" class="font-bold underline text-blue-200 hover:text-blue-100">Notifications</a>.';
+            } else if (q.includes('global') || q.includes('international')) {
                 response = 'See our worldwide operations on the <a href="global-presence.html" class="font-bold underline text-blue-200 hover:text-blue-100">Global Presence</a> page.';
-            } else if (q.includes('ungc') || q.includes('united nations')) {
-                response = 'Read about our commitment to global standards on the <a href="ungc.html" class="font-bold underline text-blue-200 hover:text-blue-100">UN Global Compact</a> page.';
             }
-            
-            // General AI queries
+            // General
             else if (q.includes('who are you') || q.includes('what are you')) {
-                response = "I'm GetAssist, your AI wellness partner. I can guide you through the GetMEDS platform, find products, and direct you to the right support channels!";
+                response = "I'm <b>GetAssist</b>, the AI wellness partner for GetMEDS. I'm trained to help you navigate our healthcare ecosystem and find the right medical solutions!";
             } else if (q.includes('delivery') || q.includes('shipping')) {
-                response = "We offer nationwide delivery! Standard shipping takes 1-3 business days depending on your location.";
+                response = "We offer nationwide delivery! Standard shipping takes 1-3 business days. We use temperature-controlled logistics for sensitive medications.";
             }
-            
+
             setTimeout(() => {
                 typing.remove();
                 addMessage(response, 'ai');
-                // Ensure links inside AI message work smoothly within the chat interface window
                 const newMsg = zapMessages.lastElementChild;
                 const links = newMsg.querySelectorAll('a');
-                links.forEach(l => {
-                    l.addEventListener('click', (e) => {
-                        // Let the browser handle standard navigation
-                    });
-                });
-            }, 800 + Math.random() * 1000);
+                // Standard browser navigation handler for dynamically added links
+            }, 800 + Math.random() * 800);
         }
 
         const sendMessage = () => {
