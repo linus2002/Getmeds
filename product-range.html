@@ -52,16 +52,41 @@
         /* Sub-category dropdown animation */
         .sub-menu {
             max-height: 0;
-            overflow: hidden;
+            overflow-y: auto;
             transition: max-height 0.3s ease-out;
+            scrollbar-width: thin;
+            scrollbar-color: #0D99FF transparent;
+        }
+
+        .sub-menu::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .sub-menu::-webkit-scrollbar-thumb {
+            background-color: #0D99FF;
+            border-radius: 20px;
         }
 
         .category-item.open+.sub-menu {
-            max-height: 500px;
+            max-height: 450px;
+        }
+
+        .sub-menu a.active-sub {
+            color: #0D99FF !important;
+            font-weight: 700 !important;
+            background: #F0F9FF !important;
+            border-radius: 8px;
+            padding-left: 56px !important; /* px-14 is 56px */
         }
 
         input[type="date"]::-webkit-calendar-picker-indicator {
             filter: invert(0.5);
+        }
+
+        #product-grid > div {
+            height: 430px !important;
+            min-height: 430px !important;
+            max-height: 430px !important;
         }
     </style>
 </head>
@@ -270,33 +295,120 @@
                                 </span>
                             </a>
                         </div>
-                        <!-- Oncology (Dropdown) -->
+                        <!-- Oncology / Hematology (Consolidated) -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
                                 class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
-                                    <i class="fa-solid fa-pills text-primary"></i>
-                                    Oncology
+                                    <i class="fa-solid fa-ribbon text-primary"></i>
+                                    Oncology / Hematology
                                 </span>
-                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:text-primary"></i>
+                                <i
+                                    class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
                             </button>
-                            <div class="sub-menu">
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Lung
-                                    Cancer</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Breast
-                                    Cancer</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Leukemia</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Lymphoma</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Liver
-                                    Cancer</a>
+                            <div class="sub-menu bg-gray-50/30">
+                                <!-- Solid Tumors -->
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Breast Cancer</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Ovarian Cancer</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Non-Small Cell Lung Cancer</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Prostate Cancer</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Colorectal Cancer</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Pancreatic Cancer</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Gastric Cancer</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Head and Neck Cancer</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Malignant Pleural Mesothelioma</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Malignant Pleural Effusion</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Gastrointestinal Stromal Tumors</a>
+                                
+                                <!-- Hematology (Excel) -->
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition border-t border-gray-100 mt-1 pt-2 font-bold">Hematology Range</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Acute Myeloid Leukemia</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Chronic Myeloid Leukemia</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Acute Lymphocytic Leukemia</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Chronic Lymphocytic Leukemia</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Hodgkin/Non-Hodgkin's Lymphoma</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Mantle Cell Lymphoma</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Chronic Myelocytic Leukemia</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Meningeal Leukemia</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Acute Lymphoblastic Leukemia</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Acute Promyelocytic Leukemia</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Sickle Cell Anemia</a>
                             </div>
                         </div>
 
+                        <!-- Neurology -->
+                        <div class="category-group">
+                            <button onclick="toggleCategory(this)"
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
+                                <span class="flex items-center gap-3">
+                                    <i class="fa-solid fa-droplet"></i>
+                                    Hematology / Obstetrician / Gynecology
+                                </span>
+                                <i
+                                    class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
+                            </button>
+                            <div class="sub-menu bg-gray-50/30">
+                                <a href="#"
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Folate Deficiency Anemia</a>
+                                <a href="#"
+                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Iron Deficiency Anemia</a>
+                            </div>
+                        </div>
+
+                        <!-- Anti-Infectives -->
+                        <div class="category-group">
+                            <button onclick="toggleCategory(this)"
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
+                                <span class="flex items-center gap-3">
+                                    <i class="fa-solid fa-shield-virus"></i>
+                                    Anti-Infectives
+                                </span>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
+                            </button>
+                            <div class="sub-menu bg-gray-50/30">
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Respiratory Infections</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Urinary Tract Infections</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Skin and Soft Tissue Infections</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Bone and Joint Infections</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Gynecological infections</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Intra-abdominal infections</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Bloodstream infections</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Ocular or topical infections</a>
+                            </div>
+                        </div>
+
+                        <!-- Endocrinology -->
+                        <div class="category-group">
+                            <button onclick="toggleCategory(this)"
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
+                                <span class="flex items-center gap-3">
+                                    <i class="fa-solid fa-vials"></i>
+                                    Endocrinology
+                                </span>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
+                            </button>
+                            <div class="sub-menu bg-gray-50/30">
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Endometriosis</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Fibrocystic Breast Disease</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Benign Prostatic Hyperplasia</a>
+                            </div>
+                        </div>
+
+                        <!-- Orthopedic -->
+                        <div class="category-group">
+                            <button onclick="toggleCategory(this)"
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
+                                <span class="flex items-center gap-3">
+                                    <i class="fa-solid fa-bone"></i>
+                                    Orthopedic
+                                </span>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
+                            </button>
+                            <div class="sub-menu bg-gray-50/30">
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Multiple Myeloma</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Glucocorticoid-Induced Osteoporosis</a>
+                            </div>
+                        </div>
 
                         <!-- Cardiology -->
                         <div class="category-group">
@@ -306,138 +418,101 @@
                                     <i class="fa-solid fa-heart-pulse"></i>
                                     Cardiology
                                 </span>
-                                <i
-                                    class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
                             </button>
                             <div class="sub-menu bg-gray-50/30">
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Hypertension</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Heart
-                                    Failure</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Arrhythmia</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Chest
-                                    Pain</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Arrhythmia management</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Hypertension/Angina</a>
                             </div>
                         </div>
 
-                        <!-- Neurology -->
+                        <!-- Neuro-Oncology -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
                                 class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
                                     <i class="fa-solid fa-brain"></i>
-                                    Neurology
+                                    Neuro-Oncology
                                 </span>
-                                <i
-                                    class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
                             </button>
                             <div class="sub-menu bg-gray-50/30">
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Epilepsy</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Alzheimer's</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Parkinson's</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Multiple
-                                    Sclerosis</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Glioblastoma Multiforme</a>
                             </div>
                         </div>
 
-                        <!-- Dermatology -->
+                        <!-- Respiratory / Allergy -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
                                 class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
-                                    <i class="fa-solid fa-syringe"></i>
-                                    Dermatology
+                                    <i class="fa-solid fa-lungs"></i>
+                                    Respiratory / Allergy
                                 </span>
-                                <i
-                                    class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
                             </button>
                             <div class="sub-menu bg-gray-50/30">
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Acne</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Eczema</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Psoriasis</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Rosacea</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Seasonal Allergic Rhinitis</a>
                             </div>
                         </div>
 
-                        <!-- Pediatrics -->
+                        <!-- Nephrology / Renal -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
                                 class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
-                                    <i class="fa-solid fa-baby-carriage"></i>
-                                    Pediatrics
+                                    <i class="fa-solid fa-filter"></i>
+                                    Nephrology / Renal
                                 </span>
-                                <i
-                                    class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
                             </button>
                             <div class="sub-menu bg-gray-50/30">
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Fever
-                                    & Cold</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Vaccinations</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Vitamins</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Immunity</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">chronic kidney disease</a>
                             </div>
                         </div>
 
-                        <!-- Ophthalmology -->
+                        <!-- Pain Management -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
                                 class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
-                                    <i class="fa-solid fa-eye"></i>
-                                    Ophthalmology
+                                    <i class="fa-solid fa-tablets"></i>
+                                    Pain Management
                                 </span>
-                                <i
-                                    class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
                             </button>
                             <div class="sub-menu bg-gray-50/30">
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Cataracts</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Glaucoma</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Dry
-                                    Eye</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Infection</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Chronic Pain Management</a>
                             </div>
                         </div>
 
-                        <!-- Anti Bacterial -->
+                        <!-- Rheumatology -->
                         <div class="category-group">
                             <button onclick="toggleCategory(this)"
                                 class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
                                 <span class="flex items-center gap-3">
-                                    <i class="fa-solid fa-shield-virus"></i>
-                                    Anti Bacterial
+                                    <i class="fa-solid fa-hand-dots"></i>
+                                    Rheumatology
                                 </span>
-                                <i
-                                    class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
                             </button>
                             <div class="sub-menu bg-gray-50/30">
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Amoxicillin</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Azithromycin</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Penicillin</a>
-                                <a href="#"
-                                    class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Ciprofloxacin</a>
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Inflammatory & Rheumatic Disorders</a>
+                            </div>
+                        </div>
+
+                        <!-- Radiology -->
+                        <div class="category-group">
+                            <button onclick="toggleCategory(this)"
+                                class="w-full flex items-center justify-between px-6 py-3 text-[13.5px] font-semibold text-gray-600 hover:bg-blue-50/50 hover:text-primary transition category-item group">
+                                <span class="flex items-center gap-3">
+                                    <i class="fa-solid fa-x-ray"></i>
+                                    Radiology
+                                </span>
+                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 transform"></i>
+                            </button>
+                            <div class="sub-menu bg-gray-50/30">
+                                <a href="#" class="block px-14 py-1.5 text-[12.5px] text-gray-500 hover:text-primary transition">Radiologic imaging enhancement</a>
                             </div>
                         </div>
                     </div>
@@ -507,181 +582,237 @@
                 </div>
 
                 <!-- Product Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                    <!-- Product 1 -->
-                    <div
-                        class="bg-white border border-gray-100 rounded-[20px] p-5 hover:shadow-2xl transition duration-300 relative group flex flex-col h-full hover:-translate-y-1">
-                        <div class="h-44 flex justify-center items-center mb-5 overflow-hidden rounded-xl bg-gray-50 cursor-pointer" onclick="window.location.href='product-details.html'">
-                            <img src="assets/cytarabine.png" alt="Cytarabine"
-                                class="w-full h-full object-cover mix-blend-multiply transition-transform group-hover:scale-105">
-                        </div>
-                        <div class="mb-2">
-                            <h4 onclick="window.location.href='product-details.html'"
-                                class="gradient-text font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
-                                Cytarabine 100 MG / 16.7 ML INJECTION
-                            </h4>
-                            <p class="text-gray-500 text-[11px] mt-1 font-medium">Availability: <span
-                                    class="text-success font-bold">In Stock</span></p>
-                        </div>
-                        <div class="mt-auto pt-4">
-                            <div class="font-bold text-[18px] text-gray-900 mb-4">₱ 1,840.00</div>
-                            <div class="flex items-center justify-between">
-                                <!-- Qty -->
-                                <div
-                                    class="flex items-center space-x-2 bg-gray-50 border border-gray-100 rounded-full px-3 py-1.5 shadow-sm">
-                                    <button class="text-gray-400 hover:text-red-500 font-bold px-1 text-sm transition"
-                                        onclick="updateQty(this, -1)">-</button>
-                                    <span class="text-[13px] font-bold text-gray-700 w-5 text-center">1</span>
-                                    <button class="text-success hover:text-green-600 font-bold px-1 text-sm transition"
-                                        onclick="updateQty(this, 1)">+</button>
-                                </div>
-                                <!-- Add -->
-                                <button onclick="addToCart('Cytarabine 100 MG / 16.7 ML INJECTION', 1840.00, this)"
-                                    class="h-11 w-11 bg-success text-white rounded-full flex items-center justify-center hover:bg-green-600 shadow-md transition transform active:scale-90">
-                                    <i class="fa-solid fa-bag-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 2 -->
-                    <div
-                        class="bg-white border border-gray-100 rounded-[20px] p-5 hover:shadow-2xl transition duration-300 relative group flex flex-col h-full hover:-translate-y-1">
-                        <div class="h-44 flex justify-center items-center mb-5 overflow-hidden rounded-xl bg-gray-50">
-                            <img src="assets/docetaxel.png" alt="Docetaxel"
-                                class="w-full h-full object-cover mix-blend-multiply transition-transform group-hover:scale-105">
-                        </div>
-                        <div class="mb-2">
-                            <h4
-                                class="gradient-text font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
-                                Docetaxel 50 MG
-                            </h4>
-                            <p class="text-gray-500 text-[11px] mt-1 font-medium">Availability: <span
-                                    class="text-success font-bold">In Stock</span></p>
-                        </div>
-                        <div class="mt-auto pt-4">
-                            <div class="font-bold text-[18px] text-gray-900 mb-4">₱ 560.00</div>
-                            <div class="flex items-center justify-between">
-                                <div
-                                    class="flex items-center space-x-2 bg-gray-50 border border-gray-100 rounded-full px-3 py-1.5 shadow-sm">
-                                    <button class="text-gray-400 hover:text-red-500 font-bold px-1 text-sm transition"
-                                        onclick="updateQty(this, -1)">-</button>
-                                    <span class="text-[13px] font-bold text-gray-700 w-5 text-center">1</span>
-                                    <button class="text-success hover:text-green-600 font-bold px-1 text-sm transition"
-                                        onclick="updateQty(this, 1)">+</button>
-                                </div>
-                                <button onclick="addToCart('Docetaxel 50 MG', 560.00, this)"
-                                    class="h-11 w-11 bg-success text-white rounded-full flex items-center justify-center hover:bg-green-600 shadow-md transition transform active:scale-90">
-                                    <i class="fa-solid fa-bag-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div
-                        class="bg-white border border-gray-100 rounded-[20px] p-5 hover:shadow-2xl transition duration-300 relative group flex flex-col h-full hover:-translate-y-1">
-                        <div class="h-44 flex justify-center items-center mb-5 overflow-hidden rounded-xl bg-gray-50">
-                            <img src="assets/capecitabine.png" alt="Capecitabine"
-                                class="w-full h-full object-cover mix-blend-multiply transition-transform group-hover:scale-105">
-                        </div>
-                        <div class="mb-2">
-                            <h4
-                                class="gradient-text font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
-                                Capecitabine 300 MCG / 1 ML INJECTION
-                            </h4>
-                            <p class="text-gray-500 text-[11px] mt-1 font-medium">Availability: <span
-                                    class="text-success font-bold">In Stock</span></p>
-                        </div>
-                        <div class="mt-auto pt-4">
-                            <div class="font-bold text-[18px] text-gray-900 mb-4">₱ 1,150.00</div>
-                            <div class="flex items-center justify-between">
-                                <div
-                                    class="flex items-center space-x-2 bg-gray-50 border border-gray-100 rounded-full px-3 py-1.5 shadow-sm">
-                                    <button class="text-gray-400 hover:text-red-500 font-bold px-1 text-sm transition"
-                                        onclick="updateQty(this, -1)">-</button>
-                                    <span class="text-[13px] font-bold text-gray-700 w-5 text-center">1</span>
-                                    <button class="text-success hover:text-green-600 font-bold px-1 text-sm transition"
-                                        onclick="updateQty(this, 1)">+</button>
-                                </div>
-                                <button onclick="addToCart('Capecitabine 300 MCG / 1 ML INJECTION', 1150.00, this)"
-                                    class="h-11 w-11 bg-success text-white rounded-full flex items-center justify-center hover:bg-green-600 shadow-md transition transform active:scale-90">
-                                    <i class="fa-solid fa-bag-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 -->
-                    <div
-                        class="bg-white border border-gray-100 rounded-[20px] p-5 hover:shadow-2xl transition duration-300 relative group flex flex-col h-full hover:-translate-y-1">
-                        <div class="h-44 flex justify-center items-center mb-5 overflow-hidden rounded-xl bg-gray-50">
-                            <img src="assets/letrozole.png" alt="Letrozole"
-                                class="w-full h-full object-cover mix-blend-multiply transition-transform group-hover:scale-105">
-                        </div>
-                        <div class="mb-2">
-                            <h4
-                                class="gradient-text font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
-                                Letrozole 250 MG / 5 ML PF SYRINGE
-                            </h4>
-                            <p class="text-gray-500 text-[11px] mt-1 font-medium">Availability: <span
-                                    class="text-success font-bold">In Stock</span></p>
-                        </div>
-                        <div class="mt-auto pt-4">
-                            <div class="font-bold text-[18px] text-gray-900 mb-4">₱ 8,900.00</div>
-                            <div class="flex items-center justify-between">
-                                <div
-                                    class="flex items-center space-x-2 bg-gray-50 border border-gray-100 rounded-full px-3 py-1.5 shadow-sm">
-                                    <button class="text-gray-400 hover:text-red-500 font-bold px-1 text-sm transition"
-                                        onclick="updateQty(this, -1)">-</button>
-                                    <span class="text-[13px] font-bold text-gray-700 w-5 text-center">1</span>
-                                    <button class="text-success hover:text-green-600 font-bold px-1 text-sm transition"
-                                        onclick="updateQty(this, 1)">+</button>
-                                </div>
-                                <button onclick="addToCart('Letrozole 250 MG / 5 ML PF SYRINGE', 8900.00, this)"
-                                    class="h-11 w-11 bg-success text-white rounded-full flex items-center justify-center hover:bg-green-600 shadow-md transition transform active:scale-90">
-                                    <i class="fa-solid fa-bag-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 5 -->
-                    <div
-                        class="bg-white border border-gray-100 rounded-[20px] p-5 hover:shadow-2xl transition duration-300 relative group flex flex-col h-full hover:-translate-y-1">
-                        <div class="h-44 flex justify-center items-center mb-5 overflow-hidden rounded-xl bg-gray-50">
-                            <img src="assets/temozolomide.png" alt="Temozolomide"
-                                class="w-full h-full object-cover mix-blend-multiply transition-transform group-hover:scale-105">
-                        </div>
-                        <div class="mb-2">
-                            <h4
-                                class="gradient-text font-bold text-[14px] leading-tight hover:underline cursor-pointer min-h-[40px]">
-                                Temozolomide 100 MG Caps
-                            </h4>
-                            <p class="text-gray-500 text-[11px] mt-1 font-medium">Availability: <span
-                                    class="text-success font-bold">In Stock</span></p>
-                        </div>
-                        <div class="mt-auto pt-4">
-                            <div class="font-bold text-[18px] text-gray-900 mb-4">₱ 12,450.00</div>
-                            <div class="flex items-center justify-between">
-                                <div
-                                    class="flex items-center space-x-2 bg-gray-50 border border-gray-100 rounded-full px-3 py-1.5 shadow-sm">
-                                    <button class="text-gray-400 hover:text-red-500 font-bold px-1 text-sm transition"
-                                        onclick="updateQty(this, -1)">-</button>
-                                    <span class="text-[13px] font-bold text-gray-700 w-5 text-center">1</span>
-                                    <button class="text-success hover:text-green-600 font-bold px-1 text-sm transition"
-                                        onclick="updateQty(this, 1)">+</button>
-                                </div>
-                                <button onclick="addToCart('Temozolomide 100 MG Caps', 12450.00, this)"
-                                    class="h-11 w-11 bg-success text-white rounded-full flex items-center justify-center hover:bg-green-600 shadow-md transition transform active:scale-90">
-                                    <i class="fa-solid fa-bag-shopping"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+                    <!-- Products will be rendered here by JavaScript -->
                 </div>
+
+                <script>
+                    const oncologyProducts = [
+                        // Oncology / Hematology - Leukemia & Lymphoma (Based on Excel)
+                        { name: "Cytarabine 100 MG / 5 ML", category: "Acute Myeloid Leukemia", price: 1850.00 },
+                        { name: "Idarubicin 5 MG VIAL", category: "Acute Myeloid Leukemia", price: 4200.00 },
+                        
+                        { name: "Imatinib (as Mesilate) 100 MG", category: "Chronic Myeloid Leukemia", price: 3200.00 },
+                        { name: "Hydroxyurea 500 MG", category: "Chronic Myeloid Leukemia", price: 1200.00 },
+                        
+                        { name: "Cytarabine 500 MG VIAL", category: "Acute Lymphocytic Leukemia", price: 2800.00 },
+                        { name: "Vincristine 1 MG / 1 ML", category: "Acute Lymphocytic Leukemia", price: 1500.00 },
+                        
+                        { name: "Bendamustine (as Hydrochloride) 100 MG", category: "Chronic Lymphocytic Leukemia", price: 12500.00 },
+                        
+                        { name: "Cytarabine 1 G VIAL", category: "Hodgkin/Non-Hodgkin's Lymphoma", price: 3500.00 },
+                        { name: "Methotrexate 50 MG / 2 ML", category: "Hodgkin/Non-Hodgkin's Lymphoma", price: 1650.00 },
+                        { name: "Vincristine 2 MG VIAL", category: "Hodgkin/Non-Hodgkin's Lymphoma", price: 2100.00 },
+                        { name: "Cyclophosphamide (as monohydrate) 500 MG", category: "Hodgkin/Non-Hodgkin's Lymphoma", price: 2800.00 },
+                        { name: "Bendamustine (as Hydrochloride) 25 MG", category: "Hodgkin/Non-Hodgkin's Lymphoma", price: 5600.00 },
+                        
+                        { name: "Bortezomib 3.5 MG VIAL", category: "Mantle Cell Lymphoma", price: 18500.00 },
+                        
+                        { name: "Cytarabine 100 MG", category: "Chronic Myelocytic Leukemia", price: 1850.00 },
+                        
+                        { name: "Cytarabine 100 MG / 5 ML (Meningeal)", category: "Meningeal Leukemia", price: 1950.00 },
+                        
+                        { name: "Imatinib (as Mesilate) 400 MG", category: "Acute Lymphoblastic Leukemia", price: 6800.00 },
+                        { name: "Idarubicin 10 MG VIAL", category: "Acute Lymphoblastic Leukemia", price: 7500.00 },
+                        { name: "Methotrexate 2.5 MG", category: "Acute Lymphoblastic Leukemia", price: 850.00 },
+                        
+                        { name: "Idarubicin 5 MG (Promyelocytic)", category: "Acute Promyelocytic Leukemia", price: 4200.00 },
+                        
+                        { name: "Hydroxyurea 500 MG (Sickle Cell)", category: "Sickle Cell Anemia", price: 1200.00 },
+                        
+                        { name: "Folic Acid", category: "Folate Deficiency Anemia", price: 350.00 },
+                        { name: "Ferrous Sulfate", category: "Iron Deficiency Anemia", price: 420.00 },
+                        
+                        // Original Oncology products
+                        { name: "Paclitaxel 100 MG / 16.7 ML", category: "Breast Cancer", price: 2150.00 },
+                        { name: "Docetaxel (as Trihydrate) 20 MG / 0.5 ML", category: "Breast Cancer", price: 1850.00 },
+                        { name: "Gemcitabine (as Hydrochloride) 1 G VIAL", category: "Breast Cancer", price: 3200.00 },
+                        { name: "Capecitabine 500 MG", category: "Breast Cancer", price: 1150.00 },
+                        { name: "Letrozole 2.5 MG", category: "Breast Cancer", price: 8900.00 },
+                        { name: "Anastrozole 1 MG", category: "Breast Cancer", price: 4200.00 },
+                        { name: "Cyclophosphamide (as monohydrate) 500 MG VIAL", category: "Breast Cancer", price: 2800.00 },
+                        { name: "Docetaxel RTU 20 MG / 2 ML", category: "Breast Cancer", price: 1950.00 },
+                        { name: "Methotrexate 50 MG / 2 ML", category: "Breast Cancer", price: 1500.00 },
+                        { name: "Lapatinib 250 MG", category: "Breast Cancer", price: 12500.00 },
+                        
+                        { name: "Paclitaxel 100 MG / 16.7 ML", category: "Ovarian Cancer", price: 2150.00 },
+                        { name: "Carboplatin 150 MG / 15 ML", category: "Ovarian Cancer", price: 3500.00 },
+                        { name: "Gemcitabine (as Hydrochloride) 1 G VIAL", category: "Ovarian Cancer", price: 3200.00 },
+                        { name: "Cyclophosphamide (as monohydrate) 500 MG VIAL", category: "Ovarian Cancer", price: 2800.00 },
+
+                        { name: "Paclitaxel 100 MG / 16.7 ML", category: "Non-Small Cell Lung Cancer", price: 2150.00 },
+                        { name: "Docetaxel (as Trihydrate) 20 MG / 0.5 ML", category: "Non-Small Cell Lung Cancer", price: 1850.00 },
+                        { name: "Gemcitabine (as Hydrochloride) 1 G VIAL", category: "Non-Small Cell Lung Cancer", price: 3200.00 },
+                        { name: "Pemetrexed (as Disodium Heptahydrate) 500 MG", category: "Non-Small Cell Lung Cancer", price: 4500.00 },
+                        { name: "Docetaxel RTU 20 MG / 2 ML", category: "Non-Small Cell Lung Cancer", price: 1950.00 },
+
+                        { name: "Docetaxel (as Trihydrate) 20 MG / 0.5 ML", category: "Prostate Cancer", price: 1850.00 },
+                        { name: "Abiraterone Acetate 250 MG", category: "Prostate Cancer", price: 15000.00 },
+                        { name: "Docetaxel RTU 20 MG / 2 ML", category: "Prostate Cancer", price: 1950.00 },
+
+                        { name: "Oxaliplatin 100 MG / 20 ML", category: "Colorectal Cancer", price: 5200.00 },
+                        { name: "Capecitabine 500 MG", category: "Colorectal Cancer", price: 1150.00 },
+                        { name: "Fluorouracil 500 MG / 10 ML", category: "Colorectal Cancer", price: 850.00 },
+
+                        { name: "Gemcitabine (as Hydrochloride) 1 G VIAL", category: "Pancreatic Cancer", price: 3200.00 },
+                        { name: "Fluorouracil 500 MG / 10 ML", category: "Pancreatic Cancer", price: 850.00 },
+
+                        { name: "Docetaxel (as Trihydrate) 20 MG / 0.5 ML", category: "Gastric Cancer", price: 1850.00 },
+                        { name: "Capecitabine 500 MG", category: "Gastric Cancer", price: 1150.00 },
+                        { name: "Fluorouracil 500 MG / 10 ML", category: "Gastric Cancer", price: 850.00 },
+                        { name: "Docetaxel RTU 20 MG / 2 ML", category: "Gastric Cancer", price: 1950.00 },
+
+                        { name: "Hydroxyurea 500 MG", category: "Head and Neck Cancer", price: 1200.00 },
+                        { name: "Pemetrexed (as Disodium Heptahydrate) 500 MG", category: "Malignant Pleural Mesothelioma", price: 4500.00 },
+                        { name: "Bleomycin (as Sulfate) 15 UNITS", category: "Malignant Pleural Effusion", price: 3800.00 },
+                        { name: "Imatinib (as Mesilate) 400 MG", category: "Gastrointestinal Stromal Tumors", price: 3200.00 },
+                        
+                        { name: "Cytarabine 100 MG / 16.7 ML INJECTION", category: "All", price: 1840.00, img: "assets/cytarabine.png" },
+                        { name: "Docetaxel 50 MG", category: "All", price: 560.00, img: "assets/docetaxel.png" },
+                        { name: "Capecitabine 300 MCG / 1 ML INJECTION", category: "All", price: 1150.00, img: "assets/capecitabine.png" },
+                        { name: "Letrozole 250 MG / 5 ML PF SYRINGE", category: "All", price: 8900.00, img: "assets/letrozole.png" },
+                        { name: "Temozolomide 100 MG Caps", category: "All", price: 12450.00, img: "assets/temozolomide.png" },
+                        { name: "Folic Acid", category: "All", price: 350.00 },
+                        { name: "Ferrous Sulfate", category: "All", price: 420.00 },
+                        
+                        // Anti-Infectives
+                        { name: "Amikacin (as sulfate)", category: "Respiratory Infections", price: 850.00 },
+                        { name: "Cefoxitin (as Sodium)", category: "Respiratory Infections", price: 920.00 },
+                        { name: "Cefazolin (as Sodium)", category: "Respiratory Infections", price: 780.00 },
+                        { name: "Vancomycin (as Hydrochloride)", category: "Respiratory Infections", price: 1500.00 },
+                        
+                        { name: "Cefoxitin (as Sodium)", category: "Urinary Tract Infections", price: 920.00 },
+                        { name: "Cefazolin (as Sodium)", category: "Urinary Tract Infections", price: 780.00 },
+                        
+                        { name: "Cefazolin (as Sodium)", category: "Skin and Soft Tissue Infections", price: 780.00 },
+                        { name: "Cefazolin (as Sodium)", category: "Bone and Joint Infections", price: 780.00 },
+                        { name: "Cefoxitin (as Sodium)", category: "Gynecological infections", price: 920.00 },
+                        { name: "Cefoxitin (as Sodium)", category: "Intra-abdominal infections", price: 920.00 },
+                        
+                        { name: "Polymyxin B", category: "Bloodstream infections", price: 2100.00 },
+                        { name: "Polymyxin B", category: "Ocular or topical infections", price: 2100.00 },
+                        
+                        // Endocrinology
+                        { name: "Danazol", category: "Endometriosis", price: 1850.00 },
+                        { name: "Danazol", category: "Fibrocystic Breast Disease", price: 1850.00 },
+                        { name: "Finasteride", category: "Benign Prostatic Hyperplasia", price: 1200.00 },
+                        
+                        // Orthopedic
+                        { name: "Bortezomib", category: "Multiple Myeloma", price: 18500.00 },
+                        { name: "Zoledronic Acid (as Monohydrate)", category: "Multiple Myeloma", price: 8500.00 },
+                        { name: "Zoledronic Acid (as Monohydrate)", category: "Glucocorticoid-Induced Osteoporosis", price: 8500.00 },
+                        
+                        // Cardiology
+                        { name: "Amiodarone Hydrochloride", category: "Arrhythmia management", price: 950.00 },
+                        { name: "Amlodipine", category: "Hypertension/Angina", price: 450.00 },
+                        
+                        // Neuro-Oncology
+                        { name: "Temozolomide", category: "Glioblastoma Multiforme", price: 12450.00 },
+                        
+                        // Respiratory / Allergy
+                        { name: "Loratadine", category: "Seasonal Allergic Rhinitis", price: 350.00 },
+                        { name: "Cetirizine Hydrochloride", category: "Seasonal Allergic Rhinitis", price: 380.00 },
+                        
+                        // Nephrology / Renal
+                        { name: "Sevelamer Carbonate", category: "chronic kidney disease", price: 4200.00 },
+                        
+                        // Pain Management
+                        { name: "Tramadol", category: "Chronic Pain Management", price: 650.00 },
+                        
+                        // Rheumatology
+                        { name: "Dexamethasone", category: "Inflammatory & Rheumatic Disorders", price: 450.00 },
+                        
+                        // Radiology
+                        { name: "Iodine (as Iohexol)", category: "Radiologic imaging enhancement", price: 3200.00 }
+                    ];
+
+                    function renderProducts(category = 'All') {
+                        const grid = document.getElementById('product-grid');
+                        grid.innerHTML = '';
+                        
+                        const filtered = oncologyProducts.filter(p => 
+                            category === 'All' || 
+                            p.category === category || 
+                            ((category === 'Oncology' || category === 'Oncology / Hematology') && p.category !== 'All')
+                        );
+                        
+                        document.querySelector('h2.text-xl.font-bold').innerHTML = `${category} <span class="text-gray-400 font-normal text-sm ml-2">(${filtered.length} Items)</span>`;
+
+                        filtered.forEach(p => {
+                            const card = document.createElement('div');
+                            card.className = "bg-white border border-gray-100 rounded-[24px] p-5 hover:shadow-2xl transition duration-300 relative group flex flex-col hover:-translate-y-1 animate-in fade-in zoom-in duration-300 w-full overflow-hidden";
+                            
+                            const imageContent = p.img 
+                                ? `<img src="${p.img}" alt="${p.name}" class="w-full h-full object-contain mix-blend-multiply transition-transform group-hover:scale-105">`
+                                : `<div class="w-full h-full flex flex-col items-center justify-center bg-gray-50/50 text-blue-100 group-hover:text-primary transition-colors">
+                                     <i class="fa-solid fa-pills text-5xl mb-2 opacity-30"></i>
+                                     <span class="text-[10px] font-bold uppercase tracking-widest opacity-30">No Image</span>
+                                   </div>`;
+
+                            card.innerHTML = `
+                                <div class="h-44 flex justify-center items-center mb-4 overflow-hidden rounded-2xl bg-gray-50/50 cursor-pointer p-6" onclick="window.location.href='product-details.html'">
+                                    ${imageContent}
+                                </div>
+                                <div class="mb-3">
+                                    <h4 onclick="window.location.href='product-details.html'"
+                                        class="gradient-text font-bold text-[15px] leading-snug hover:underline cursor-pointer min-h-[44px] flex items-center">
+                                        ${p.name}
+                                    </h4>
+                                    <p class="text-gray-500 text-[11px] mt-1 font-medium">Availability: <span
+                                            class="text-success font-bold">In Stock</span></p>
+                                </div>
+                                <div class="mt-auto pt-3 border-t border-gray-50/50">
+                                    <div class="font-bold text-[17px] text-gray-900 mb-3">₱ ${p.price.toLocaleString('en-PH', { minimumFractionDigits: 2 })}</div>
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3 bg-gray-50 border border-gray-100 rounded-full px-3 py-1.5 shadow-sm">
+                                            <button class="text-gray-400 hover:text-red-500 font-bold px-1 text-sm transition" onclick="updateQty(this, -1)">-</button>
+                                            <span class="text-[13px] font-bold text-gray-700 w-5 text-center">1</span>
+                                            <button class="text-success hover:text-green-600 font-bold px-1 text-sm transition" onclick="updateQty(this, 1)">+</button>
+                                        </div>
+                                        <button onclick="addToCart('${p.name}', ${p.price}, this)"
+                                            class="h-10 w-10 bg-success text-white rounded-full flex items-center justify-center hover:bg-green-600 shadow-lg transition transform active:scale-90">
+                                            <i class="fa-solid fa-bag-shopping text-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            `;
+                            grid.appendChild(card);
+                        });
+                    }
+
+                    // Handle Sidebar clicks
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const subMenuLinks = document.querySelectorAll('.sub-menu a');
+                        subMenuLinks.forEach(link => {
+                            link.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                const category = link.innerText.trim();
+                                renderProducts(category);
+                                
+                                // Update active state for sub-menu links
+                                document.querySelectorAll('.sub-menu a').forEach(l => l.classList.remove('active-sub'));
+                                link.classList.add('active-sub');
+
+                                // Update active state for parent category
+                                document.querySelectorAll('.category-item').forEach(item => item.classList.remove('active', 'bg-blue-50/50', 'text-primary'));
+                                const categoryBtn = link.closest('.category-group').querySelector('.category-item');
+                                categoryBtn.classList.add('active', 'bg-blue-50/50', 'text-primary');
+                            });
+                        });
+
+                        // Main Category Clicks
+                        document.querySelectorAll('.category-item').forEach(btn => {
+                            btn.addEventListener('click', () => {
+                                const text = btn.innerText.trim();
+                                if (text === 'All Products') renderProducts('All');
+                                if (text === 'Oncology') renderProducts('Oncology');
+                                if (text.includes('Oncology / Hematology')) renderProducts('Oncology / Hematology');
+                            });
+                        });
+
+                        renderProducts('All');
+                    });
+                </script>
 
                 <!-- Pagination -->
                 <div class="mt-16 flex justify-center items-center gap-2">
@@ -774,7 +905,8 @@
             if (existing) {
                 existing.qty += qty;
             } else {
-                const img = card.querySelector('img').src;
+                const imgElem = card.querySelector('img');
+                const img = imgElem ? imgElem.src : 'assets/no-image.png';
                 // Get volume if available, or default to "1 Box"
                 const volElem = card.querySelector('p.text-gray-500');
                 const vol = volElem ? volElem.innerText.split(':')[1]?.trim() || '1 Box' : '1 Box';
@@ -816,7 +948,7 @@
             // Filter actual product cards in the grid
             const productTitles = document.querySelectorAll('h4.gradient-text');
             productTitles.forEach(h4 => {
-                const card = h4.closest('div.group');
+                const card = h4.closest('.group');
                 if(!card) return;
                 const titleText = h4.innerText.toLowerCase();
                 card.style.display = titleText.includes(term) ? 'flex' : 'none';

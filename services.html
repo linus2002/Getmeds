@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - GetMEDS | Revolutionizing Healthcare Access</title>
+    <title>Our Services - GetMEDS | Next-Gen Healthcare Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -12,300 +12,430 @@
                 extend: {
                     colors: {
                         primary: '#0D99FF',
-                        dark: '#1A202C',
-                        accent: '#61A644'
+                        dark: '#0F172A',
+                        accent: '#61A644',
+                        secondary: '#1D9FDA'
                     },
                     fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
+                        sans: ['Outfit', 'Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
                     }
                 }
             }
         }
     </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
-        .text-gradient {
-            background: linear-gradient(to r, #61A644, #1D9FDA);
+
+        body { font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+
+        .dark-glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #61A644 0%, #1D9FDA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .gradient-icon {
+            background: linear-gradient(135deg, #61A644 0%, #1D9FDA 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .service-hover:hover .service-icon {
-            transform: scale(1.1) rotate(5deg);
-            background: linear-gradient(135deg, #0D99FF 0%, #1D9FDA 100%);
-            color: white;
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #61A644 0%, #1D9FDA 100%);
         }
-        @keyframes bounce-slow {
-            0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
-            50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .animate-bounce-slow {
-            animation: bounce-slow 3s infinite;
+
+        .card-hover:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
         }
+
+        .service-icon-wrapper {
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .card-hover:hover .service-icon-wrapper {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(97, 166, 68, 0.2) 0%, rgba(29, 159, 218, 0.2) 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .bento-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+
+        .bento-card:hover {
+            border-color: #e2e8f0;
+            background: #fafafa;
+        }
+
+        .step-number {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            opacity: 0.05;
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     </style>
 </head>
 
-<body class="bg-slate-50 text-gray-800 antialiased overflow-x-hidden">
+<body class="bg-[#F8FAFC] text-slate-900 antialiased overflow-x-hidden">
 
     <!-- Navbar Component -->
     <div id="navbar-placeholder"></div>
 
-    <!-- Enhanced Hero Section -->
-    <section class="w-full mx-auto px-3 sm:px-4 md:px-6 mt-3 md:mt-4 mb-20 max-w-[1600px]">
-        <div class="relative rounded-[2rem] border border-gray-100/20 overflow-hidden min-h-[500px] md:min-h-[550px] flex items-center group shadow-2xl">
-            
-            <!-- Background Image -->
-            <div class="absolute inset-0 z-0">
-                <img src="services_hero_bg_1776316395277.png" 
-                     class="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-[3s]" 
-                     alt="Healthcare Services">
-                <!-- Multi-layer Overlays -->
-                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
-            </div>
-
-            <!-- Content -->
-            <div class="relative z-10 w-full px-8 md:px-14 py-20 max-w-5xl">
-                <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[11px] font-bold uppercase tracking-[0.2em] mb-6 animate-pulse">
-                    <i class="fa-solid fa-sparkles mr-2 text-accent"></i> Excellence in Healthcare
-                </div>
-                
-                <h1 class="text-[35px] md:text-[55px] lg:text-[62px] leading-[1.1] font-extrabold mb-6 tracking-tight text-white">
-                    Our <span class="bg-gradient-to-r from-[#61A644] to-[#1D9FDA] bg-clip-text text-transparent">Premium Services</span><br>
-                    Defined by Care.
-                </h1>
-                
-                <p class="text-white/80 text-[15px] md:text-[17px] max-w-[600px] mb-10 leading-relaxed font-normal">
-                    GetMEDS bridges the gap between expert medical care and your convenience. We provide integrated solutions for medicine delivery, diagnostics, and specialist consultations.
-                </p>
-
-                <div class="flex flex-wrap gap-5">
-                    <a href="#services-grid" 
-                        class="bg-gradient-to-r from-[#61A644] to-[#1D9FDA] hover:shadow-[0_0_20px_rgba(29,159,218,0.5)] text-white font-bold py-4 px-8 rounded-full text-[14px] leading-none transition-all duration-300 flex items-center">
-                        Explore Our Solutions <i class="fa-solid fa-chevron-down ml-3 text-xs"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Floating Stats Card (Glassmorphic) -->
-            <div class="hidden lg:flex absolute right-14 bottom-14 z-20 animate-bounce-slow">
-                <div class="glass-card p-6 rounded-[1.5rem] border border-white/20 shadow-2xl backdrop-blur-xl flex items-center gap-5">
-                    <div class="h-14 w-14 rounded-full bg-accent/20 flex items-center justify-center text-accent text-xl">
-                        <i class="fa-solid fa-users-viewfinder"></i>
+    <!-- Hero Section -->
+    <section class="relative pt-6 pb-20 overflow-hidden">
+        <div class="blob -top-20 -left-20 animate-float"></div>
+        <div class="blob top-1/2 -right-20 animate-float" style="animation-delay: -3s"></div>
+        
+        <div class="w-full max-w-[1550px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                <!-- Text Content -->
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <div class="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-50 text-primary text-[11px] font-bold uppercase tracking-widest mb-6 border border-blue-100 shadow-sm">
+                        <span class="relative flex h-2 w-2 mr-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                        </span>
+                        Elevating Care Standards
                     </div>
-                    <div>
-                        <div class="text-[22px] font-black text-dark leading-none mb-1">98.5%</div>
-                        <div class="text-[11px] font-bold text-gray-500 uppercase tracking-widest">Client Satisfaction</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Detailed Services Grid -->
-    <section id="services-grid" class="pb-24 scroll-mt-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Service 1: Prescription Delivery -->
-                <div class="glass-card rounded-[2.5rem] p-10 service-hover transition-all duration-500 hover:shadow-2xl hover:shadow-blue-200/50 group">
-                    <div class="service-icon h-16 w-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center text-3xl mb-8 transition-all duration-500">
-                        <i class="fa-solid fa-truck-medical"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-dark mb-4">Swift Prescription Delivery</h3>
-                    <p class="text-gray-500 text-[15px] mb-8 leading-relaxed">
-                        Never miss a dose. Our nationwide delivery network ensures your medicines reach your doorstep within hours. We handle everything from routine refills to critical life-saving medications.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Temperature-controlled handling
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Real-time tracking
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Pharmacist verification
-                        </li>
-                    </ul>
-                    <a href="order-medicines.html" class="inline-flex items-center font-bold text-primary group-hover:underline">
-                        Order Now <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                </div>
-
-                <!-- Service 2: Telemedicine -->
-                <div class="glass-card rounded-[2.5rem] p-10 service-hover transition-all duration-500 hover:shadow-2xl hover:shadow-blue-200/50 group">
-                    <div class="service-icon h-16 w-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center text-3xl mb-8 transition-all duration-500">
-                        <i class="fa-solid fa-video"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-dark mb-4">24/7 Specialist Consultation</h3>
-                    <p class="text-gray-500 text-[15px] mb-8 leading-relaxed">
-                        Connect with top-tier specialists from the comfort of your home. Get expert medical advice, second opinions, and digital prescriptions through our secure tele-health platform.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Board-certified physicians
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Private & secure video calls
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Instant digital records
-                        </li>
-                    </ul>
-                    <a href="contact-us.html" class="inline-flex items-center font-bold text-primary group-hover:underline">
-                        Book Session <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                </div>
-
-                <!-- Service 3: Lab Tests -->
-                <div class="glass-card rounded-[2.5rem] p-10 service-hover transition-all duration-500 hover:shadow-2xl hover:shadow-blue-200/50 group">
-                    <div class="service-icon h-16 w-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center text-3xl mb-8 transition-all duration-500">
-                        <i class="fa-solid fa-vial-circle-check"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-dark mb-4">At-Home Diagnostic Labs</h3>
-                    <p class="text-gray-500 text-[15px] mb-8 leading-relaxed">
-                        Skip the clinic queues. Book comprehensive lab tests and regular health checkups online. Our certified medical technicians will visit you for sample collection.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Certified partner labs
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Home sample collection
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Smart digital reports
-                        </li>
-                    </ul>
-                    <a href="#" class="inline-flex items-center font-bold text-primary group-hover:underline">
-                        Find a Test <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                </div>
-
-                <!-- Service 4: Oncology & Chronic Care -->
-                <div class="glass-card rounded-[2.5rem] p-10 service-hover transition-all duration-500 hover:shadow-2xl hover:shadow-blue-200/50 group">
-                    <div class="service-icon h-16 w-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center text-3xl mb-8 transition-all duration-500">
-                        <i class="fa-solid fa-hand-holding-heart"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-dark mb-4">Chronic Care Support</h3>
-                    <p class="text-gray-500 text-[15px] mb-8 leading-relaxed">
-                        Specialized programs for Oncology, Hematology, and Rare Diseases. We provide more than just medicine; we offer a patient assistance program and dedicated case management.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Specialized medication access
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Financial aid coordination
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Dedicated health coaches
-                        </li>
-                    </ul>
-                    <a href="product-range.html" class="inline-flex items-center font-bold text-primary group-hover:underline">
-                        Learn More <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                </div>
-
-                <!-- Service 5: Corporate Wellness -->
-                <div class="glass-card rounded-[2.5rem] p-10 service-hover transition-all duration-500 hover:shadow-2xl hover:shadow-blue-200/50 group">
-                    <div class="service-icon h-16 w-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center text-3xl mb-8 transition-all duration-500">
-                        <i class="fa-solid fa-building-user"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-dark mb-4">Corporate Health Plans</h3>
-                    <p class="text-gray-500 text-[15px] mb-8 leading-relaxed">
-                        Empower your workforce with custom wellness programs. From annual physical exams to mental health support, we help businesses maintain a healthy and productive team.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Employee health screening
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> On-site wellness workshops
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Exclusive corporate rates
-                        </li>
-                    </ul>
-                    <a href="contact-us.html" class="inline-flex items-center font-bold text-primary group-hover:underline">
-                        Enterprise Solutions <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                </div>
-
-                <!-- Service 6: Global Concierge -->
-                <div class="glass-card rounded-[2.5rem] p-10 service-hover transition-all duration-500 hover:shadow-2xl hover:shadow-blue-200/50 group">
-                    <div class="service-icon h-16 w-16 rounded-2xl bg-blue-50 text-primary flex items-center justify-center text-3xl mb-8 transition-all duration-500">
-                        <i class="fa-solid fa-earth-americas"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-dark mb-4">Global Medical Assistance</h3>
-                    <p class="text-gray-500 text-[15px] mb-8 leading-relaxed">
-                        Access the best medical care globally. Our concierge service helps you navigate international medical travel, find top world specialists, and handle logistics.
-                    </p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Global network of hospitals
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> Travel & stay coordination
-                        </li>
-                        <li class="flex items-center text-sm font-medium text-gray-600">
-                            <i class="fa-solid fa-circle-check text-accent mr-2"></i> International insurance support
-                        </li>
-                    </ul>
-                    <a href="global-presence.html" class="inline-flex items-center font-bold text-primary group-hover:underline">
-                        Explore Network <i class="fa-solid fa-arrow-right ml-2 text-xs transition-transform group-hover:translate-x-1"></i>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="py-24 bg-white border-y border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2 relative">
-                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-100/50 rounded-full blur-3xl"></div>
-                    <img src="assets/whychooseus.png" alt="Why Choose GetMEDS" class="relative z-10 w-full rounded-[2rem] shadow-2xl">
-                </div>
-                <div class="lg:w-1/2 text-left">
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-8 leading-tight">Why Trust <span class="text-primary">GetMEDS</span> for Your Health?</h2>
                     
-                    <div class="space-y-8">
-                        <div class="flex gap-6 items-start">
-                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-50 flex items-center justify-center text-primary">
-                                <i class="fa-solid fa-shield-halved"></i>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-dark leading-[1.1] tracking-tight mb-6">
+                        Healthcare <span class="gradient-text">Redefined</span> for the Modern Era.
+                    </h1>
+                    
+                    <p class="text-slate-500 text-base md:text-lg max-w-lg mb-8 leading-relaxed mx-auto lg:mx-0">
+                        Experience a seamless fusion of expert medical consultation, swift delivery, and advanced diagnostics, all integrated into one intelligent ecosystem.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#services-grid" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-dark text-white font-bold hover:bg-slate-800 transition-all flex items-center justify-center shadow-lg shadow-slate-200 text-sm">
+                            Explore Services <i class="fa-solid fa-arrow-right ml-2.5 text-xs"></i>
+                        </a>
+                        <a href="contact-us.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white text-dark font-bold border border-slate-200 hover:bg-slate-50 transition-all flex items-center justify-center text-sm">
+                            Talk to a Specialist
+                        </a>
+                    </div>
+
+                    <div class="mt-12 flex items-center justify-center lg:justify-start gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
+                        <img src="assets/PAPlogo.png" alt="Partner" class="h-8 w-auto">
+                        <div class="h-6 w-px bg-slate-200"></div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-star text-amber-400 text-sm"></i>
+                            <span class="font-bold text-dark">4.9/5</span>
+                            <span class="text-xs">Service Rating</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Card -->
+                <div class="lg:w-1/2 relative">
+                    <div class="relative rounded-[3rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group">
+                        <img src="modern_medical_services_hero_1777352215637.png" alt="GetMEDS Modern Services" class="w-full h-auto transform group-hover:scale-105 transition-transform duration-[5s]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent"></div>
+                        
+                        <!-- Floating Glass Card -->
+                        <div class="absolute bottom-10 left-10 right-10 glass-panel p-8 rounded-3xl animate-float">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex -space-x-3">
+                                    <div class="h-10 w-10 rounded-full border-2 border-white bg-slate-200"></div>
+                                    <div class="h-10 w-10 rounded-full border-2 border-white bg-slate-300"></div>
+                                    <div class="h-10 w-10 rounded-full border-2 border-white bg-slate-400"></div>
+                                    <div class="h-10 w-10 rounded-full border-2 border-white bg-primary text-white flex items-center justify-center text-xs font-bold">+12k</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-dark font-bold">98% Success Rate</div>
+                                    <div class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Patient Recovery</div>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-dark mb-2">Verified Authenticity</h4>
-                                <p class="text-gray-500 text-[14px]">Every medication and lab partner follows strict international quality standards, ensuring you receive only genuine care.</p>
+                            <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary h-full w-[98%] rounded-full"></div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="flex gap-6 items-start">
-                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-50 flex items-center justify-center text-primary">
-                                <i class="fa-solid fa-user-shield"></i>
+                    <!-- Decorative Elements -->
+                    <div class="absolute -top-6 -right-6 h-24 w-24 bg-accent rounded-3xl -z-10 animate-pulse-slow"></div>
+                    <div class="absolute -bottom-6 -left-6 h-32 w-32 bg-secondary rounded-full -z-10 opacity-20"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services-grid" class="py-20 bg-white">
+        <div class="w-full max-w-[1550px] mx-auto px-6 md:px-12 lg:px-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-dark mb-4 tracking-tight">Comprehensive Care Solutions</h2>
+                <p class="text-slate-500 text-base md:text-lg">We've simplified the medical journey, ensuring every step from diagnosis to treatment is efficient, transparent, and patient-centric.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                <!-- Service 1 -->
+                <div class="bento-card group card-hover relative overflow-hidden p-8 rounded-[1.5rem]">
+                    <div class="step-number text-slate-200 text-5xl">01</div>
+                    <div class="service-icon-wrapper w-14 h-14 rounded-full gradient-bg flex items-center justify-center text-2xl mb-8 transition-all duration-500 shadow-lg shadow-blue-100/50">
+                        <i class="fa-solid fa-truck-fast text-white relative z-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 transition-colors text-[#2A2A2A]">Swift Medication <span class="gradient-text">Logistics</span></h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Proprietary temperature-controlled delivery network for everything from routine supplements to complex oncology medications.
+                    </p>
+                    <div class="space-y-2 mb-8">
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-bolt text-accent mr-2.5"></i> 2-Hour Express Delivery
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-thermometer text-accent mr-2.5"></i> Cold-Chain Integrity
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-shield-check text-accent mr-2.5"></i> Real-time GPS Tracking
+                        </div>
+                    </div>
+                    <a href="order-medicines.html" class="inline-flex items-center font-bold text-sm text-dark group-hover:text-primary">
+                        Book Delivery <i class="fa-solid fa-arrow-right-long ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bento-card group card-hover relative overflow-hidden p-8 rounded-[1.5rem]">
+                    <div class="step-number text-slate-200 text-5xl">02</div>
+                    <div class="service-icon-wrapper w-14 h-14 rounded-full gradient-bg flex items-center justify-center text-2xl mb-8 transition-all duration-500 shadow-lg shadow-blue-100/50">
+                        <i class="fa-solid fa-user-doctor text-white relative z-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 transition-colors text-[#2A2A2A]">Virtual Specialist <span class="gradient-text">Clinic</span></h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Immediate access to board-certified specialists across 20+ disciplines via our secure, high-definition tele-health portal.
+                    </p>
+                    <div class="space-y-2 mb-8">
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-video text-primary mr-2.5"></i> HD Encrypted Video Calls
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-file-medical text-primary mr-2.5"></i> Instant e-Prescriptions
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-clock-rotate-left text-primary mr-2.5"></i> 24/7 Availability
+                        </div>
+                    </div>
+                    <a href="contact-us.html" class="inline-flex items-center font-bold text-sm text-dark group-hover:text-accent">
+                        Consult Now <i class="fa-solid fa-arrow-right-long ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bento-card group card-hover relative overflow-hidden p-8 rounded-[1.5rem]">
+                    <div class="step-number text-slate-200 text-5xl">03</div>
+                    <div class="service-icon-wrapper w-14 h-14 rounded-full gradient-bg flex items-center justify-center text-2xl mb-8 transition-all duration-500 shadow-lg shadow-blue-100/50">
+                        <i class="fa-solid fa-microscope text-white relative z-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 transition-colors text-[#2A2A2A]">Digital Home <span class="gradient-text">Diagnostics</span></h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Laboratory-grade testing from your home. We dispatch certified phlebotomists for painless sample collection.
+                    </p>
+                    <div class="space-y-2 mb-8">
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-vial text-emerald-500 mr-2.5"></i> Home Sample Collection
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-clipboard-list-check text-emerald-500 mr-2.5"></i> Results within 24 Hours
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-chart-line text-emerald-500 mr-2.5"></i> Smart Health Trends
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center font-bold text-sm text-dark group-hover:text-secondary">
+                        Schedule Test <i class="fa-solid fa-arrow-right-long ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bento-card group card-hover relative overflow-hidden p-8 rounded-[1.5rem]">
+                    <div class="step-number text-slate-200 text-5xl">04</div>
+                    <div class="service-icon-wrapper w-14 h-14 rounded-full gradient-bg flex items-center justify-center text-2xl mb-8 transition-all duration-500 shadow-lg shadow-blue-100/50">
+                        <i class="fa-solid fa-hand-holding-medical text-white relative z-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 transition-colors text-[#2A2A2A]">Oncology Support <span class="gradient-text">Hub</span></h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        A dedicated care environment for cancer patients, offering case management and access to global clinical trials.
+                    </p>
+                    <div class="space-y-2 mb-8">
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-heart-pulse text-rose-500 mr-2.5"></i> Personalized Care Plans
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-globe text-rose-500 mr-2.5"></i> Global Expert Network
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-coins text-rose-500 mr-2.5"></i> Financial Support Desk
+                        </div>
+                    </div>
+                    <a href="product-range.html" class="inline-flex items-center font-bold text-sm text-dark group-hover:text-indigo-600">
+                        Access Care <i class="fa-solid fa-arrow-right-long ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bento-card group card-hover relative overflow-hidden p-8 rounded-[1.5rem]">
+                    <div class="step-number text-slate-200 text-5xl">05</div>
+                    <div class="service-icon-wrapper w-14 h-14 rounded-full gradient-bg flex items-center justify-center text-2xl mb-8 transition-all duration-500 shadow-lg shadow-blue-100/50">
+                        <i class="fa-solid fa-building-shield text-white relative z-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 transition-colors text-[#2A2A2A]">Corporate <span class="gradient-text">Ecosystem</span></h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        End-to-end wellness management for enterprises, focusing on proactive health screening and mental wellbeing.
+                    </p>
+                    <div class="space-y-2 mb-8">
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-user-check text-amber-500 mr-2.5"></i> Annual Health Audits
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-brain-circuit text-amber-500 mr-2.5"></i> Mental Health App
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-receipt text-amber-500 mr-2.5"></i> Unified Billing System
+                        </div>
+                    </div>
+                    <a href="contact-us.html" class="inline-flex items-center font-bold text-sm text-dark group-hover:text-amber-600">
+                        Enterprise Access <i class="fa-solid fa-arrow-right-long ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bento-card group card-hover relative overflow-hidden p-8 rounded-[1.5rem]">
+                    <div class="step-number text-slate-200 text-5xl">06</div>
+                    <div class="service-icon-wrapper w-14 h-14 rounded-full gradient-bg flex items-center justify-center text-2xl mb-8 transition-all duration-500 shadow-lg shadow-blue-100/50">
+                        <i class="fa-solid fa-plane-up text-white relative z-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 transition-colors text-[#2A2A2A]">Concierge Travel <span class="gradient-text">Care</span></h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                        Full-service medical tourism management for patients seeking specialized treatments in leading global institutions.
+                    </p>
+                    <div class="space-y-2 mb-8">
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-passport text-slate-700 mr-2.5"></i> Logistics & Visa Support
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-hotel text-slate-700 mr-2.5"></i> Accommodation Booking
+                        </div>
+                        <div class="flex items-center text-[13px] font-semibold text-slate-600">
+                            <i class="fa-solid fa-language text-slate-700 mr-2.5"></i> Medical Interpreters
+                        </div>
+                    </div>
+                    <a href="global-presence.html" class="inline-flex items-center font-bold text-sm text-dark group-hover:text-rose-600">
+                        Global Inquiry <i class="fa-solid fa-arrow-right-long ml-2 transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Features Section -->
+    <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="blob opacity-10 -bottom-40 -left-40"></div>
+        <div class="w-full max-w-[1550px] mx-auto px-6 md:px-12 lg:px-16">
+            <div class="flex flex-col lg:flex-row items-center gap-20">
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">Innovation in <span class="gradient-text">Every Interaction</span>.</h2>
+                    <p class="text-slate-400 text-lg mb-12">We don't just provide services; we provide peace of mind. Our platform is built on three core pillars that ensure your health journey is superior.</p>
+                    
+                    <div class="space-y-10">
+                        <div class="flex gap-6">
+                            <div class="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-primary shrink-0">
+                                <i class="fa-solid fa-lock-hashtag"></i>
                             </div>
                             <div>
-                                <h4 class="text-lg font-bold text-dark mb-2">Patient Data Privacy</h4>
-                                <p class="text-gray-500 text-[14px]">We use banking-grade encryption to protect your health records and personal information.</p>
+                                <h4 class="text-xl font-bold mb-3">Blockchain Data Security</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Your medical history is encrypted and stored using decentralized protocols, giving you absolute control over who accesses your data.</p>
                             </div>
                         </div>
-
-                        <div class="flex gap-6 items-start">
-                            <div class="flex-shrink-0 h-12 w-12 rounded-full bg-blue-50 flex items-center justify-center text-primary">
-                                <i class="fa-solid fa-clock"></i>
+                        <div class="flex gap-6">
+                            <div class="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-accent shrink-0">
+                                <i class="fa-solid fa-brain-circuit"></i>
                             </div>
                             <div>
-                                <h4 class="text-lg font-bold text-dark mb-2">Efficiency Redefined</h4>
-                                <p class="text-gray-500 text-[14px]">Our platform is designed to save you time. From booking to delivery, everything is optimized for speed.</p>
+                                <h4 class="text-xl font-bold mb-3">AI-Powered Diagnostics</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Our system uses advanced algorithms to cross-reference lab results with global health databases for more accurate initial assessments.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl text-secondary shrink-0">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-3">Unified Health Dashboard</h4>
+                                <p class="text-slate-400 text-sm leading-relaxed">Manage prescriptions, appointments, and lab results in one intuitive interface, accessible from any device, anywhere.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-primary/20 blur-3xl rounded-full"></div>
+                        <div class="dark-glass p-1 rounded-[3rem] shadow-2xl relative z-10">
+                            <img src="assets/whychooseus.png" alt="Tech" class="w-full h-auto rounded-[2.8rem] opacity-90 mix-blend-screen">
+                        </div>
+                        
+                        <!-- Floating Tech Tags -->
+                        <div class="absolute -top-10 -right-10 glass-panel dark-glass px-6 py-4 rounded-2xl animate-float">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-microchip text-primary"></i>
+                                <span class="text-white font-bold">Quantum Security</span>
                             </div>
                         </div>
                     </div>
@@ -314,26 +444,23 @@
         </div>
     </section>
 
-    <!-- Content for SEO and more info -->
-    <section class="py-24 bg-slate-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-dark mb-10">Frequently Asked About Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                    <h4 class="font-bold text-dark mb-3">How do I upload a prescription?</h4>
-                    <p class="text-gray-500 text-sm">Simply visit our "Order Medicines" page and use the secure upload tool. Our pharmacists will review it within 15 minutes.</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                    <h4 class="font-bold text-dark mb-3">Is teleconsultation available worldwide?</h4>
-                    <p class="text-gray-500 text-sm">Yes! You can consult with our international network of doctors regardless of your location, 24/7.</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                    <h4 class="font-bold text-dark mb-3">Do you provide corporate billing?</h4>
-                    <p class="text-gray-500 text-sm">We offer specialized enterprise dashboards for companies to manage employee health perks and streamlined billing.</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                    <h4 class="font-bold text-dark mb-3">What areas do you deliver to?</h4>
-                    <p class="text-gray-500 text-sm">We currently offer fast nationwide delivery and express delivery within major metropolitan areas.</p>
+    <!-- Call to Action -->
+    <section class="py-20 bg-white">
+        <div class="w-full max-w-[1550px] mx-auto px-6 md:px-12 lg:px-16">
+            <div class="gradient-bg rounded-[2.5rem] p-10 md:p-16 lg:p-20 text-center text-white relative overflow-hidden shadow-xl">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -mr-24 -mt-24"></div>
+                <div class="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full -ml-24 -mb-24"></div>
+                
+                <h2 class="text-3xl md:text-5xl font-black mb-6 leading-tight">Ready for a Healthier Tomorrow?</h2>
+                <p class="text-white/90 text-base md:text-lg mb-10 max-w-xl mx-auto">Join thousands of patients who have upgraded their medical experience with GetMEDS.</p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="signup.html" class="w-full sm:w-auto px-8 py-4 bg-white text-dark font-black rounded-xl hover:scale-105 transition-transform shadow-lg text-sm">
+                        Get Started Free
+                    </a>
+                    <a href="contact-us.html" class="w-full sm:w-auto px-8 py-4 bg-dark/20 backdrop-blur-md text-white border border-white/30 font-bold rounded-xl hover:bg-dark/30 transition-all text-sm">
+                        Talk to an Advisor
+                    </a>
                 </div>
             </div>
         </div>
