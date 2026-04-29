@@ -411,8 +411,8 @@
 
                 <!-- Bottom Description & Buy Button (Aligned on one line) -->
                 <div
-                    class="absolute bottom-10 left-1/2 -translate-x-1/2 w-full max-w-7xl px-8 md:px-16 z-40 flex items-center justify-between gap-6">
-                    <div class="flex items-center gap-6 text-white/90 text-[13px] font-medium transition-opacity duration-300 whitespace-nowrap"
+                    class="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 w-full max-w-7xl px-4 md:px-16 z-40 flex flex-col lg:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-4 text-white/90 text-[12px] font-medium transition-opacity duration-300 whitespace-nowrap overflow-x-auto no-scrollbar"
                         id="deal-details">
                         <span>PaloGet 50 mcg / mL (250 mcg / 5 mL)</span>
                         <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>
@@ -422,12 +422,19 @@
                         <span class="w-1.5 h-1.5 rounded-full bg-white/30"></span>
                         <span>Packaging Type: Box</span>
                     </div>
-                    <button
-                        class="bg-black text-white px-5 py-2 rounded-full font-bold hover:bg-gray-800 transition shadow-xl text-sm flex items-center space-x-2 shrink-0 border border-transparent hover:border-white/50">
-                        <span>Buy Now</span>
-                        <span id="deal-price-btn"
-                            class="bg-white/20 px-2 py-0.5 rounded-full ml-2 text-xs">₱4032.00</span>
-                    </button>
+                    <div class="flex items-center gap-3">
+                        <button id="add-to-cart-deal" onclick="addToCartDeal()"
+                            class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-4 py-2 rounded-full font-bold hover:bg-white/20 transition shadow-xl text-[12px] flex items-center space-x-2 shrink-0 active:scale-95">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button
+                            class="bg-black text-white px-4 py-2 rounded-full font-bold hover:bg-gray-800 transition shadow-xl text-[12px] flex items-center space-x-2 shrink-0 border border-transparent hover:border-white/50 active:scale-95">
+                            <span>Buy Now</span>
+                            <span id="deal-price-btn"
+                                class="bg-white/20 px-2 py-0.5 rounded-full ml-1 text-[10px]">₱4032.00</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -797,7 +804,7 @@
                         ON:</p>
                     <div class="flex flex-wrap gap-2 lg:gap-3 justify-center md:justify-start max-w-sm mx-auto md:mx-0">
                         <!-- App Store -->
-                        <a href="#"
+                        <a href="https://apps.apple.com/us/app/getmeds/id1579162703" target="_blank"
                             class="bg-[#242424] hover:bg-black text-white rounded-lg px-3 lg:px-4 py-2.5 flex items-center space-x-2.5 transition border border-gray-700 shadow-sm group w-max">
                             <i
                                 class="fa-brands fa-apple text-xl lg:text-2xl group-hover:-translate-y-0.5 transition-transform duration-300"></i>
@@ -809,7 +816,7 @@
                             </div>
                         </a>
                         <!-- Google Play -->
-                        <a href="#"
+                        <a href="https://play.google.com/store/apps/details?id=ph.getmeds.app" target="_blank"
                             class="bg-[#242424] hover:bg-black text-white rounded-lg px-3 lg:px-4 py-2.5 flex items-center space-x-2.5 transition border border-gray-700 shadow-sm group w-max">
                             <i
                                 class="fa-brands fa-google-play text-[18px] lg:text-[20px] text-[#fbbc04] group-hover:-translate-y-0.5 transition-transform duration-300"></i>
@@ -821,7 +828,7 @@
                             </div>
                         </a>
                         <!-- AppGallery -->
-                        <a href="#"
+                        <a href="https://appgallery.huawei.com/#/app/C104289989" target="_blank"
                             class="bg-[#242424] hover:bg-black text-white rounded-lg px-3 lg:px-4 py-2.5 flex items-center space-x-2.5 transition border border-gray-700 shadow-sm group w-max mt-1 sm:mt-0">
                             <div
                                 class="bg-red-600 rounded flex justify-center items-center h-[20px] w-[20px] lg:h-[22px] lg:w-[22px] group-hover:-translate-y-0.5 transition-transform duration-300">
@@ -1156,6 +1163,45 @@
                     mainImg.style.opacity = 1;
                     mainImg.style.transform = 'scale(1) translateY(0)';
                 }, 300);
+            };
+
+            window.addToCartDeal = function() {
+                const deal = window.deals[window.currentDeal];
+                const cart = JSON.parse(localStorage.getItem('getmeds_cart') || '[]');
+                
+                const existingIndex = cart.findIndex(item => item.name === deal.title);
+                if (existingIndex > -1) {
+                    cart[existingIndex].qty += 1;
+                } else {
+                    cart.push({
+                        name: deal.title,
+                        price: parseFloat(deal.price.replace('₱', '').replace(',', '')),
+                        qty: 1,
+                        img: deal.image,
+                        vol: deal.details[0]
+                    });
+                }
+                
+                localStorage.setItem('getmeds_cart', JSON.stringify(cart));
+                
+                // Visual feedback
+                const btn = document.getElementById('add-to-cart-deal');
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = '<i class="fa-solid fa-check mr-1 text-green-400"></i> <span class="text-green-400">Added!</span>';
+                btn.classList.add('border-green-500/50');
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.classList.remove('border-green-500/50');
+                }, 2000);
+
+                // Update nav badge if it exists
+                const badge = document.getElementById('cart-badge-nav');
+                if (badge) {
+                    const count = cart.reduce((acc, item) => acc + item.qty, 0);
+                    badge.innerText = count;
+                    badge.style.display = 'flex';
+                }
             };
         });
     </script>
