@@ -726,23 +726,40 @@
                         { name: "Iodine (as Iohexol)", category: "Radiologic imaging enhancement", price: 3200.00 }
                     ];
 
-                    function renderProducts(category = 'All') {
-                        const grid = document.getElementById('product-grid');
-                        grid.innerHTML = '';
-                        
-                        const filtered = oncologyProducts.filter(p => 
-                            category === 'All' || 
-                            p.category === category || 
+                    // --- Pagination State ---
+                    const ITEMS_PER_PAGE = 12;
+                    let currentPage = 1;
+                    let currentCategory = 'All';
+                    let currentFiltered = [];
+
+                    function getFiltered(category) {
+                        return oncologyProducts.filter(p =>
+                            category === 'All' ||
+                            p.category === category ||
                             ((category === 'Oncology' || category === 'Oncology / Hematology') && p.category !== 'All')
                         );
-                        
-                        document.querySelector('h2.text-xl.font-bold').innerHTML = `${category} <span class="text-gray-400 font-normal text-sm ml-2">(${filtered.length} Items)</span>`;
+                    }
 
-                        filtered.forEach(p => {
+                    function renderProducts(category = 'All', page = 1) {
+                        currentCategory = category;
+                        currentPage = page;
+                        currentFiltered = getFiltered(category);
+
+                        const grid = document.getElementById('product-grid');
+                        grid.innerHTML = '';
+
+                        const totalPages = Math.ceil(currentFiltered.length / ITEMS_PER_PAGE);
+                        const start = (page - 1) * ITEMS_PER_PAGE;
+                        const paginated = currentFiltered.slice(start, start + ITEMS_PER_PAGE);
+
+                        document.querySelector('h2.text-xl.font-bold').innerHTML =
+                            `${category} <span class="text-gray-400 font-normal text-sm ml-2">(${currentFiltered.length} Items)</span>`;
+
+                        paginated.forEach(p => {
                             const card = document.createElement('div');
                             card.className = "bg-white border border-gray-100 rounded-[24px] p-5 hover:shadow-2xl transition duration-300 relative group flex flex-col hover:-translate-y-1 animate-in fade-in zoom-in duration-300 w-full overflow-hidden";
-                            
-                            const imageContent = p.img 
+
+                            const imageContent = p.img
                                 ? `<img src="${p.img}" alt="${p.name}" class="w-full h-full object-contain mix-blend-multiply transition-transform group-hover:scale-105">`
                                 : `<div class="w-full h-full flex flex-col items-center justify-center bg-gray-50/50 text-blue-100 group-hover:text-primary transition-colors">
                                      <i class="fa-solid fa-pills text-5xl mb-2 opacity-30"></i>
@@ -778,6 +795,75 @@
                             `;
                             grid.appendChild(card);
                         });
+
+                        renderPagination(totalPages, page);
+                    }
+
+                    function renderPagination(totalPages, activePage) {
+                        const container = document.getElementById('pagination-container');
+                        if (!container) return;
+                        container.innerHTML = '';
+
+                        if (totalPages <= 1) return;
+
+                        const btnBase = 'w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition cursor-pointer select-none';
+                        const btnInactive = `${btnBase} border border-gray-200 text-gray-600 hover:border-primary hover:text-primary`;
+                        const btnActive = `${btnBase} bg-primary text-white shadow-md`;
+                        const btnArrow = `${btnBase} border border-gray-200 text-gray-400 hover:border-primary hover:text-primary`;
+                        const btnDisabled = `${btnBase} border border-gray-100 text-gray-300 cursor-not-allowed`;
+
+                        // Prev button
+                        const prev = document.createElement('button');
+                        prev.className = activePage === 1 ? btnDisabled : btnArrow;
+                        prev.innerHTML = '<i class="fa-solid fa-chevron-left text-xs"></i>';
+                        if (activePage > 1) prev.onclick = () => { renderProducts(currentCategory, activePage - 1); scrollToGrid(); };
+                        container.appendChild(prev);
+
+                        // Page number buttons with smart ellipsis
+                        const pages = getPageRange(activePage, totalPages);
+                        pages.forEach(p => {
+                            if (p === '...') {
+                                const dots = document.createElement('span');
+                                dots.className = 'text-gray-400 px-1 flex items-center';
+                                dots.textContent = '...';
+                                container.appendChild(dots);
+                            } else {
+                                const btn = document.createElement('button');
+                                btn.className = p === activePage ? btnActive : btnInactive;
+                                btn.textContent = p;
+                                btn.onclick = () => { renderProducts(currentCategory, p); scrollToGrid(); };
+                                container.appendChild(btn);
+                            }
+                        });
+
+                        // Next button
+                        const next = document.createElement('button');
+                        next.className = activePage === totalPages ? btnDisabled : btnArrow;
+                        next.innerHTML = '<i class="fa-solid fa-chevron-right text-xs"></i>';
+                        if (activePage < totalPages) next.onclick = () => { renderProducts(currentCategory, activePage + 1); scrollToGrid(); };
+                        container.appendChild(next);
+                    }
+
+                    function getPageRange(current, total) {
+                        if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+                        const pages = [];
+                        if (current <= 4) {
+                            for (let i = 1; i <= 5; i++) pages.push(i);
+                            pages.push('...'); pages.push(total);
+                        } else if (current >= total - 3) {
+                            pages.push(1); pages.push('...');
+                            for (let i = total - 4; i <= total; i++) pages.push(i);
+                        } else {
+                            pages.push(1); pages.push('...');
+                            pages.push(current - 1); pages.push(current); pages.push(current + 1);
+                            pages.push('...'); pages.push(total);
+                        }
+                        return pages;
+                    }
+
+                    function scrollToGrid() {
+                        const grid = document.getElementById('product-grid');
+                        if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
 
                     // Handle Sidebar clicks
@@ -787,8 +873,8 @@
                             link.addEventListener('click', (e) => {
                                 e.preventDefault();
                                 const category = link.innerText.trim();
-                                renderProducts(category);
-                                
+                                renderProducts(category, 1);
+
                                 // Update active state for sub-menu links
                                 document.querySelectorAll('.sub-menu a').forEach(l => l.classList.remove('active-sub'));
                                 link.classList.add('active-sub');
@@ -804,35 +890,18 @@
                         document.querySelectorAll('.category-item').forEach(btn => {
                             btn.addEventListener('click', () => {
                                 const text = btn.innerText.trim();
-                                if (text === 'All Products') renderProducts('All');
-                                if (text === 'Oncology') renderProducts('Oncology');
-                                if (text.includes('Oncology / Hematology')) renderProducts('Oncology / Hematology');
+                                if (text === 'All Products') renderProducts('All', 1);
+                                if (text === 'Oncology') renderProducts('Oncology', 1);
+                                if (text.includes('Oncology / Hematology')) renderProducts('Oncology / Hematology', 1);
                             });
                         });
 
-                        renderProducts('All');
+                        renderProducts('All', 1);
                     });
                 </script>
 
                 <!-- Pagination -->
-                <div class="mt-16 flex justify-center items-center gap-2">
-                    <button
-                        class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition">
-                        <i class="fa-solid fa-chevron-left text-xs"></i>
-                    </button>
-                    <button class="w-10 h-10 rounded-full bg-primary text-white font-bold text-sm">1</button>
-                    <button
-                        class="w-10 h-10 rounded-full border border-gray-200 text-gray-600 font-bold text-sm hover:border-primary hover:text-primary transition">2</button>
-                    <button
-                        class="w-10 h-10 rounded-full border border-gray-200 text-gray-600 font-bold text-sm hover:border-primary hover:text-primary transition">3</button>
-                    <span class="text-gray-400 px-2">...</span>
-                    <button
-                        class="w-10 h-10 rounded-full border border-gray-200 text-gray-600 font-bold text-sm hover:border-primary hover:text-primary transition">12</button>
-                    <button
-                        class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:border-primary hover:text-primary transition">
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
-                    </button>
-                </div>
+                <div id="pagination-container" class="mt-16 flex justify-center items-center gap-2"></div>
             </div>
         </div>
     </section>
