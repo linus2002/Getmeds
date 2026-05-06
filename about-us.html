@@ -76,6 +76,113 @@
             background-position: right center;
             box-shadow: 0 8px 24px rgba(29, 159, 218, .4);
         }
+
+        /* Executive Team New Design */
+        .team-card {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-ribbon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70px;
+            height: 90%;
+            background: linear-gradient(180deg, #61A644, #1D9FDA);
+            border-radius: 1.5rem 0 1.5rem 0;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.95;
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        .team-img-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 1.5rem;
+        }
+
+        .team-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 20px 20px 20px;
+            z-index: 10;
+            pointer-events: none;
+            background: linear-gradient(to top, rgba(29, 159, 218, 0.95) 0%, rgba(97, 166, 68, 0.1) 70%, transparent 100%);
+        }
+
+        .team-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2px;
+            line-height: 1.2;
+        }
+
+        .team-role {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-social {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 20;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.4s ease;
+        }
+
+        .team-card:hover .team-social {
+            opacity: 1;
+            transform: translateX(0);
+        }
     </style>
 </head>
 
@@ -285,45 +392,68 @@
     <section class="pt-0 pb-16 bg-white overflow-hidden">
         <div class="flex flex-col gap-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
             <!-- Mission Card -->
-            <div class="relative bg-white p-8 md:p-12 flex flex-col md:flex-row items-center text-center md:text-left group rounded-[15px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2 overflow-hidden gap-8 md:gap-12">
+            <div
+                class="relative bg-white p-8 md:p-12 flex flex-col md:flex-row items-center text-center md:text-left group rounded-[15px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2 overflow-hidden gap-8 md:gap-12">
                 <!-- Accent Line -->
-                <div class="absolute top-0 left-0 w-full h-2 md:w-2 md:h-full bg-gradient-to-r md:bg-gradient-to-b from-[#61A644] to-[#1D9FDA] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div
+                    class="absolute top-0 left-0 w-full h-2 md:w-2 md:h-full bg-gradient-to-r md:bg-gradient-to-b from-[#61A644] to-[#1D9FDA] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
                 <!-- Watermark -->
-                <i class="fa-solid fa-bullseye absolute -bottom-10 -right-10 text-[10rem] md:text-[14rem] text-gray-50 opacity-40 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700"></i>
-                
+                <i
+                    class="fa-solid fa-bullseye absolute -bottom-10 -right-10 text-[10rem] md:text-[14rem] text-gray-50 opacity-40 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700"></i>
+
                 <!-- Icon Container -->
-                <div class="flex-shrink-0 relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-white to-gray-50 flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.05)] border border-white transform group-hover:scale-110 transition-transform duration-500 z-10">
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#61A644] to-[#1D9FDA] blur-[15px] opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-500"></div>
+                <div
+                    class="flex-shrink-0 relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-white to-gray-50 flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.05)] border border-white transform group-hover:scale-110 transition-transform duration-500 z-10">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-[#61A644] to-[#1D9FDA] blur-[15px] opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-500">
+                    </div>
                     <i class="fa-solid fa-bullseye text-gradient text-4xl md:text-6xl relative z-10"></i>
                 </div>
-                
+
                 <div class="relative z-10">
                     <span class="text-primary font-bold text-xs uppercase tracking-widest mb-1 block">Our Drive</span>
-                    <h3 class="text-2xl md:text-3xl font-extrabold uppercase tracking-widest mb-3 bg-gradient-to-r from-[#61A644] to-[#1D9FDA] bg-clip-text text-transparent inline-block">Mission</h3>
+                    <h3
+                        class="text-2xl md:text-3xl font-extrabold uppercase tracking-widest mb-3 bg-gradient-to-r from-[#61A644] to-[#1D9FDA] bg-clip-text text-transparent inline-block">
+                        Mission</h3>
                     <p class="text-gray-500 text-[15px] md:text-base leading-relaxed font-medium">
-                        Our mission is to transform the landscape of oncological, hematological, critical care, rare medicine and healthcare e-commerce through relentless innovation, compassionate service, and international collaboration.
+                        Our mission is to transform the landscape of oncological, hematological, critical care, rare
+                        medicine and healthcare e-commerce through relentless innovation, compassionate service, and
+                        international collaboration.
                     </p>
                 </div>
             </div>
 
             <!-- Vision Card -->
-            <div class="relative bg-white p-8 md:p-12 flex flex-col md:flex-row items-center text-center md:text-left group rounded-[15px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2 overflow-hidden gap-8 md:gap-12">
+            <div
+                class="relative bg-white p-8 md:p-12 flex flex-col md:flex-row items-center text-center md:text-left group rounded-[15px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 hover:shadow-[0_20px_50px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2 overflow-hidden gap-8 md:gap-12">
                 <!-- Accent Line -->
-                <div class="absolute top-0 left-0 w-full h-2 md:w-2 md:h-full bg-gradient-to-r md:bg-gradient-to-b from-[#61A644] to-[#1D9FDA] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div
+                    class="absolute top-0 left-0 w-full h-2 md:w-2 md:h-full bg-gradient-to-r md:bg-gradient-to-b from-[#61A644] to-[#1D9FDA] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
                 <!-- Watermark -->
-                <i class="fa-solid fa-eye absolute -bottom-10 -right-10 text-[10rem] md:text-[14rem] text-gray-50 opacity-40 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700"></i>
-                
+                <i
+                    class="fa-solid fa-eye absolute -bottom-10 -right-10 text-[10rem] md:text-[14rem] text-gray-50 opacity-40 group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700"></i>
+
                 <!-- Icon Container -->
-                <div class="flex-shrink-0 relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-white to-gray-50 flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.05)] border border-white transform group-hover:scale-110 transition-transform duration-500 z-10">
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#61A644] to-[#1D9FDA] blur-[15px] opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-500"></div>
+                <div
+                    class="flex-shrink-0 relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-white to-gray-50 flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.05)] border border-white transform group-hover:scale-110 transition-transform duration-500 z-10">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-[#61A644] to-[#1D9FDA] blur-[15px] opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-500">
+                    </div>
                     <i class="fa-solid fa-eye text-gradient text-4xl md:text-6xl relative z-10"></i>
                 </div>
-                
+
                 <div class="relative z-10">
                     <span class="text-primary font-bold text-xs uppercase tracking-widest mb-1 block">Our Goal</span>
-                    <h3 class="text-2xl md:text-3xl font-extrabold uppercase tracking-widest mb-3 bg-gradient-to-r from-[#61A644] to-[#1D9FDA] bg-clip-text text-transparent inline-block">Vision</h3>
+                    <h3
+                        class="text-2xl md:text-3xl font-extrabold uppercase tracking-widest mb-3 bg-gradient-to-r from-[#61A644] to-[#1D9FDA] bg-clip-text text-transparent inline-block">
+                        Vision</h3>
                     <p class="text-gray-500 text-[15px] md:text-base leading-relaxed font-medium">
-                        To be the global beacon of hope and innovation, tirelessly dedicated to improving the lives of humankind. We envision a world where every patient has access from the first line treatments to the most advanced medicines, where borders do not limit healthcare, and where our unwavering commitment shines through every corner of the globe.
+                        To be the global beacon of hope and innovation, tirelessly dedicated to improving the lives of
+                        humankind. We envision a world where every patient has access from the first line treatments to
+                        the most advanced medicines, where borders do not limit healthcare, and where our unwavering
+                        commitment shines through every corner of the globe.
                     </p>
                 </div>
             </div>
@@ -344,95 +474,125 @@
                 <div class="relative z-10 flex items-center justify-center gap-2 md:gap-4 mb-2 px-4">
                     <!-- Col 1 (1 Card) -->
                     <div class="flex flex-col gap-3">
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.2">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.2">
                             <i class="fa-solid fa-heart text-[#EC4899] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Compassion</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Compassion</span>
                         </div>
                     </div>
 
                     <!-- Col 2 (2 Cards) -->
                     <div class="flex flex-col gap-3">
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.5" style="transition-delay: 100ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.5" style="transition-delay: 100ms;">
                             <i class="fa-solid fa-shield-heart text-[#8B5CF6] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Integrity</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Integrity</span>
                         </div>
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.4" style="transition-delay: 200ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.4" style="transition-delay: 200ms;">
                             <i class="fa-solid fa-truck-fast text-[#F59E0B] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Speed</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Speed</span>
                         </div>
                     </div>
 
                     <!-- Col 3 (3 Cards) -->
                     <div class="flex flex-col gap-3">
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.8" style="transition-delay: 300ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.8" style="transition-delay: 300ms;">
                             <i class="fa-solid fa-microscope text-[#1D9FDA] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Precision</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Precision</span>
                         </div>
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.7" style="transition-delay: 400ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.7" style="transition-delay: 400ms;">
                             <i class="fa-solid fa-user-doctor text-[#14B8A6] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Expertise</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Expertise</span>
                         </div>
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.9" style="transition-delay: 500ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.9" style="transition-delay: 500ms;">
                             <i class="fa-solid fa-hand-holding-medical text-[#F43F5E] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Care</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Care</span>
                         </div>
                     </div>
 
                     <!-- Col 4 (3 Cards - CENTER) -->
                     <div class="flex flex-col gap-3">
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="2.2" style="transition-delay: 600ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="2.2" style="transition-delay: 600ms;">
                             <i class="fa-solid fa-lightbulb text-[#EAB308] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Innovation</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Innovation</span>
                         </div>
-                        <div class="value-card bg-white p-3 rounded-full shadow-xl border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal z-30 bg-gradient-to-br from-white to-gray-50" data-speed="2.5" style="transition-delay: 700ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-xl border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal z-30 bg-gradient-to-br from-white to-gray-50"
+                            data-speed="2.5" style="transition-delay: 700ms;">
                             <img src="assets/logo.png" class="h-6 md:h-8">
                         </div>
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="2.1" style="transition-delay: 800ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="2.1" style="transition-delay: 800ms;">
                             <i class="fa-solid fa-earth-asia text-[#06B6D4] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Global</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Global</span>
                         </div>
                     </div>
 
                     <!-- Col 5 (3 Cards) -->
                     <div class="flex flex-col gap-3">
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.8" style="transition-delay: 900ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.8" style="transition-delay: 900ms;">
                             <i class="fa-solid fa-lock text-[#6366F1] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Security</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Security</span>
                         </div>
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.7" style="transition-delay: 1000ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.7" style="transition-delay: 1000ms;">
                             <i class="fa-solid fa-vial-circle-check text-[#10B981] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Safety</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Safety</span>
                         </div>
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.9" style="transition-delay: 1100ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.9" style="transition-delay: 1100ms;">
                             <i class="fa-solid fa-people-group text-[#F97316] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Community</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Community</span>
                         </div>
                     </div>
 
                     <!-- Col 6 (2 Cards) -->
                     <div class="flex flex-col gap-3">
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.5" style="transition-delay: 1200ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.5" style="transition-delay: 1200ms;">
                             <i class="fa-solid fa-tags text-[#8B5CF6] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Affordable</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Affordable</span>
                         </div>
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.4" style="transition-delay: 1300ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.4" style="transition-delay: 1300ms;">
                             <i class="fa-solid fa-clipboard-check text-[#3B82F6] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Reliable</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Reliable</span>
                         </div>
                     </div>
 
                     <!-- Col 7 (1 Card) -->
                     <div class="flex flex-col gap-3">
-                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal" data-speed="1.2" style="transition-delay: 1400ms;">
+                        <div class="value-card bg-white p-3 rounded-full shadow-md border border-gray-100 w-16 h-16 md:w-24 md:h-24 flex flex-col items-center justify-center text-center reveal"
+                            data-speed="1.2" style="transition-delay: 1400ms;">
                             <i class="fa-solid fa-award text-[#EAB308] text-lg md:text-xl mb-1"></i>
-                            <span class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Excellence</span>
+                            <span
+                                class="text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-[#2A2A2A]">Excellence</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Supportive Hand Image (Optimized Size) -->
                 <div class="relative z-0 w-full max-w-[280px] md:max-w-xs reveal mt-0">
-                    <img src="assets/hand.png" alt="Supportive Hand" class="w-full h-auto object-cover transform -rotate-1 rounded-[1.5rem]">
+                    <img src="assets/hand.png" alt="Supportive Hand"
+                        class="w-full h-auto object-cover transform -rotate-1 rounded-[1.5rem]">
                     <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
                 </div>
             </div>
@@ -501,7 +661,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-16 reveal">
                 <span class="text-primary font-bold text-sm uppercase tracking-wider mb-2 block">Our Advantages</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Why Choose <span class="bg-gradient-to-r from-[#61A644] to-[#1D9FDA] bg-clip-text text-transparent inline-block">GetMEDS</span>?</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Why Choose <span
+                        class="bg-gradient-to-r from-[#61A644] to-[#1D9FDA] bg-clip-text text-transparent inline-block">GetMEDS</span>?
+                </h2>
                 <p class="text-gray-500 text-[15px]">We go above and beyond to ensure our services exceed your
                     expectations when it comes to your health and convenience.</p>
             </div>
@@ -539,78 +701,199 @@
     </section>
 
     <!-- Our Leaders -->
-    <section class="py-24 bg-gray-50 relative overflow-hidden">
+    <section class="py-24 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-20 reveal">
                 <span class="text-primary font-bold text-sm uppercase tracking-[0.2em] mb-4 block">Executive Team</span>
-                <h2 class="text-3xl md:text-5xl font-extrabold text-dark mb-6 tracking-tight">The Minds Behind <span
-                        class="text-primary">GetMEDS</span></h2>
-                <p class="text-gray-500 text-lg">Our leadership team brings decades of experience in healthcare,
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">The Minds Behind <span
+                        class="bg-gradient-to-r from-[#61A644] to-[#1D9FDA] bg-clip-text text-transparent inline-block">GetMEDS</span>
+                </h2>
+                <p class="text-gray-500 text-[15px]">Our leadership team brings decades of experience in healthcare,
                     technology, and logistics to revolutionize patient care.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <!-- Leader 1 -->
-                <div class="group reveal">
-                    <div class="relative mb-6 overflow-hidden rounded-[2rem] shadow-xl aspect-[4/5]">
-                        <img src="assets/CEO.jpg" alt="CEO"
-                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                            <div class="flex gap-4">
+            <div class="max-w-5xl mx-auto">
+                <!-- CEO Row -->
+                <div class="flex justify-center mb-8">
+                    <div class="reveal w-full max-w-[280px]">
+                        <div class="team-card bg-gray-100 group">
+                            <div class="team-ribbon">
+                                <span class="vertical-text mb-16">GETMEDS</span>
+                            </div>
+                            <div class="team-img-wrapper">
+                                <img src="assets/CEO.png" alt="Mr. Naresh Bishnoi"
+                                    class="team-img transition-all duration-700">
+                            </div>
+                            <div class="team-social">
                                 <a href="#"
-                                    class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
                                         class="fa-brands fa-linkedin-in"></i></a>
                                 <a href="#"
-                                    class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
                                         class="fa-brands fa-twitter"></i></a>
+                            </div>
+                            <div class="team-content">
+                                <h4 class="team-name">Mr. Naresh Bishnoi</h4>
+                                <p class="team-role">Founder & CEO</p>
                             </div>
                         </div>
                     </div>
-                    <h4 class="text-2xl font-bold text-dark mb-1">Engr. Caron G. Melendrez</h4>
-                    <p class="text-primary font-bold text-sm uppercase tracking-widest">Chief Executive Officer</p>
                 </div>
 
-                <!-- Leader 2 -->
-                <div class="group reveal" style="transition-delay: 150ms;">
-                    <div class="relative mb-6 overflow-hidden rounded-[2rem] shadow-xl aspect-[4/5]">
-                        <img src="leadership_coo_1776316848099.png" alt="COO"
-                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                            <div class="flex gap-4">
+                <!-- Row 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <!-- Leader 2 -->
+                    <div class="reveal" style="transition-delay: 150ms;">
+                        <div class="team-card bg-gray-100 group">
+                            <div class="team-ribbon">
+                                <span class="vertical-text">GetMEDS</span>
+                            </div>
+                            <div class="team-img-wrapper">
+                                <img src="assets/employeeone.png" alt="Dr. Elena Rodriguez"
+                                    class="team-img transition-all duration-700">
+                            </div>
+                            <div class="team-social">
                                 <a href="#"
-                                    class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
                                         class="fa-brands fa-linkedin-in"></i></a>
                                 <a href="#"
-                                    class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
                                         class="fa-brands fa-twitter"></i></a>
+                            </div>
+                            <div class="team-content">
+                                <h4 class="team-name">Dr. Elena Rodriguez</h4>
+                                <p class="team-role">Chief Operations Officer</p>
                             </div>
                         </div>
                     </div>
-                    <h4 class="text-2xl font-bold text-dark mb-1">Dr. Elena Rodriguez</h4>
-                    <p class="text-primary font-bold text-sm uppercase tracking-widest">Chief Operations Officer</p>
+
+                    <!-- Leader 3 -->
+                    <div class="reveal" style="transition-delay: 300ms;">
+                        <div class="team-card bg-gray-100 group">
+                            <div class="team-ribbon">
+                                <span class="vertical-text">GetMEDS</span>
+                            </div>
+                            <div class="team-img-wrapper">
+                                <img src="assets/employeetwo.png" alt="Dr. Michael Chen"
+                                    class="team-img transition-all duration-700">
+                            </div>
+                            <div class="team-social">
+                                <a href="#"
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
+                                        class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#"
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
+                                        class="fa-brands fa-twitter"></i></a>
+                            </div>
+                            <div class="team-content">
+                                <h4 class="team-name">Dr. Michael Chen</h4>
+                                <p class="team-role">Medical Director</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leader 4 (Placeholder) -->
+                    <div class="reveal" style="transition-delay: 450ms;">
+                        <div class="team-card bg-gray-100 group">
+                            <div class="team-ribbon">
+                                <span class="vertical-text">Finance</span>
+                            </div>
+                            <div class="team-img-wrapper">
+                                <img src="assets/employeethree.png" alt="Dr. Sarah Jenkins"
+                                    class="team-img transition-all duration-700">
+                            </div>
+                            <div class="team-social">
+                                <a href="#"
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
+                                        class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#"
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
+                                        class="fa-brands fa-twitter"></i></a>
+                            </div>
+                            <div class="team-content">
+                                <h4 class="team-name">Dr. Sarah Jenkins</h4>
+                                <p class="team-role">Chief Financial Officer</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Leader 3 -->
-                <div class="group reveal" style="transition-delay: 300ms;">
-                    <div class="relative mb-6 overflow-hidden rounded-[2rem] shadow-xl aspect-[4/5]">
-                        <img src="leadership_md_1776316868294.png" alt="Medical Director"
-                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-dark/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                            <div class="flex gap-4">
+                <!-- Row 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Leader 5 (Placeholder) -->
+                    <div class="reveal" style="transition-delay: 150ms;">
+                        <div class="team-card bg-gray-100 group">
+                            <div class="team-ribbon">
+                                <span class="vertical-text">Technology</span>
+                            </div>
+                            <div class="team-img-wrapper">
+                                <img src="assets/employeefour.png" alt="Mr. David Torres"
+                                    class="team-img transition-all duration-700">
+                            </div>
+                            <div class="team-social">
                                 <a href="#"
-                                    class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
                                         class="fa-brands fa-linkedin-in"></i></a>
                                 <a href="#"
-                                    class="h-10 w-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition"><i
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
                                         class="fa-brands fa-twitter"></i></a>
+                            </div>
+                            <div class="team-content">
+                                <h4 class="team-name">Mr. David Torres</h4>
+                                <p class="team-role">Chief Technology Officer</p>
                             </div>
                         </div>
                     </div>
-                    <h4 class="text-2xl font-bold text-dark mb-1">Dr. Michael Chen</h4>
-                    <p class="text-primary font-bold text-sm uppercase tracking-widest">Medical Director</p>
+
+                    <!-- Leader 6 (Placeholder) -->
+                    <div class="reveal" style="transition-delay: 300ms;">
+                        <div class="team-card bg-gray-100 group">
+                            <div class="team-ribbon">
+                                <span class="vertical-text">Research</span>
+                            </div>
+                            <div class="team-img-wrapper">
+                                <img src="assets/employeefive.png" alt="Dr. Emily Wong"
+                                    class="team-img transition-all duration-700">
+                            </div>
+                            <div class="team-social">
+                                <a href="#"
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
+                                        class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#"
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
+                                        class="fa-brands fa-twitter"></i></a>
+                            </div>
+                            <div class="team-content">
+                                <h4 class="team-name">Dr. Emily Wong</h4>
+                                <p class="team-role">Head of R&D</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leader 7 (Placeholder) -->
+                    <div class="reveal" style="transition-delay: 450ms;">
+                        <div class="team-card bg-gray-100 group">
+                            <div class="team-ribbon">
+                                <span class="vertical-text">People</span>
+                            </div>
+                            <div class="team-img-wrapper">
+                                <img src="assets/employeesix.png" alt="Ms. Rachel Green"
+                                    class="team-img transition-all duration-700">
+                            </div>
+                            <div class="team-social">
+                                <a href="#"
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
+                                        class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#"
+                                    class="h-9 w-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition shadow-lg"><i
+                                        class="fa-brands fa-twitter"></i></a>
+                            </div>
+                            <div class="team-content">
+                                <h4 class="team-name">Ms. Rachel Green</h4>
+                                <p class="team-role">VP of Human Resources</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -626,48 +909,42 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center reveal">
-                <div
-                    class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div class="flex items-center justify-center p-6 transition-all duration-300 transform hover:scale-110">
                     <div class="flex items-center gap-2 opacity-60">
                         <i class="fa-solid fa-hospital-user text-3xl"></i>
                         <span class="font-bold text-xl tracking-tighter">PHARMA<span
                                 class="text-primary">LINK</span></span>
                     </div>
                 </div>
-                <div
-                    class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div class="flex items-center justify-center p-6 transition-all duration-300 transform hover:scale-110">
                     <div class="flex items-center gap-2 opacity-60">
                         <i class="fa-solid fa-flask-vial text-3xl"></i>
                         <span class="font-bold text-xl tracking-tighter">LAB<span
                                 class="text-accent text-[#61A644]">TECH</span></span>
                     </div>
                 </div>
-                <div
-                    class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div class="flex items-center justify-center p-6 transition-all duration-300 transform hover:scale-110">
                     <div class="flex items-center gap-2 opacity-60">
                         <i class="fa-solid fa-heart-pulse text-3xl"></i>
                         <span class="font-bold text-xl tracking-tighter">VITALI<span
                                 class="text-blue-400">CARE</span></span>
                     </div>
                 </div>
-                <div
-                    class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div class="flex items-center justify-center p-6 transition-all duration-300 transform hover:scale-110">
                     <div class="flex items-center gap-2 opacity-60">
                         <i class="fa-solid fa-lock text-3xl"></i>
                         <span class="font-bold text-xl tracking-tighter">SECURE<span
                                 class="text-gray-400">HEALTH</span></span>
                     </div>
                 </div>
-                <div
-                    class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div class="flex items-center justify-center p-6 transition-all duration-300 transform hover:scale-110">
                     <div class="flex items-center gap-2 opacity-60">
                         <i class="fa-solid fa-truck-ramp-box text-3xl"></i>
                         <span class="font-bold text-xl tracking-tighter">SWIFT<span
                                 class="text-primary">LOG</span></span>
                     </div>
                 </div>
-                <div
-                    class="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110">
+                <div class="flex items-center justify-center p-6 transition-all duration-300 transform hover:scale-110">
                     <div class="flex items-center gap-2 opacity-60">
                         <img src="assets/UNGClogo.png" class="h-10 object-contain">
                     </div>
